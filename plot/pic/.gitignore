@@ -1,0 +1,2 @@
+# ignore all produced pictures
+*.{png,jpg,eps,pgf,pdf}
