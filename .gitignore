@@ -1,0 +1,2 @@
+# ignore latex products
+*.{log,aux,pdf}
