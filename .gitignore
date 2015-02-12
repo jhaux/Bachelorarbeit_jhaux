@@ -7,7 +7,6 @@
 
 # ignore all rendered pictures or plots
 **/pic
-**/pics
 
 # ignore mac stuff
 **/.DS_Store
