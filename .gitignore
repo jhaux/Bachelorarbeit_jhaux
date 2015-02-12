@@ -4,3 +4,10 @@
 # ignore blender products
 *.blend[1-9]
 *BU.blend
+
+# ignore all rendered pictures or plots
+**/pic
+**/pics
+
+# ignore mac stuff
+**/.DS_Store
