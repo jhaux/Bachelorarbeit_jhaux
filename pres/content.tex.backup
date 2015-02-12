@@ -1,15 +1,43 @@
-
+% - Motivation
+%   - ich will Bachelorabreit schreiben
+%   - Ansatz 1: Verständnis von Prozesse
+% - ein bisschen Theorie
+%   - Porosität
+%   - Fingering und Rayleigh-Zahl
+% - was bisher geschah
+%   - Verdunstung
+%   - CO2 ohne Kugeln
+%   - CO2 mit Kugeln
 
 
 %--------------------------------------------------------------------------
 % Titlepage
 %--------------------------------------------------------------------------
 
-\maketitle
-
 %\begin{frame}[plain]
 %	\titlepage
 %\end{frame}
+
+%--------------------------------------------------------------------------
+% Intro
+%--------------------------------------------------------------------------
+\section{Introduction}
+
+\begin{frame}
+	\frametitle{Motivation}
+	\vspace{1cm} % generate some space between title and content
+	\begin{itemize}
+	\pause
+	  \item Update on my work
+	\pause
+	  \item Feedback for me
+	\end{itemize}	
+\end{frame}
+\note[itemize]{
+       \item Ich will Euch auf den neuesten Stand meiner Arbeit bringen
+       \item Dazu erklären, was ich schon gemacht habe $\Rightarrow$ chronologischer Aufbau
+       \item Vorallem will ich feedback: \textbf{Was sind interessante Aspekte, die ich mir noch ansehen kann?}
+}
 
 %--------------------------------------------------------------------------
 % Table of contents
@@ -20,25 +48,203 @@
 	\tableofcontents[hideallsubsections]
 \end{frame}
 
-%--------------------------------------------------------------------------
-% Content
-%--------------------------------------------------------------------------
-\section{Introduction}
 
-\begin{frame}{Was ist Beamer?}
-	Die Beamer Klassen für \LaTeX\ dienen zur Erstellung von Präsentationen, welche mit einem Beamer vorgeführt werden sollen. Das Textsatzsystem erzeugt dazu PDF Dateien, die von einer großen Anzahl an Programmen gezeigt werden können.
+%--------------------------------------------------------------------------
+% First idea
+%--------------------------------------------------------------------------
+\section{Evaporation}
+
+\begin{frame}
+	\frametitle{General idea}
+	\vspace{1cm} % generate some space between title and content
 	
-	Das hier vorgestellte Theme für Beamer macht die Erstellung von Folien entsprechend dem Corporate Design der Hochschule {\Medium RheinMain} (Grundkenntnisse in \LaTeX\ vorausgesetzt) zu einem Kinderspiel.
+	Setup: Wet (saturated) soil with a groundwater reservoir.
+	\begin{columns}[t]
+		\column{3cm}
+		\begin{itemize}
+     
+		\item heterogeneous, porus medium
+     
+    
+		\end{itemize}
+		\column{7cm}
+		\begin{figure}
+		\centering
+		\includegraphicscopyright[width=3cm]{Aufb_Dunst_00}{Graphik selbst erstellt}
+		\caption{Heterogeneous, porous medium}
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Schritt 1: heterogenes poröses Medium. Hier Glaskugeln. Analogie: Erdschicht
+       \item Schritt 2: Füllen mit Wasser. \textbf{Achtung!} Keine Lufteinschlüsse $\Rightarrow$ CO2
+       \item Schritt 3: Warten... Verdunstung dauert.
+}
+
+\begin{frame}
+	\frametitle{General idea}
+	\vspace{1cm} % generate some space between title and content
+	
+	Setup: Wet (saturated) soil with a groundwater reservoir.
+	\begin{columns}[t]
+		\column{3cm}
+		\begin{itemize}
+     
+		\item heterogeneous, porus medium
+		\item saturated with water
+     
+    
+		\end{itemize}
+    
+		\pause
+    
+		\column{7cm}
+		\begin{figure}
+		\centering
+		\includegraphicscopyright[width=3cm]{Aufb_Dunst_01}{Graphik selbst erstellt}
+		\caption{Heterogeneous, porous medium with water}
+		
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Schritt 1: heterogenes poröses Medium. Hier Glaskugeln. Analogie: Erdschicht
+       \item Schritt 2: Füllen mit Wasser. \textbf{Achtung!} Keine Lufteinschlüsse $\Rightarrow$ CO2
+       \item Schritt 3: Warten... Verdunstung dauert.
+}
+
+\begin{frame}
+	\frametitle{General idea}
+	\vspace{1cm} % generate some space between title and content
+	
+	Setup: Wet (saturated) soil with a groundwater reservoir.
+	\begin{columns}[t]
+		\column{3cm}
+		\begin{itemize}
+     
+		\item heterogeneous, porus medium
+		\item saturated with water
+		\item evaporation
+     
+    
+		\end{itemize}
+    
+		\pause
+    
+		\column{7cm}
+		\begin{figure}
+		\centering
+		\includegraphicscopyright[width=3cm]{Aufb_Dunst_02}{Graphik selbst erstellt}
+		\caption{Heterogeneous, porous medium with water and evaporation}
+		
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Schritt 1: heterogenes poröses Medium. Hier Glaskugeln. Analogie: Erdschicht
+       \item Schritt 2: Füllen mit Wasser. \textbf{Achtung!} Keine Lufteinschlüsse $\Rightarrow$ CO2
+       \item Schritt 3: Warten... Verdunstung dauert.
+}
+
+\begin{frame}
+	\frametitle{General idea}
+	\vspace{1cm} % generate some space between title and content
+	
+	Setup: Wet (saturated) soil with a groundwater reservoir.
+	\begin{columns}[t]
+		\column{3cm}
+		\begin{itemize}
+     
+		\item heterogeneous, porus medium
+		\item saturated with water
+		\item evaporation
+		\item water is pumped up
+     
+    
+		\end{itemize}
+    
+		\pause
+    
+		\column{7cm}
+		\begin{figure}
+		\centering
+		\includegraphicscopyright[width=3cm]{Aufb_Dunst_02}{Graphik selbst erstellt}
+		\caption{Heterogeneous, porous medium with water and evaporation}
+		
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Schritt 1: heterogenes poröses Medium. Hier Glaskugeln. Analogie: Erdschicht
+       \item Schritt 2: Füllen mit Wasser. \textbf{Achtung!} Keine Lufteinschlüsse $\Rightarrow$ CO2
+       \item Schritt 3: Warten... Verdunstung dauert.
+       \item Schritt 4: Was wollen wir beobachten: Wasser wird hochgepumpt. Darüber Abschätzung der Zeitskala
+}
+
+\begin{frame}
+	\frametitle{Setup}
+	\vspace{1cm} % generate some space between title and content
+	
+	Hier kommt das blender Bild hin
+	Dünner Schlauch von unten!
+ 
 \end{frame}
 
-\begin{frame}{Systemvoraussetzungen}
-	Um erfolgreich Präsentationen mit diesem Theme erstellen zu können, sind folgende Voraussetzungen vom System zu erfüllen:
-	\begin{itemize}
-		\item Zum Setzen der Folien muss XeTeX verwendet werden.
-		\item Neben einigen Standardpaketen müssen die Pakete \texttt{beamer}, \texttt{pgf} und \texttt{xcolor} installiert sein.
-		\item Die Schriften \quoted{Flama-Light}, \quoted{Flama-Book} und \quoted{Flama-Medium} sollten installiert sein. Alternativ: \quoted{Arial}\\\url{http://www.felicianotypefoundry.com/}
-	\end{itemize}
+
+\begin{frame}
+	\frametitle{Video}
+	\vspace{1cm} % generate some space between title and content
+	
+	Let's have a look.
+ 
 \end{frame}
+\note[itemize]{
+       \item Zelle schon stark in Mittleidenschaft gezogen...
+       \item Es wird ein Puls BB hineingegeben: Wasser - BB - Wasser
+       \item Man kann Pulsieren beobachten: Zufluss leicht verstopft?
+       \item Resultat: Über einen längeren Zeitraum (2 Wochen) kann man Verdunstungsprozesse gut beobachten.
+       \item Aber: Für diese Bachelorarbeit ein sehr langer Prozess.
+}
+
+
+\section{CO$_2$}
+\begin{frame}
+	\frametitle{General idea}
+	\vspace{1cm} % generate some space between title and content
+	
+	Setup: Wet (saturated) soil with a groundwater reservoir.
+	\begin{columns}[t]
+		\column{3cm}
+		\begin{itemize}
+     
+		\item heterogeneous, porus medium
+		\item saturated with water
+		\item CO$_2$ Layer on top
+		\item Fingering
+     
+    
+		\end{itemize}
+    
+		\pause
+    
+		\column{7cm}
+		\begin{figure}
+		\centering
+		\includegraphicscopyright[width=3cm]{Aufb_Dunst_01}{Graphik selbst erstellt}
+		\caption{Heterogeneous, porous medium with water}
+		
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Zelle schon stark in Mittleidenschaft gezogen...
+       \item Es wird ein Puls BB hineingegeben: Wasser - BB - Wasser
+       \item Man kann Pulsieren beobachten: Zufluss leicht verstopft?
+       \item Resultat: Über einen längeren Zeitraum (2 Wochen) kann man Verdunstungsprozesse gut beobachten.
+       \item Aber: Für diese Bachelorarbeit ein sehr langer Prozess.
+}
+
+
 
 \section{Literature}
 \begin{frame}{Literaturverzeichnis}

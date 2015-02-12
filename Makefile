@@ -6,6 +6,7 @@
 
 DOCUNAME = bachelor_thesis
 BEAMERNAME = bachelor_presentation
+BEAMERNAME2 = oberseminary_presentation
 LATEXCC = pdflatex  # used for thesis
 LATEXBB = xelatex   # used for beamer presentation
 PYTHON = python
@@ -27,6 +28,13 @@ pres:
 	$(LATEXBB) ./pres/$(BEAMERNAME).tex
 	$(LATEXBB) ./pres/$(BEAMERNAME).tex
 	$(LATEXBB) ./pres/$(BEAMERNAME).tex
+
+.PHONY: ober
+ober:
+	$(LATEXBB) ./pres/$(BEAMERNAME2).tex
+	$(LATEXBB) ./pres/$(BEAMERNAME2).tex
+	$(LATEXBB) ./pres/$(BEAMERNAME2).tex
+        
 
 .PHONY: plot
 plot:

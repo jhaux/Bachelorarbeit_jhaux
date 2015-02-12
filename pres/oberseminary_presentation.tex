@@ -18,6 +18,7 @@
 \usepackage[german]{babel}
 
 \usepackage{graphicx}
+\graphicspath{ {./pres/pics}{./plot/pic} }
 \usepackage{multicol}
 % Erweiterte Tabellenfunktionen
 \usepackage{tabularx,ragged2e}
@@ -63,18 +64,12 @@ xrightmargin=0.5em
 \institute{Institut für Umweltphysik\\Universtät {\Medium Heidelberg}}
 
 %--------------------------------------------------------------------------
-% path settings
-%--------------------------------------------------------------------------
-
-\graphicspath{ {./pics}{../plot/pic} }
-
-%--------------------------------------------------------------------------
 % Notes settings
 %--------------------------------------------------------------------------
 \setbeameroption{show notes}
 
 \begin{document}
-\input{content.tex}
+\input{./pres/content.tex}
 \end{document}
 
 
