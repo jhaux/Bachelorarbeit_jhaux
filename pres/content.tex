@@ -1,0 +1,84 @@
+% - Motivation
+%   - ich will Bachelorabreit schreiben
+%   - Ansatz 1: Verständnis von Prozesse
+% - ein bisschen Theorie
+%   - Porosität
+%   - Fingering und Rayleigh-Zahl
+% - was bisher geschah
+%   - Verdunstung
+%   - CO2 ohne Kugeln
+%   - CO2 mit Kugeln
+
+
+%--------------------------------------------------------------------------
+% Titlepage
+%--------------------------------------------------------------------------
+
+\maketitle
+
+%\begin{frame}[plain]
+%	\titlepage
+%\end{frame}
+
+%--------------------------------------------------------------------------
+% Table of contents
+%--------------------------------------------------------------------------
+\section*{Contents}
+\begin{frame}{Gliederung}
+	% hideallsubsections ist empfehlenswert für längere Präsentationen
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+%--------------------------------------------------------------------------
+% Content
+%--------------------------------------------------------------------------
+\section{Introduction}
+
+\begin{frame}{Was ist Beamer?}
+	Die Beamer Klassen für \LaTeX\ dienen zur Erstellung von Präsentationen, welche mit einem Beamer vorgeführt werden sollen. Das Textsatzsystem erzeugt dazu PDF Dateien, die von einer großen Anzahl an Programmen gezeigt werden können.
+	
+	Das hier vorgestellte Theme für Beamer macht die Erstellung von Folien entsprechend dem Corporate Design der Hochschule {\Medium RheinMain} (Grundkenntnisse in \LaTeX\ vorausgesetzt) zu einem Kinderspiel.
+\end{frame}
+
+\begin{frame}{Systemvoraussetzungen}
+	Um erfolgreich Präsentationen mit diesem Theme erstellen zu können, sind folgende Voraussetzungen vom System zu erfüllen:
+	\begin{itemize}
+		\item Zum Setzen der Folien muss XeTeX verwendet werden.
+		\item Neben einigen Standardpaketen müssen die Pakete \texttt{beamer}, \texttt{pgf} und \texttt{xcolor} installiert sein.
+		\item Die Schriften \quoted{Flama-Light}, \quoted{Flama-Book} und \quoted{Flama-Medium} sollten installiert sein. Alternativ: \quoted{Arial}\\\url{http://www.felicianotypefoundry.com/}
+	\end{itemize}
+\end{frame}
+
+\section{Literature}
+\begin{frame}{Literaturverzeichnis}
+	\begin{thebibliography}{10}
+    
+	\beamertemplatebookbibitems
+	\bibitem{Oppenheim2009}
+	Alan~V.~Oppenheim
+	\newblock \doublequoted{Discrete-Time Signal Processing}
+	\newblock Prentice Hall Press, 2009
+
+	\beamertemplatearticlebibitems
+	\bibitem{EBU2011}
+	European~Broadcasting~Union
+	\newblock \doublequoted{Specification of the Broadcast Wave Format (BWF)}
+	\newblock 2011
+  \end{thebibliography}
+\end{frame}
+
+\section{Ausblick}
+\begin{frame}{Bekannte Fehler}
+	\begin{itemize}
+		\item Theme ist momentan noch in einer einzelnen sty-Datei. Diese sollte unterteilt werden in einzelne Dateien für Schrift, Farbe usw.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Fragen, Anmerkungen, Kontakt}
+	Das HSRM Theme steht unter der \quoted{GNU Public License}. Es darf also weitergegeben und modifiziert werden, sofern die Lizenzart beibehalten wird.
+	
+	Für Fragen und Anmerkungen stehe ich gerne zur Verfügung.
+	\begin{itemize}
+		\item \url{Benjamin.Weiss@student.hs-rm.de}
+	\end{itemize}
+\end{frame}
