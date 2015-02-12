@@ -1,2 +1,6 @@
 # ignore latex products
 *.{log,aux,pdf}
+
+# ignore blender products
+*.blend[1-9]
+*BU.blend

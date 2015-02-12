@@ -1,0 +1,317 @@
+%!TEX program = xelatex
+
+% Name           : hsrm-beamer-demo.sty
+% Author         : Benjamin Weiss (benjamin.weiss@kreatiefton.de)
+% Version        : 0.4
+% Created on     : 05.05.2013
+% Last Edited on : 24.03.2014
+% Copyright      : Copyright (c) 2013-2014 by Benjamin Weiss. All rights reserved.
+% License        : This file may be distributed and/or modified under the
+%                  GNU Public License.
+% Description    : HSRM beamer theme demonstration. Also includes a short 
+%                  Tutorial regarding the beamer class.
+
+\documentclass[compress]{beamer}
+%--------------------------------------------------------------------------
+% Common packages
+%--------------------------------------------------------------------------
+\usepackage[german]{babel}
+
+\usepackage{graphicx}
+\graphicspath{{./pics}{../plot/pic}}
+\usepackage{multicol}
+% \usepackage[utf8]{inputenc}
+% \usepackage{enumitem} %Anpassbare Enumerates/Itemizes
+% Erweiterte Tabellenfunktionen
+\usepackage{tabularx,ragged2e, amsmath, siunitx}
+\usepackage{booktabs}
+% Listingserweiterung
+\usepackage{listings}
+\lstset{ %
+language=[LaTeX]TeX,
+basicstyle=\normalsize\ttfamily,
+keywordstyle=,
+numbers=left,
+numberstyle=\tiny\ttfamily,
+stepnumber=1,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+breaklines=true,
+frame=tb,
+framerule=0.5pt,
+tabsize=4,
+framexleftmargin=0.5em,
+framexrightmargin=0.5em,
+xleftmargin=0.5em,
+xrightmargin=0.5em
+}
+
+\usepackage{caption}
+% \captionsetup[figure]{slc=off}
+%--------------------------------------------------------------------------
+% Load theme
+%--------------------------------------------------------------------------
+\usetheme{hsrm}
+
+\usepackage{dtklogos} % must be loaded after theme
+\usepackage{tikz}
+\usetikzlibrary{mindmap,backgrounds}
+
+%--------------------------------------------------------------------------
+% General presentation settings
+%--------------------------------------------------------------------------
+\title{Der Zeeman Effekt}
+\subtitle{Ein FP-Versuch}
+\date{27. Januar 2015}
+\author{Johannes Haux}
+\institute{FP Physik\\Universität {\Medium Heidelberg}}
+
+%--------------------------------------------------------------------------
+% Notes settings
+%--------------------------------------------------------------------------
+\setbeameroption{hide notes}
+% \setbeameroption{show only notes}
+
+\begin{document}
+%--------------------------------------------------------------------------
+% Titlepage
+%--------------------------------------------------------------------------
+
+\maketitle
+
+%\begin{frame}[plain]
+%	\titlepage
+%\end{frame}
+
+%--------------------------------------------------------------------------
+% Table of contents
+%--------------------------------------------------------------------------
+
+% - Motivation
+%   - ich will Bachelorabreit schreiben
+%   - Ansatz: Verständnis von Dichteinduzierten Prozessen in Heterogenen Medien
+%   - Beispiel: Verdunstung
+%   - Beispiel: Fingering
+% - ein bisschen Theorie
+%   - Porosität
+%   - Fingering und Rayleigh-Zahl
+% - was bisher geschah
+%   - Verdunstung
+%   - CO2 ohne Kugeln
+%   - CO2 mit Kugeln
+% - Was jetzt?
+%   - Neue Kugeln?
+%   - Komplett neuer Ansatz
+%     - Drop on water -> Wie dringt der Finger ein
+%     - ungesättigte Zone -> wie dringt die Wasserfront in den Boden vor? Findet Austausch mit dem bereits vorhandenen Wasser statt?
+
+
+\section*{Outline}      % * macht die grauen Header Seiten weg
+\begin{frame}{Outline}
+	% hideallsubsections ist empfehlenswert für längere Präsentationen
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+%--------------------------------------------------------------------------
+% Content
+%--------------------------------------------------------------------------
+
+%-------------------------------------------------------------------
+%                          Motivation
+%-------------------------------------------------------------------
+%
+\note[itemize]{\item empty}
+
+\section{Motivation}
+\begin{frame}
+    \frametitle{Motivation}
+
+    \vspace{1cm} % generate some space between title and content
+     
+    \pause
+    
+    \begin{columns}[t]
+    
+    \column{3cm}
+    \begin{itemize}
+     
+     \item experimentelle Bachelorabreit
+     
+    
+    \end{itemize}
+    
+    \pause
+    
+    \column{7cm}
+    \begin{figure}
+     \centering
+     \includegraphicscopyright[width=3cm]{exite}{Graphik entnommen aus dem Internet \cite{INet:exite}}
+     \includegraphicscopyright[width=4cm]{Spektrum2}{Graphik entnommen aus dem Internet \cite{INEt:Spec}}
+     \caption{Spektroskopie}
+     
+    \end{figure}
+    \vspace{1em}
+
+    \end{columns}
+    
+    
+
+ 
+\end{frame}
+\note[itemize]{
+       \item Bachelorabreit mit Experiment: Basteln macht Spaß!
+}
+
+\begin{frame}
+    \frametitle{Motivation}
+
+    \vspace{1cm} % generate some space between title and content
+\end{frame}
+
+
+%-------------------------------------------------------------------
+%                          Section 8
+%-------------------------------------------------------------------
+%
+
+\section*{Literatur}
+% \begin{frame}[allowframebreaks]
+%     \frametitle{Literatur}
+% 
+%     \vspace{1cm} % generate some space between title and content
+%     \bibliographystyle{plain}
+%     \bibliography{Literatur}
+%  
+% \end{frame}
+
+\begin{frame}
+    \frametitle{Literatur}
+
+    \vspace{0.2cm} % generate some space between title and content
+    \begin{thebibliography}{10}
+	
+	\beamertemplatearticlebibitems
+        \bibitem{tungstenNIST}
+        Journal of Research of the National Bureau of Standards. Section A: Physics and Chemistry
+	\newblock \doublequoted{The First Spectrum of Tungsten (W I)}
+	\newblock 1968
+	
+	\beamertemplatearticlebibitems
+        \bibitem{F44Skript}
+        Anleitungen zum Fortgeschrittenenpraktikum der Universt\"at Heidelberg
+	\newblock \doublequoted{Zeeman Effekt}
+	\newblock 2012
+	
+	\beamertemplatearticlebibitems
+        \bibitem{dataNIST}
+        National Institute of Standard and Technology
+	\newblock \doublequoted{NIST Database}
+	\newblock 2014
+	
+	\beamertemplatearticlebibitems
+        \bibitem{valueNIST}
+        National Institute of Standard and Technology
+	\newblock \doublequoted{NIST Reference on Constant, Units and Uncertainty}
+	\newblock 2014
+	
+	
+
+
+    \end{thebibliography}
+
+ 
+\end{frame}
+
+\begin{frame}
+    \frametitle{Literatur}
+
+    \vspace{0.2cm} % generate some space between title and content
+    \begin{thebibliography}{10}
+	
+	\beamertemplateonlinebibitems
+        \bibitem{Wiki:Uhr}
+        Wikipedia
+	\newblock \doublequoted{Atomuhr}
+	\newblock {\small http://de.wikipedia.org/wiki/Atomuhr}
+	
+	\beamertemplateonlinebibitems
+        \bibitem{Apod:ISS}
+        Astronomy Picture of the Day
+	\newblock \doublequoted{Interior View}
+	\newblock {\small http://apod.nasa.gov/apod/ap150123.html}
+	
+	\beamertemplateonlinebibitems
+        \bibitem{INet:Katze}
+        einfachtierisch.de
+	\newblock \doublequoted{So können Sie Ihre Katze erziehen}
+	\newblock {\small http://www.einfachtierisch.de/katzen/katzenerziehung/so-koennen-sie-ihre-katze-erziehen-id33485/}
+	
+	\beamertemplateonlinebibitems
+        \bibitem{INet:exite}
+        Mortimer Abramowitz, Matthew J. Parry-Hill, Robert T. Sutter, and Michael W. Davidson
+	\newblock \doublequoted{Electron Excitation and Emission}
+	\newblock {\small http://www.olympusmicro.com/primer/java/fluorescence/exciteemit/}
+	
+	
+
+
+    \end{thebibliography}
+
+ 
+\end{frame}
+
+\begin{frame}
+    \frametitle{Literatur}
+
+    \vspace{0.2cm} % generate some space between title and content
+    \begin{thebibliography}{10}
+	
+	\beamertemplateonlinebibitems
+        \bibitem{INet:Spec}
+        lehrer-online
+	\newblock \doublequoted{Spektrum einer Energiesparlampe}
+	\newblock {\small http://www.lehrer-online.de/834196.php}
+
+	
+	
+
+
+    \end{thebibliography}
+
+ 
+\end{frame}
+
+%-------------------------------------------------------------------
+%                          Section 9
+%-------------------------------------------------------------------
+%
+
+\section{Anhang}
+\begin{frame}
+    \frametitle{Lorentzfit vs Gaussfit}
+
+    \vspace{1cm} % generate some space between title and content
+    Lorentzprofil:
+    \begin{itemize}
+     \item Entspricht der natürlichen Linienbreite, verursacht durch die Lebensdauer des angeregten Zustandes: $\Delta E \Delta t \gtrapprox \frac{\hbar}{2}$
+    \end{itemize}
+    Gaussprofil:
+    \begin{itemize}
+     \item Durch thermische Bewegung wird die Linie aufgeweitet, da ein Dopplereffekt entsteht. Hängt von der Temperatur ab.
+    \end{itemize}
+ 
+ 
+\end{frame}
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
