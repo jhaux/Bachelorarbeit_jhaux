@@ -1,0 +1,474 @@
+% - Motivation
+%   - ich will Bachelorabreit schreiben
+%   - Ansatz 1: Verständnis von Prozesse
+% - ein bisschen Theorie
+%   - Porosität
+%   - Fingering und Rayleigh-Zahl
+% - was bisher geschah
+%   - Verdunstung
+%   - CO2 ohne Kugeln
+%   - CO2 mit Kugeln
+
+
+%--------------------------------------------------------------------------
+% Titlepage
+%--------------------------------------------------------------------------
+\maketitle
+%\begin{frame}[plain]
+%	\titlepage
+%\end{frame}
+
+%--------------------------------------------------------------------------
+% Intro
+%--------------------------------------------------------------------------
+\section*{Introduction}
+
+\begin{frame}
+	\frametitle{Motivation}
+	\vspace{1cm} % generate some space between title and content
+	\begin{itemize}
+	\pause
+	  \item Update on my work
+	\pause
+	  \item Feedback for me
+	\end{itemize}	
+\end{frame}
+\note[itemize]{
+       \item Ich will Euch auf den neuesten Stand meiner Arbeit bringen
+       \item Dazu erklären, was ich schon gemacht habe $\Rightarrow$ chronologischer Aufbau
+       \item Vorallem will ich feedback: \textbf{Was sind interessante Aspekte, die ich mir noch ansehen kann?}
+}
+
+%--------------------------------------------------------------------------
+% Table of contents
+%--------------------------------------------------------------------------
+\section*{Outline}
+\begin{frame}{Outline}
+	% hideallsubsections ist empfehlenswert für längere Präsentationen
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+%--------------------------------------------------------------------------
+% Evaporation
+%--------------------------------------------------------------------------
+\section{Evaporation}
+
+\subsection{General Idea}
+\begin{frame}
+	\frametitle{General idea}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{columns}[t]
+		\column{5cm}
+		\vspace{1cm}
+		\begin{itemize}
+		  \item heterogeneous, porus medium
+		\end{itemize}
+		
+		\column{5cm}
+		\begin{figure}
+		  \centering
+		  \includegraphicscopyright[width=2.5cm]{Aufb_Dunst_00}{Selfmade graphic}
+		  \caption{Heterogeneous, porous medium}
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Schritt 1: heterogenes poröses Medium. Hier Glaskugeln. Analogie: Erdschicht
+       \item Schritt 2: Füllen mit Wasser. \textbf{Achtung!} Keine Lufteinschlüsse $\Rightarrow$ CO2
+       \item Schritt 3: Warten... Verdunstung dauert.
+}
+
+\begin{frame}
+	\frametitle{General idea}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{columns}[t]
+		\column{5cm}
+		\vspace{1cm}
+		\begin{itemize}
+		  \item heterogeneous, porus medium
+		  \item saturated with water
+		\end{itemize}
+    
+		\column{5cm}
+		\begin{figure}
+		  \centering
+		  \includegraphicscopyright[width=2.5cm]{Aufb_Dunst_01}{Selfmade graphic}
+		  \caption{Heterogeneous, porous medium with water}
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Schritt 1: heterogenes poröses Medium. Hier Glaskugeln. Analogie: Erdschicht
+       \item Schritt 2: Füllen mit Wasser. \textbf{Achtung!} Keine Lufteinschlüsse $\Rightarrow$ CO2
+       \item Schritt 3: Warten... Verdunstung dauert.
+}
+
+\begin{frame}
+	\frametitle{General idea}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{columns}[t]
+		\column{5cm}
+		\vspace{1cm}
+		\begin{itemize}
+		  \item heterogeneous, porus medium
+		  \item saturated with water
+		  \item evaporation
+		\end{itemize}
+		
+		\column{5cm}
+		\begin{figure}
+		  \centering
+		  \includegraphicscopyright[width=2.5cm]{Aufb_Dunst_02}{Selfmade graphic}
+		  \caption{Porous medium with water and evaporation}
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Schritt 1: heterogenes poröses Medium. Hier Glaskugeln. Analogie: Erdschicht
+       \item Schritt 2: Füllen mit Wasser. \textbf{Achtung!} Keine Lufteinschlüsse $\Rightarrow$ CO2
+       \item Schritt 3: Warten... Verdunstung dauert.
+}
+
+\begin{frame}
+	\frametitle{General idea}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{columns}[t]
+		\column{5cm}
+		\vspace{1cm}
+		\begin{itemize}
+		  \item heterogeneous, porus medium
+		  \item saturated with water
+		  \item evaporation
+		  \item water is pumped up
+		  \end{itemize}
+		
+		\column{5cm}
+		\begin{figure}
+		  \centering
+		  \includegraphicscopyright[width=2.5cm]{Aufb_Dunst_03}{Selfmade graphic}
+		  \caption{Porous medium with water and evaporation}
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Schritt 1: heterogenes poröses Medium. Hier Glaskugeln. Analogie: Erdschicht
+       \item Schritt 2: Füllen mit Wasser. \textbf{Achtung!} Keine Lufteinschlüsse $\Rightarrow$ CO2
+       \item Schritt 3: Warten... Verdunstung dauert.
+       \item Schritt 4: Was wollen wir beobachten: Wasser wird hochgepumpt. Darüber Abschätzung der Zeitskala
+}
+
+\subsection{Setup}
+\begin{frame}
+	\frametitle{Setup}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{figure}
+	  \centering
+	  \includegraphicscopyright[width=\textwidth]{Aufb_Dunst}{Selfmade graphic}
+	  \vspace{-0.75cm}
+	  \caption{Experimental setup}
+	\end{figure}
+ 
+\end{frame}
+
+\subsection{Image Analysis}
+\begin{frame}
+	\frametitle{Image Analysis}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{figure}
+	  \centering
+	  \includegraphicscopyright[width=\textwidth]{image_analysis}{Selfmade graphic}
+	  \vspace{-0.75cm}
+	  \caption{Image analysis}
+	\end{figure}
+ 
+\end{frame}
+\note[itemize]{
+       \item erklären was man sieht
+       \item warum refine? BSP: kameraintensität schwankt -> Sensor warm?
+       \item Man kann Pulsieren beobachten: Zufluss leicht verstopft?
+       \item Resultat: Über einen längeren Zeitraum (2 Wochen) kann man Verdunstungsprozesse gut beobachten.
+       \item Aber: Für diese Bachelorarbeit ein sehr langer Prozess.
+}
+
+
+\subsection{Video}
+\begin{frame}
+	\frametitle{Video}
+	\vspace{1cm} % generate some space between title and content
+	
+	\centering
+	Let's have a look.
+ 
+\end{frame}
+\note[itemize]{
+       \item Zelle schon stark in Mittleidenschaft gezogen...
+       \item Es wird ein Puls BB hineingegeben: Wasser - BB - Wasser
+       \item Man kann Pulsieren beobachten: Zufluss leicht verstopft?
+       \item Resultat: Über einen längeren Zeitraum (2 Wochen) kann man Verdunstungsprozesse gut beobachten.
+       \item Aber: Für diese Bachelorarbeit ein sehr langer Prozess.
+}
+
+
+
+
+%--------------------------------------------------------------------------
+% CO2
+%--------------------------------------------------------------------------
+
+\section{\COT}
+\subsection{General Idea}
+
+\begin{frame}
+	\frametitle{General idea}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{columns}[t]
+		\column{5cm}
+		\vspace{1cm}
+		\begin{itemize}
+		  \item heterogeneous, porus medium
+		\end{itemize}
+		
+		\column{5cm}
+		\begin{figure}
+		  \centering
+		  \includegraphicscopyright[width=2.5cm]{Aufb_CO2_00}{Selfmade graphic}
+		  \caption{Heterogeneous, porous medium}
+		\end{figure}
+      \end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{General idea}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{columns}[t]
+		\column{5cm}
+		\vspace{1cm}
+		\begin{itemize}
+		  \item heterogeneous, porus medium
+		  \item saturated with water
+		\end{itemize}
+    
+		\column{5cm}
+		\begin{figure}
+		  \centering
+		  \includegraphicscopyright[width=2.5cm]{Aufb_CO2_01}{Selfmade graphic}
+		  \caption{Heterogeneous, porous medium with water}
+		\end{figure}
+      \end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{General idea}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{columns}[t]
+		\column{5cm}
+		\vspace{1cm}
+		\begin{itemize}
+		  \item heterogeneous, porus medium
+		  \item saturated with water
+		  \item \COT on top
+		\end{itemize}
+		
+		\column{5cm}
+		\begin{figure}
+		  \centering
+		  \includegraphicscopyright[width=2.5cm]{Aufb_CO2_02}{Selfmade graphic}
+		  \caption{Porous medium with water and CO2}
+		\end{figure}
+      \end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{General idea}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{columns}[t]
+		\column{5cm}
+		\vspace{1cm}
+		\begin{itemize}
+		  \item heterogeneous, porus medium
+		  \item saturated with water
+		  \item \COT on top
+		  \item Fingering
+		  \end{itemize}
+		
+		\column{5cm}
+		\begin{figure}
+		  \centering
+		  \includegraphicscopyright[width=2.5cm]{Aufb_CO2_03}{Selfmade graphic}
+		  \caption{Porous medium with water and CO2}
+		\end{figure}
+      \end{columns}
+\end{frame}
+\note[itemize]{
+       \item Schritt 1: heterogenes poröses Medium. Hier Glaskugeln. Analogie: Erdschicht
+       \item Schritt 2: Füllen mit Wasser. \textbf{Achtung!} Keine Lufteinschlüsse $\Rightarrow$ SEHR langsam
+       \item Schritt 3: Warten... Verdunstung dauert.
+       \item Schritt 4: Was wollen wir beobachten: Fingering durch Dichte instabilitäten
+}
+
+\subsection{Setup}
+\begin{frame}
+	\frametitle{Setup}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{figure}
+	  \centering
+	  \includegraphicscopyright[width=\textwidth]{Aufb_CO2}{Selfmade graphic}
+	  \vspace{-0.75cm}
+	  \caption{Experimental setup}
+	\end{figure}
+ 
+\end{frame}
+\note[itemize]{
+       \item Aufbau wie vorher, \textbf{ABER:} \COT kommt oben rein!
+       \item \COT schwerer als Luft $\Rightarrow$ Flasche mit Trockeneis reicht
+       \item Schritt 3: Warten... Verdunstung dauert.
+       \item Schritt 4: Was wollen wir beobachten: Wasser wird hochgepumpt. Darüber Abschätzung der Zeitskala
+}
+
+\subsection{Indicator}
+\begin{frame}
+	\frametitle{Indicator}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	To see where the dissolved \COT is, a pH-Indicator can be used.
+	
+	\pause
+	
+	\COT in equilibrium with water:
+	\begin{equation*}
+	  \mathrm{CO_2 + H_2O\ \rightleftharpoons \ H_2CO_3}
+	\end{equation*}
+	
+	\pause
+	\centering
+	$\Downarrow$
+	\begin{align*}
+	  \mathrm{pH}(\mathrm{water} \rightleftharpoons \mathrm{air}) &\approx 5.6 \\
+	  \mathrm{pH}(\mathrm{water} \rightleftharpoons \mathrm{CO_2}) &\approx 3.9
+	\end{align*}
+
+
+\end{frame}
+\note[itemize]{
+       \item Warum ist das so?
+       \item \COT löst sich im Wasser und lässt Kohlensäure entstehen
+       \item Änderung des pH werts
+       \item Also: passernder Indikator gesucht!
+}
+
+\begin{frame}
+	\frametitle{Bromocresol Green}
+% 	\vspace{1cm} % generate some space between title and content
+	
+	\begin{figure}
+	  \centering
+	  \includegraphicscopyright[width=8cm]{Bromocresol_green_spectrum}{Graph from wikipedia \cite{Spec:BCG}}
+	  \caption{Experimental setup}
+	\end{figure}
+\end{frame}
+\note[itemize]{
+       \item BCG gut geieignet, da passend zu Filtern an der Kamera
+       \item Umschlag klar sichtbar!
+}
+
+\subsection{Expectations}
+\begin{frame}
+	\frametitle{Expectations}
+	\vspace{1cm} % generate some space between title and content
+	
+	\centering
+	Dissolved \COT is heavier than pure water
+	
+	\pause
+	$\Downarrow$
+	
+	Unstable layering
+	
+	\pause
+	$\Downarrow$
+	
+	Diffusice/Convectiv process
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Expectations}
+	\vspace{1cm} % generate some space between title and content
+	
+	Handle: Rayleigh number:
+	
+	\begin{equation*}
+	  Ra = \frac{kgh \gamma \Delta C \rho_0}{\mu D}
+	\end{equation*}
+
+	
+\end{frame}
+
+
+\subsection{Video}
+\begin{frame}
+	\frametitle{Video}
+	\vspace{1cm} % generate some space between title and content
+	
+	\centering
+	Let's have a look.
+ 
+\end{frame}
+\note[itemize]{
+       \item Zelle schon stark in Mittleidenschaft gezogen...
+       \item Es wird ein Puls BB hineingegeben: Wasser - BB - Wasser
+       \item Man kann Pulsieren beobachten: Zufluss leicht verstopft?
+       \item Resultat: Über einen längeren Zeitraum (2 Wochen) kann man Verdunstungsprozesse gut beobachten.
+       \item Aber: Für diese Bachelorarbeit ein sehr langer Prozess.
+}
+
+
+
+\section{Future}
+\begin{frame}{Bekannte Fehler}
+	\begin{itemize}
+		\item Theme ist momentan noch in einer einzelnen sty-Datei. Diese sollte unterteilt werden in einzelne Dateien für Schrift, Farbe usw.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Fragen, Anmerkungen, Kontakt}
+	Das HSRM Theme steht unter der \quoted{GNU Public License}. Es darf also weitergegeben und modifiziert werden, sofern die Lizenzart beibehalten wird.
+	
+	Für Fragen und Anmerkungen stehe ich gerne zur Verfügung.
+	\begin{itemize}
+		\item \url{Benjamin.Weiss@student.hs-rm.de}
+	\end{itemize}
+\end{frame}
+
+
+
+\section{Literature}
+\begin{frame}{Literaturverzeichnis}
+	\begin{thebibliography}{10}
+    
+	\beamertemplateonlinebibitems
+	\bibitem{Spec:BCG}
+	Wikipedia
+	\newblock \doublequoted{Bromocresol green}
+	\newblock http://en.wikipedia.org/wiki/Bromocresol\_green
+
+	\beamertemplatearticlebibitems
+	\bibitem{EBU2011}
+	European~Broadcasting~Union
+	\newblock \doublequoted{Specification of the Broadcast Wave Format (BWF)}
+	\newblock 2011
+  \end{thebibliography}
+\end{frame}
+

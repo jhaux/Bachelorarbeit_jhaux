@@ -44,6 +44,8 @@ framexrightmargin=0.5em,
 xleftmargin=0.5em,
 xrightmargin=0.5em
 }
+\usepackage{subscript} % Tiefegestellter Text außerhalb des Mathemodus
+\usepackage{amsmath}
 
 %--------------------------------------------------------------------------
 % Load theme
@@ -57,18 +59,23 @@ xrightmargin=0.5em
 %--------------------------------------------------------------------------
 % General presentation settings
 %--------------------------------------------------------------------------
-\title{Transport durch Dichteinstabilitäten in porösen Medien}
-\subtitle{aktueller Stand und Ziele}
+\title{Density driven flow in porous media}
+\subtitle{status and goals}
 \date{16.02.2015}
 \author{Johannes Haux}
-\institute{Institut für Umweltphysik\\Universtät {\Medium Heidelberg}}
+\institute{Institute of Environmental Physics\\University of {\Medium Heidelberg}}
 
 %--------------------------------------------------------------------------
 % Notes settings
 %--------------------------------------------------------------------------
 \setbeameroption{hide notes}
 
+
 \begin{document}
+% Custom makros like \COT for CO2
+\input{./pres/makros.tex}
+
+% All the content
 \input{./pres/content.tex}
 \end{document}
 
