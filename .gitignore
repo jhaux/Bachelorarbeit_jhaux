@@ -12,8 +12,9 @@
 *.blend[1-9]
 *BU.blend
 
-# ignore all rendered pictures or plots
+# ignore all rendered pictures or plots and videos
 **/pic
 **/BCG_tests/**
+**/vids/**
 # ignore mac stuff
 **/.DS_Store
