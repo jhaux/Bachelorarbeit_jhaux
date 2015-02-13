@@ -1,5 +1,12 @@
 # ignore latex products
-*.{log,aux,pdf,nav,out,snm}
+*.log
+*.aux
+*.pdf
+*.nav
+*.out
+*.snm
+*.toc
+
 **/pres/*.{log,aux,pdf,nav,out,snm}
 # ignore blender products
 *.blend[1-9]
