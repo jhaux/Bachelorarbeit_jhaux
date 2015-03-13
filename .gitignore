@@ -6,6 +6,7 @@
 *.out
 *.snm
 *.toc
+*.swp
 
 **/pres/*.{log,aux,pdf,nav,out,snm}
 # ignore blender products
