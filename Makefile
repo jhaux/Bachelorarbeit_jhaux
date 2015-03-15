@@ -20,6 +20,7 @@ clean:
 .PHONY: docu
 docu:
 	$(LATEXCC) ./docu/$(DOCUNAME).tex
+	bibtex $(DOCUNAME)
 	$(LATEXCC) ./docu/$(DOCUNAME).tex
 	$(LATEXCC) ./docu/$(DOCUNAME).tex
 

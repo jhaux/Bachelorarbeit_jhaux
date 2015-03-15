@@ -7,8 +7,15 @@
 *.snm
 *.toc
 *.swp
+*.bbl
+*.blg
+*.backup
 
 **/pres/*.{log,aux,pdf,nav,out,snm}
+
+# Some Makfile thingy
+*~
+
 # ignore blender products
 *.blend[1-9]
 *BU.blend
@@ -17,5 +24,6 @@
 **/pic
 **/BCG_tests/**
 **/vids/**
+**.png
 # ignore mac stuff
 **/.DS_Store
