@@ -1,0 +1,39 @@
+\ProvidesPackage{mymacros}[2015/03/14 v1.0 My own macros]
+
+\newcommand{\graph}[3][./src/missing_graph.eps]{
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width=\linewidth]{#1}
+      \caption{#2}
+      \label{#3}
+  \end{figure}
+}
+
+\newcommand{\widegraph}[3][./src/missing_graph.eps]{
+  \begin{figure*}[h]
+      \centering
+      \includegraphics[width=\textwidth]{#1}
+      \caption{#2}
+      \label{#3}
+  \end{figure*}
+}
+
+\newcommand{\TODO}[1]{
+  \textbf{\textcolor{red}{#1}}
+}
+
+\newcommand{\COT}{CO\textsubscript{2} }
+
+\newcommand{\inkscape}[4]{
+  \begin{figure}[h]
+    \centering{
+      \resizebox{#2}{!}{\input{#1}}
+      \caption{#3}
+      \label{#4}
+    }
+  \end{figure}
+}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
