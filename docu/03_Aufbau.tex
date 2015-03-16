@@ -2,56 +2,101 @@
 \label{sec:set}
 
 Da für beide in Teil \ref{sec:intro} beschriebenen Fragestellungen die Dynamik der betrachteten Systeme interessant ist, wird jeweils ein ``Light Transmission Experiment''
-durchgeführt. Hierzu wird eine Hele-Shaw Zelle vor einer homogenen Lichtquelle plaziert. Das Licht, dass die Zelle durchdringt wird anschließend von einer Digitalkamera aufgezeichnet
-und für die spätere Auswertung gespeichert.
-Größter Unterschied bei den Experimenten ist vor Allem die Dauer. Während das Verdunstungsexperiment fast zwei Wochen dauert ist das \COT-Experiment auf maximal wenige Stunden ausgelegt. 
-\TODO{muss der letzte Satz sein?}
+durchgeführt. Hierzu wird eine Hele-Shaw Zelle vor einer homogenen Lichtquelle plaziert. Das Licht, dass die Zelle durchdringt wird von einer Digitalkamera aufgezeichnet und für die spätere Auswertung gespeichert.
+Größter Unterschied bei den beiden durchgeführten Experimenten ist vor Allem die Dauer. Während das Verdunstungsexperiment fast zwei Wochen dauert ist das \COT-Experiment auf maximal wenige Stunden ausgelegt. 
+\TODO{muss der letzte Satz sein? Gehört das hier hin?}
 \widegraph[./plot/Aufb_Dunst.png]{Grundsätzlicher Aufbau der beiden durchgeführten Experimente. Zu sehen sind: 1: Lichtquelle, 2: Hele-Shaw-Zelle, 3: Kamera \TODO{Beschriftung und passendes Bild}}{fig:auf}
 
-\section{Hele-Shaw Zelle}
+\subsection{Hele-Shaw Zelle}
 \label{sec:hsc}
-Grundsätzlich besteht die Hele-Shaw Zelle aus zwei Glasplatten, die einem kleinen Abstand zueinander gehalten werden. Bei diesem Aufbau sind drei der vier Seiten abgedichtet, sodass kein Wasser abfließen kann. 
-Die offene Seite der Zelle zeigt nach oben. Auf diese Weise soll dafür gesorgt werden, dass die auftreten Strömungseffekte annähernd zweidimensional sind. 
-\TODO{schönere Formulierung}, \TODO{Beleg!}
+Der Vorteil einer Hele-Shaw Zelle ist, dass man mit Ihr Beobachtungen zweidimensionaler Natur machen kann.
+Grundsätzlich besteht die Zelle aus zwei Glasplatten, die einem kleinen Abstand zueinander parallel angeordnet sind. Bei diesem Aufbau ist der Zwischenraum an drei der vier Seiten abgedichtet, sodass kein Wasser abfließen kann. Für Dichte wird gesorgt, indem die Glasplatten mit Hilfe von Keilen in einen Rahmen und gegen die Dichtgummis, welche auch als Abstandshalter dienen, gepresst werden. 
+Die offene Seite der Zelle zeigt nach oben und am unteren Ende der Zelle befindet sich ein Ausfluss, über den die Zelle kontrolliert mit Wasser oder einer gewünschten Lösung befüllt werden kann.
 Die Abmessungen der verwendeten Zellen sind in Tabelle \ref{tab:Hdim} festgehalten.
-Am unteren Ende der Zelle befindet sich ein Ausfluss, über den die Zelle kontroliert mit Wasser oder einer gewünschten Lösung befüllt werden kann.
 
 
-\inkscape{./plot/cell_dimensions.pdf_tex}{\linewidth}{Dimensionierung der Hele-Shaw Zelle. Ansicht von oben und von der Seite. 1:Keil, 2: Dichtung und Abstandshalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle.}{fig:Hdim}
+\inkscape{./plot/cell_dimensions.pdf_tex}{\linewidth}{Dimensionierung der Hele-Shaw Zelle. Ansicht von oben und von der Seite. 1:Keil, 2: Dichtung und Abstandshalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle. \TODO{ersetzen der Maße durch Beschriftung}}{fig:Hdim}
 
 \begin{table}[h]
-  \begin{tabular}{p{2cm}|c|c|c}
+  \begin{tabularx}{\linewidth}{X|c|c|c} %>{\raggedright}p{2,2cm}<{}
     Aufbau			& Höhe				& Breite			& Abstand \\
     \hline\hline
-    Verdunstungs\-experiment	& \SI{ 500}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI{3}{\milli\meter} \\
-    \COT-Experiment		& \SI{ 250}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI{2,1}{\milli\meter}  
-  \end{tabular}
+    Verdunstungs\-experi\-ment	& \SI{ 500}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI{3}{\milli\meter} \\
+    \hline
+    \COT-			& \SI{ 250}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI{2,1}{\milli\meter} \\
+    Experiment			& \SI{ 500}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI{2,1}{\milli\meter}
+  \end{tabularx}
   \caption{Dimensionierung der Hele-Shaw Zellen für die beiden durchgeführten Experimente. Siehe auch Abbildung \ref{fig:Hdim}.}
   \label{tab:Hdim}
 \end{table}
 
 
-\section{Kamera}
+\subsection{Kamera}
 \label{sec:cam}
-Die Messung wird mit Hilfe einer Kamera durchgeführt. \TODO{Modell, Objektiv}. Der Sensor des benutzten Modells zeichnet sich durch seine stark linearen Eigenschaften aus, wie schon bei \cite{buchner}
+Die Messung wird mit Hilfe einer \TODO{AVT Pike F-505B}-Kamera durchgeführt. Diese wurde \TODO{erstmals} bei \cite{heberle} zum Einsatz gebracht und ausführlich beschrieben. 
 
-\section{Lichtquelle}
+Die Daten in \ref{tab:cam} sind aus dieser Arbeit sowie dem Internetauftritt des Herstellers \citep{pike_sheet} entnommen. 
+\begin{table}[h]
+ \begin{tabularx}{\linewidth}{X|c}
+  Komponente	& Eigenschaft \\
+  \hline\hline
+  Kamera	& AVT Pike F-505B \\
+  Sensortyp	& CCD \\
+  Farbtiefe	& \SI{14}{bit}, monochrom \\
+  Auflösung	& 2452 $\cdot$ 2054 Pixel \\
+  Schnittstelle	& IEEE1394-B \\
+  \hline
+  Objektiv	& Fujinon HF50SA-1 \\
+  Brennweite	& 50 mm \\
+  \hline
+  Filter 1	& \SI{452}{\nano\meter}, FWHM \SI{9}{\nano\meter} \\
+  Filter 2	& \SI{632}{\nano\meter}, FWHM \SI{11}{\nano\meter} 
+ \end{tabularx}
+ \caption{Herstellerangaben zur verwendeten Kamera, sowie des Objektivs und der Filter.}
+ \label{tab:cam}
+\end{table}
+Die Kamera kann über die Firewire Schnittstelle gesteuert und ausgelesen werden. Auch das Auswählen des benötigten Filters kann mit Hilfe eines Filterrads vom Computer aus geschehen.
+
+\subsection{Lichtquelle}
 \label{sec:light}
+Um eine möglichst gleichmäßige Durchleuchtung der Zelle zu bewerkstelligen wird ein Array aus LEDs der Farben Rot, Grün und Blau verwendet. Davor ist eine Diffusorfolie gespannt. Die Lichtquelle befindet sich zusätzlich in einem mit Alufolie ausgekleideten Kasten. Auch hierzu finden sich wieder ausführliche Informationen bei \cite{buchner}\ und \cite{heberle}.
 
 
-\section{Das Verdunstungsexperiment}
+\section{Verdunstungsexperiment}
 \label{set:eva}
 
-Hier kommt eine KURZE Beschreibung des Verdunstungsexperiments hin!
-
 \graph{Aufbau des Verdunstungsexperiments. Zu Sehen sind 1. , 2. , ...}{gr:suevp}
-Für das Verdunstungsexperiment wird die Hele-Shaw Zelle mit Glasküglechen verschiedener Größen gefüllt. Dabei wurde darauf geachtet, dass die immer homogene Regionen enstehen. Die Größen der verwendeten Kugeln der Firma Sili-Beads\TODO{Referenz und Tabelle und tm Logo oder so} sind in Tabelle \ref{ref:kug} notiert. Die Porosität
-dieser Regionen kann über die Radien der Kügelchen abgeschätzt werden, wie es auch bei \cite{feustel} gemacht wurde. \TODO{original quelle finden und verwenden}
-Wie in Teil \ref{theo:por} beschrieben, führen damit die Kugelgrößen zu verschiedenen Leitfähigkeiten. Auch diese sind in Tabelle \ref{tab:kug} festgehalten.
-Eine sehr genaue Beschreibung des Aufbaus kann bei \cite{buchner,heberle} nachgelesen werden.
+
+Für den ersten Versuch wird ein bereits vorhandener Aufbau von \cite{feustel} gewählt, da die streng heterogenen Eigenschaften des aufgeschütteten porösen Mediums erwünscht sind. Hierbei ist die große Hele-Shaw Zelle ist mit Glasküglechen verschiedener Größen gefüllt. Dabei wurde darauf geachtet, dass die immer homogene Regionen enstehen, die sich nicht komplett über die gesamte Zellbreite erstrecken, wie in Abbildung \ref{fig:het} zu sehen ist. 
+Die Größen der verwendeten Kugeln (\textit{SiLi-Beads}) der Firma \textit{Sigmund-Lindner GmbH} \TODO{Referenz und Tabelle und tm Logo oder so} sind in Tabelle \ref{tab:kug} notiert. Die Porosität dieser Regionen kann über die Radien der Kügelchen abgeschätzt werden, wie es auch bei \cite{feustel} gemacht wurde. \TODO{original quelle finden und verwenden}
+
+\graph{Die heterogene Struktur des aufgeschütteten porösen Mediums. Die verschiedenen Bereiche unterschiedlicher Kugelgröße lassen sich mit Hilfe von Tabelle \ref{tab:kug} zuordnen.}{fig:het}
+\begin{table}[h]
+  \begin{tabularx}{\linewidth}{X|c|c|c}
+		& Durch\-messer 			& Stdabw. d. \O{}			& Raumgewicht	\\
+		& $\left[\si{\milli\meter}\right]$	& $\left[\si{\milli\meter}\right]$	& $\left[\si{\kg\per\dm\tothe{3}}\right]$ \\
+    \hline\hline
+    \circled{1}	& 0,07 - 0,11				& \SI{ 500}{\milli\meter}		& \SI{273}{\milli\meter} \\
+    \circled{2}	& 0,2 - 0,3				& \SI{ 500}{\milli\meter}		& \SI{273}{\milli\meter} \\
+    \circled{3}	& 0,4 - 0,6				& \SI{ 250}{\milli\meter}		& \SI{273}{\milli\meter}  
+  \end{tabularx}
+  \caption{Daten der verwendeten \textit{SiLi-Beads}. Die Materialdichte der Kugeln betragt \SI{2.5}{\kg\per\dm\tothe{3}}. Entnommen aus \cite{feustel}.}
+  \label{tab:kug}
+\end{table}
+
+Für dieses Experiment wurde der Zufluss so eingerichtet, dass sowohl \COT als auch Wasser, bzw. gelöstes Brilliant Blue kontrolliert in die Zelle geleitet werden können. Brilliant Blue ist eine Nahrungsmittelfarbe, welche hier in einer Konzentration von \SI{0,05}{\gram\per\liter}. Er absorbiert im Wellenlängenbereich von \SI{630}{\nano\meter} maximal. Eine Brilliant Blue Lösung kann also gut mit dem passenden Filter vor der Kamera verfolgt werden. Siehe auch hierzu Abbildung \ref{fig:het}.
+Damit keine Luftblasen zwischen den Kügelchen zurückbleiben wird vor dem Fluten mit Wasser\COT durch die Zelle gespült. Dazu wir eine Flasche mit etwas Trockeneis befüllt und anschließend das entstehende Gas in die Zelle geleitet. Da gasförmiges \COT schwerer ist als Luft kann man es einfach laufen lassen. Nach etwas ein bis zwei Stunden wird angenommen, dass die gesamte Luft aus der Zelle verdrängt wurde und es wird Wasser zugeführt. In diesem löst sich das Gas, sodass das poröse Medium komplett mit Wasser gefüllt ist. Um unerwartete Efekte zu vermeiden wird anschließend noch länger Wasser durch die Zelle gepumpt, damit im Wasser, dass letztendlich in der Zelle ist, möglichst kein gelöstes \COT ist.
+Zum Beginn des Experiments wird der Wasserspiegel auf Höhe der obersten Kugelschicht gesenkt und die Pumpschläuche entfernt.
+Die Kamera filmt das Experiment mit einer Bildrate von \SI{1}{Bild\per\hour}
 
 
-\section{Das \COT-Experiment}
+
+\section{\COT-Experiment}
 \label{set:cot}
-%\subsubsection{\(\COT Experiment in porous media\)}
-%\label{set:cpm}
+Für das zweite Experiment wurde die \HSCs mit einer Bromkresol Grün Lösung von \SI{3,5}{\milli\gram\per\liter} befüllt. 
+Bromkresol Grün ist \TODO{grpn}
+Mit Start des Experiments wird von oben \COT in die Zelle geleitet. Wieder geschieht dies mit Hilfe von Trockeneis, dieses Mal allerdings wird das Gas bei niedriger Rate gepumpt. Damit sich in dem Behältnis für das Gas wirklich nur \COT befindet, ist dieses nach oben hin geöffnet, sodass die leichtere Luft verdrängt wird. Zwischen Lösung und oberer Kante der Glasplatten wurde ausreichend Platz gelassen, sodass sich eine breitere \COT-Schicht bilden kann.
+\TODO{framerate, Start, Darkframes}
+
+\section{\COT Experiment im porösen Medium.}
+\label{set:cpm}

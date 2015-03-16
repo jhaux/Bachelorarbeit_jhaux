@@ -10,6 +10,7 @@
 *.bbl
 *.blg
 *.backup
+*.lof
 
 **/pres/*.{log,aux,pdf,nav,out,snm}
 

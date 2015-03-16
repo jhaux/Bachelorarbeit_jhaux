@@ -4,13 +4,26 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{subscript} % Tiefegestellter Text außerhalb des Mathemodus
-\usepackage{color,
+\usepackage{amssymb,
+	    array,
+	    color,
+	    multirow,
 	    natbib,
 	    graphicx,
 	    hyphsubst, % Silbentrennung wie ich es will
+	    hyperref,
 	    siunitx,
+	    tabularx,
 	    tikz}
-
+	    
+%\hypersetup{linktocpage} % nur die Seitenzahlen erscheinen als Link
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 \usepackage{./src/mymacros}
 
 %SETTINGS
@@ -23,8 +36,19 @@
 
 %DOCUMENT
 \begin{document}
+\input{./docu/00_ba_titlepage} % von der Uni gefordert. ggf anpassen
 
 \maketitle
+
+\onecolumn
+\chapter*{abstract}
+ %Englisch
+  
+ %Deutsch
+  In this work we will show the influence of densitiy driven instabilities and their 
+\twocolumn
+\tableofcontents
+\listoffigures
 
 \chapter{Vorwort}
 \input{./docu/01_Vorwort}
@@ -35,8 +59,8 @@
 \chapter{Experimenteller Aufbau}
 \input{./docu/03_Aufbau}
 
-\chapter{Image Analysis}
-\input{./docu/04_Bildverarbeitung}
+\chapter{Methoden}
+\input{./docu/04_Methoden}
 
 \chapter{Results}
 \input{./docu/05_Ergebnisse}
@@ -47,4 +71,5 @@
 \bibliographystyle{plainnat}
 \bibliography{./docu/bibliography}
 
+\input{./docu/99_declaration} % von der Uni gefordert. ggf anpassen
 \end{document}

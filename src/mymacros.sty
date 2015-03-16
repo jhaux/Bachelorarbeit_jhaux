@@ -1,5 +1,6 @@
-\ProvidesPackage{mymacros}[2015/03/14 v1.0 My own macros]
+\ProvidesPackage{mymacros}[2015/03/14 v1.0 My own macros] % kann jetzt per \usepackage{} eingebunden werden
 
+% einbinden von Graphiken, die \linewidth breit sind
 \newcommand{\graph}[3][./src/missing_graph.eps]{
   \begin{figure}[H]
       \centering
@@ -9,6 +10,7 @@
   \end{figure}
 }
 
+% einbinden von Graphiken, die immer über die ganze Seitenbreite gehen
 \newcommand{\widegraph}[3][./src/missing_graph.eps]{
   \begin{figure*}[h]
       \centering
@@ -18,12 +20,18 @@
   \end{figure*}
 }
 
+% rot hervorgehobener text
 \newcommand{\TODO}[1]{
   \textbf{\textcolor{red}{#1}}
 }
 
+% einfaches Schreiben von CO2 im Fließtext (nicht matheumgebung)
 \newcommand{\COT}{CO\textsubscript{2} }
 
+\newcommand{\HSC}{Hele-Shaw Zelle}
+\newcommand{\HSCs}{Hele-Shaw Zellen}
+
+% einbinden von passend in inkskape exportierten Graphiken
 \newcommand{\inkscape}[4]{
   \begin{figure}[h]
     \centering{
@@ -34,6 +42,6 @@
   \end{figure}
 }
 
-
+% Zahlen mit Kreis darum
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
