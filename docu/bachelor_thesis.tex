@@ -4,7 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{subscript} % Tiefegestellter Text außerhalb des Mathemodus
-\usepackage{amssymb,
+\usepackage{amsmath,
+	    amssymb,
 	    array,
 	    color,
 	    multirow,
@@ -24,7 +25,20 @@
     linkcolor=black,
     urlcolor=black
 }
+
+\sisetup{
+    locale=DE,
+    loctolang={DE:ngerman},
+    load-configurations = binary,
+    binary-units = true,
+    list-final-separator = { \translate{und} },
+    list-units=single,
+    range-phrase = { \translate{bis} },
+    range-units=single
+}
+
 \usepackage{./src/mymacros}
+\usepackage{./docu/bscmakros}
 
 %SETTINGS
 
