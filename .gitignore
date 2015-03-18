@@ -1,7 +1,6 @@
 # ignore latex products
 *.log
 *.aux
-*.pdf
 *.nav
 *.out
 *.snm
@@ -12,7 +11,7 @@
 *.backup
 *.lof
 
-**/pres/*.{log,aux,pdf,nav,out,snm}
+**/pres/*.{log,aux,nav,out,snm}
 
 # Some Makfile thingy
 *~

@@ -10,9 +10,13 @@
   \end{figure}
 }
 
+\RequirePackage{float}
+\RequirePackage{fixltx2e,
+		dblfloatfix}
+
 % einbinden von Graphiken, die immer über die ganze Seitenbreite gehen
 \newcommand{\widegraph}[3][./src/missing_graph.eps]{
-  \begin{figure*}[h]
+  \begin{figure*}[ht!]
       \centering
       \includegraphics[width=\textwidth]{#1}
       \caption{#2}

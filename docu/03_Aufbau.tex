@@ -1,10 +1,11 @@
 \label{cha:set}
+\widegraph[./plot/Aufb_allg_num]{Grundsätzlicher Aufbau der beiden durchgeführten Experimente. Zu sehen sind: 1: \HSC, 2: Lichtquelle, 3: Kasten, 4: Lüfter, 5: Computer, 6: \COT-Behälter, 7: Pumpe, 8: Kamera, 9: 3-Wege-Ventil, 10: Reservoir zum Halten des Wasserspiegels bei langen Experimenten.}{fig:auf}
+
 
 Da für beide in Teil \ref{cha:intro} beschriebenen Fragestellungen die Dynamik der betrachteten Systeme interessant ist, wird jeweils ein ``Light Transmission Experiment''
 durchgeführt. Hierzu wird eine \HSC vor einer homogenen Lichtquelle platziert. Das Licht, dass die Zelle durchdringt wird von einer Digitalkamera aufgezeichnet und für die spätere Auswertung gespeichert.
 Größter Unterschied bei den beiden durchgeführten Experimenten ist vor Allem die Dauer. Während das Verdunstungsexperiment fast zwei Wochen dauert ist das \COT-Experiment auf maximal wenige Stunden ausgelegt. 
-\TODO{muss der letzte Satz sein? Gehört das hier hin?}
-\widegraph[./plot/Aufb_Dunst.png]{Grundsätzlicher Aufbau der beiden durchgeführten Experimente. Zu sehen sind: 1: Lichtquelle, 2: \HSC, 3: Kamera}{fig:auf}
+\TODO{sollte der letzte Satz sein? Gehört das hier hin?}
 
 \subsection{\HSC}
 \label{sec:hsc}
@@ -13,10 +14,10 @@ Grundsätzlich besteht die Zelle aus zwei Glasplatten, die einem kleinen Abstand
 Die offene Seite der Zelle zeigt nach oben und am unteren Ende der Zelle befindet sich ein Ausfluss, über den die Zelle kontrolliert mit Wasser oder einer gewünschten Lösung befüllt werden kann.
 Die Abmessungen der verwendeten Zellen sind in Tabelle \ref{tab:Hdim} festgehalten.
 
+\graph[./plot/happy_cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle. Man bemerke, dass die Zelle glücklich ist!}{fig:Hdim}
+% \graph[./plot/cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle.}{fig:Hdim}
 
-\inkscape{./plot/cell_dimensions.pdf_tex}{\linewidth}{Dimensionierung der \HSC. Ansicht von oben und von der Seite. 1:Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle. \TODO{ersetzen der Maße durch Beschriftung}}{fig:Hdim}
-
-\begin{table}[h]
+\begin{table}[]
   \begin{tabularx}{\linewidth}{X|c|c|c} %>{\raggedright}p{2,2cm}<{}
     Aufbau			& Höhe				& Breite			& Abstand \\
     \hline\hline
@@ -35,7 +36,7 @@ Die Abmessungen der verwendeten Zellen sind in Tabelle \ref{tab:Hdim} festgehalt
 Die Messung wird mit Hilfe einer \TODO{AVT Pike F-505B}-Kamera durchgeführt. Diese wurde \TODO{erstmals} bei \cite{heberle} zum Einsatz gebracht und ausführlich beschrieben. 
 
 Die Daten in \ref{tab:cam} sind aus dieser Arbeit sowie dem Internetauftritt des Herstellers \citep{pike_sheet} entnommen. 
-\begin{table}[h]
+\begin{table}[]
  \begin{tabularx}{\linewidth}{X|c}
   Komponente	& Eigenschaft \\
   \hline\hline
@@ -48,13 +49,14 @@ Die Daten in \ref{tab:cam} sind aus dieser Arbeit sowie dem Internetauftritt des
   Objektiv	& Fujinon HF50SA-1 \\
   Brennweite	& 50 mm \\
   \hline
-  Filter 1	& \SI{452}{\nano\meter}, FWHM \SI{9}{\nano\meter} \\
+  \TODO{Filter 1}	& \SI{452}{\nano\meter}, FWHM \SI{9}{\nano\meter} \\
   Filter 2	& \SI{632}{\nano\meter}, FWHM \SI{11}{\nano\meter} 
  \end{tabularx}
  \caption{Herstellerangaben zur verwendeten Kamera, sowie des Objektives und der Filter.}
  \label{tab:cam}
 \end{table}
 Die Kamera kann über die Firewire Schnittstelle gesteuert und ausgelesen werden. Auch das Auswählen des benötigten Filters kann mit Hilfe eines Filterrads vom Computer aus geschehen.
+
 
 \subsection{Lichtquelle}
 \label{sec:light}
@@ -64,12 +66,13 @@ Um eine möglichst gleichmäßige Durchleuchtung der Zelle zu bewerkstelligen wi
 \section{Verdunstungsexperiment}
 \label{sec:eva}
 
-\graph{Aufbau des Verdunstungsexperiments. Zu Sehen sind 1. , 2. , ...}{gr:suevp}
+% \graph{Aufbau des Verdunstungsexperiments. Zu Sehen sind 1. , 2. , ...}{gr:suevp}
 
 Für den ersten Versuch wird ein bereits vorhandener Aufbau von \cite{feustel} gewählt, da die streng heterogenen Eigenschaften des aufgeschütteten porösen Mediums erwünscht sind. Hierbei ist die große \HSC ist mit Glaskügelchen verschiedener Größen gefüllt. Dabei wurde darauf geachtet, dass die immer homogene Regionen enstehen, die sich nicht komplett über die gesamte Zellbreite erstrecken, wie in Abbildung \ref{fig:het} zu sehen ist. 
 Die Größen der verwendeten Kugeln (\textit{SiLi-Beads}) der Firma \textit{Sigmund-Lindner GmbH} sind in Tabelle \ref{tab:kug} notiert. 
 
 \graph{Die heterogene Struktur des aufgeschütteten porösen Mediums. Die verschiedenen Bereiche unterschiedlicher Kugelgröße lassen sich mit Hilfe von Tabelle \ref{tab:kug} zuordnen.}{fig:het}
+
 \begin{table}[h]
   \begin{tabularx}{\linewidth}{X|c|c|c}
 		& Durch\-messer 			& Stdabw. d. \O{}			& Raumgewicht	\\
@@ -94,14 +97,15 @@ Die Kamera filmt das Experiment mit einer Bildrate von \SI{1}{Bild\per\hour}. Ei
 \label{sec:cot}
 Für das zweite Experiment wurde die \HSCs mit einer \BCG Lösung von \SI{3,5}{\milli\gram\per\liter} befüllt. 
 \BCG ist eine Indikatorlösung, die von blau zu gelb umschlägt in einem pH-Bereich von 5,4 bis 3,9. Reines Wasser, dass nur mit Luft in Kontakt ist hat einen pH-Wert von 5,6, wohingegen Wasser in dem sich \COT gelöst hat einen pH-Wert von 3,9 annimmt. 
-Der Farbumschlag des \BCG führt dazu, dass die zunächst fast neutrale Lösung nicht mehr stark im \SI{630}{\nano\meter}-Bereich absorbiert sondern bei \SI{450}{\nano\meter}. \TODO{Dieses Verhalten wird in Abbildung \ref{fig:bcg} deutlich gemacht.}
+Der Farbumschlag des \BCG führt dazu, dass die zunächst fast neutrale Lösung nicht mehr stark im \SI{630}{\nano\meter}-Bereich absorbiert sondern bei \SI{450}{\nano\meter}. Dieses Verhalten wird in Abbildung \ref{fig:bcg} deutlich gemacht.
 
-\graph{Absorbierende Eigenschaften von \BCG}{fig:bcg}
+\graph[./plot/BCG]{Absorbierende Eigenschaften von \BCG. Die Graphik ist eine Kopie der Version auf Wikipedia \citep{bcg:wiki}}{fig:bcg}
+
 Diese Eigenschaft passt sehr gut zu den zur Verfügung stehenden Filtern und macht es möglich zu verfolgen wo \COT in Wasser gelöst ist.
 Die Kamera filmt wieder das Experiment, dieses mal jedoch mit einer sehr viel höheren Bildrate von ca. \SI{1}{Bildern\per\minute}.  Es werden Aufnahmen mit dem \SI{630}{\nano\meter}- und dem \SI{450}{\nano\meter}-Filter gemacht, sowie Aufnahmen bei verschlossenem Objektiv, die später zur Dunkelstromkorrektur verwendet werden sollen. 
 Mit Start des Experiments, frühestens jedoch nach der ersten Aufnahme, wird von oben \COT in die Zelle geleitet. Auch hier geschieht dies mit Hilfe von Trockeneis, dieses Mal allerdings wird das freigesetzte Gas bei niedriger Rate gepumpt. Damit sich in dem Behältnis für das Gas wirklich nur \COT befindet, ist dieses nach oben hin geöffnet, sodass die leichtere Luft verdrängt wird. Zwischen Lösung und oberer Kante der Glasplatten wurde ausreichend Platz gelassen, sodass sich eine breitere \COT-Schicht bilden kann.
 
-\section{\COT Experiment im porösen Medium.}
+\section{\COT Experiment mit porösen Medium.}
 \label{sec:cpm}
 Als zusätzliche Fragestellungen war geplant die durch gelöstes \COT verursachten Dichteinstabilitäten auch in Kombination mit einem porösen Medium zu untersuchen. Dazu ist die Zelle wieder mit Glaskügelchen befüllt, ähnlich wie in Aufbau \ref{sec:eva}.
 Die Durchführung ist ähnlich wie in \ref{sec:cot}. Beim Befüllen der Zelle wird allerdings darauf geachtet, dass diese sehr langsam befüllt wird um Lufteinschlüsse zu vermeiden. Ein vorheriges Spülen mit \COT ist nicht möglich, da das Exoieriment dadurch systematisch beeinflusst würde.

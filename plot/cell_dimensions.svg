@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="cell_dimensions.pdf">
+   sodipodi:docname="cell_dimensions.svg">
   <defs
      id="defs4">
     <marker
@@ -54,8 +54,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="192.10358"
-     inkscape:cy="196.20658"
+     inkscape:cx="13.365005"
+     inkscape:cy="248.07494"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -73,7 +73,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -251,53 +251,53 @@
     <text
        xml:space="preserve"
        style="font-size:25.4826622px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="643.56995"
-       y="-303.25998"
+       x="639.52936"
+       y="-295.17877"
        id="text6650"
        sodipodi:linespacing="125%"
        transform="matrix(0,1,-1,0,0,0)"><tspan
          sodipodi:role="line"
          id="tspan6652"
-         x="643.56995"
-         y="-303.25998"
-         style="font-size:7.64479828px">$2,1\pm0.05 \mathrm{mm}$</tspan></text>
+         x="639.52936"
+         y="-295.17877"
+         style="font-size:7.64479828px">Abstand</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text6654"
-       y="-303.25998"
+       y="-295.17877"
        x="785.66571"
        style="font-size:25.4826622px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"
        transform="matrix(0,1,-1,0,0,0)"><tspan
          style="font-size:7.64479828px"
-         y="-303.25998"
+         y="-295.17877"
          x="785.66571"
          id="tspan6656"
-         sodipodi:role="line">ca. 500 mm</tspan></text>
+         sodipodi:role="line">Höhe</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text6677"
        y="696.6955"
-       x="168.05193"
+       x="175.12299"
        style="font-size:25.4826622px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          style="font-size:7.64479828px"
          y="696.6955"
-         x="168.05193"
+         x="175.12299"
          id="tspan6679"
-         sodipodi:role="line">ca. 273 mm</tspan></text>
+         sodipodi:role="line">Breite</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="67.407654"
+       x="79.024406"
        y="664.09937"
        id="text3018"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="67.407654"
+         x="79.024406"
          y="664.09937"
          style="font-size:12px;text-align:center;text-anchor:middle"
-         id="tspan3028">\circled{1}</tspan></text>
+         id="tspan3028">1</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 87.378195,33.762729 c 13.738405,0 10.369825,-15.282291 15.225505,-20.650694 8.19847,-9.0641789 29.22121,-8.2266225 29.22121,-0.05743"
@@ -315,49 +315,67 @@
        sodipodi:linespacing="125%"
        id="text3073"
        y="692.74658"
-       x="67.407654"
+       x="79.024406"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          id="tspan3075"
          style="font-size:12px;text-align:center;text-anchor:middle"
          y="692.74658"
-         x="67.407654"
-         sodipodi:role="line">\circled{2}</tspan></text>
+         x="79.024406"
+         sodipodi:role="line">2</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="117.85418"
-       y="807.39886"
+       x="124.92525"
+       y="807.90393"
        id="text3077"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="117.85418"
-         y="807.39886"
+         x="124.92525"
+         y="807.90393"
          style="font-size:12px;text-align:center;text-anchor:middle"
-         id="tspan3079">\circled{3}</tspan></text>
+         id="tspan3079">3</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text3081"
        y="742.24402"
-       x="182.60545"
+       x="188.66637"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          id="tspan3083"
          style="font-size:12px;text-align:center;text-anchor:middle"
          y="742.24402"
-         x="182.60545"
-         sodipodi:role="line">\circled{4}</tspan></text>
+         x="188.66637"
+         sodipodi:role="line">4</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="185.13084"
+       x="190.18161"
        y="828.10699"
        id="text3085"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="185.13084"
+         x="190.18161"
          y="828.10699"
          style="font-size:12px;text-align:center;text-anchor:middle"
-         id="tspan3087">\circled{5}</tspan></text>
+         id="tspan3087">5</tspan></text>
+    <path
+       style="fill:#505050;fill-opacity:1;stroke:none"
+       d="m 132.86101,901.47152 11.58362,0 0,15.92895 z"
+       id="rect3030"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path3813"
+       d="m 235.7703,901.47152 11.58362,0 0,15.92895 z"
+       style="fill:#505050;fill-opacity:1;stroke:none" />
+    <path
+       style="fill:#505050;fill-opacity:1;stroke:none"
+       d="m 185.01013,901.47152 6.34968,0 0,8.73161 z"
+       id="path3815"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
   </g>
 </svg>
