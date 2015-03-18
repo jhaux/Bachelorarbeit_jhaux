@@ -14,8 +14,8 @@ Grundsätzlich besteht die Zelle aus zwei Glasplatten, die einem kleinen Abstand
 Die offene Seite der Zelle zeigt nach oben und am unteren Ende der Zelle befindet sich ein Ausfluss, über den die Zelle kontrolliert mit Wasser oder einer gewünschten Lösung befüllt werden kann.
 Die Abmessungen der verwendeten Zellen sind in Tabelle \ref{tab:Hdim} festgehalten.
 
-\graph[./plot/happy_cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle. Man bemerke, dass die Zelle glücklich ist!}{fig:Hdim}
-% \graph[./plot/cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle.}{fig:Hdim}
+% \graph[./plot/happy_cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle. Man bemerke, dass die Zelle glücklich ist!}{fig:Hdim}
+\graph[./plot/cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle.}{fig:Hdim}
 
 \begin{table}[]
   \begin{tabularx}{\linewidth}{X|c|c|c} %>{\raggedright}p{2,2cm}<{}
@@ -71,7 +71,7 @@ Um eine möglichst gleichmäßige Durchleuchtung der Zelle zu bewerkstelligen wi
 Für den ersten Versuch wird ein bereits vorhandener Aufbau von \cite{feustel} gewählt, da die streng heterogenen Eigenschaften des aufgeschütteten porösen Mediums erwünscht sind. Hierbei ist die große \HSC ist mit Glaskügelchen verschiedener Größen gefüllt. Dabei wurde darauf geachtet, dass die immer homogene Regionen enstehen, die sich nicht komplett über die gesamte Zellbreite erstrecken, wie in Abbildung \ref{fig:het} zu sehen ist. 
 Die Größen der verwendeten Kugeln (\textit{SiLi-Beads}) der Firma \textit{Sigmund-Lindner GmbH} sind in Tabelle \ref{tab:kug} notiert. 
 
-\graph{Die heterogene Struktur des aufgeschütteten porösen Mediums. Die verschiedenen Bereiche unterschiedlicher Kugelgröße lassen sich mit Hilfe von Tabelle \ref{tab:kug} zuordnen.}{fig:het}
+\smallgraph[./plot/hetero]{Die heterogene Struktur des aufgeschütteten porösen Mediums. Die verschiedenen Bereiche unterschiedlicher Kugelgröße lassen sich mit Hilfe von Tabelle \ref{tab:kug} zuordnen. Die Ausbreitung des Tracers ist mit einer gestrichelten weißen Linie markiert.}{fig:het}
 
 \begin{table}[h]
   \begin{tabularx}{\linewidth}{X|c|c|c}
@@ -112,3 +112,4 @@ Die Durchführung ist ähnlich wie in \ref{sec:cot}. Beim Befüllen der Zelle wi
 Als poröses Medium wurden neben den bekannten, in Teil \ref{sec:eva} benutzten Kügelchen auch neue, aus Borosilikatglas verwendet.
 \TODO{Eigenschaften neue Kügelchen}
 
+%\flushcolsend

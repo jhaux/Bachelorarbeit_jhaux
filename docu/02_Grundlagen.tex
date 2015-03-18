@@ -1,8 +1,27 @@
-
 \label{cha:theo}
+
+Zur Beschreibung der beiden durchgeführten \HSCs-Experimente sind zwei Themengebiete von Interesse: Zum einen wird ein Ansatz benötigt um poröse Medien zu charakterisieren, zum anderen muss verstanden werden, wie das Ausbilden von Dichteinstabilitäten von statten geht und wie sich beispielsweise dadurch Finger bilden.
+
 \section{Poröse Medien}
 \label{sec:por}
+Poröse Medien, wie beispielsweise Sand oder Ton, teilen den Raum, den sie füllen, in Matrix und Poren auf \citep{roth2005}.  Matrix bezeichnet in diesem Fall die Bereiche, an dem sich das feste Medium befinden, der eigentliche Sand. Die Poren bilden den zunächst leeren Raum dazwischen.
+Als charakteristische Größen lassen sich die Porosität $\phi$ und die Raumdichte $\rho_{bulk}$ definieren:
+\begin{align}
+ \phi &= \frac{V_{pore}}{V_{tot}} \\
+ \rho_{bulk} &= \frac{m_{matrix}}{V_{tot}} = \frac{\phi}{1-\phi}
+\end{align}
+$V_{pore}$ und $V_{tot}$ bezeichnen die Volumina, die von den Poren, bzw insgesamt eingenommen werden, $m_{matrix}$ die Masse der Matrix. 
 
-\TODO{porosität + leitfähigkeit}
-\section{Fingerbildung}
-\label{sec:fing}
+\TODO{navier + leitfähigkeit}
+\section{Hydraulik}
+\label{sec:hyd}
+Die Bewegung inkompressibler Fluidpartikel wird durch die Navier-Stoke Gleichung beschrieben:
+\begin{eqnarray}
+ \rho \dot{\vec{v}} = \rho \left( \frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot \nabla \vec{v} \right) = - \nabla p + \mu \nabla^2 \vec{v} + \vec{f}
+\end{eqnarray}
+Hierbei bezeichnet $\vec{v}$ die Geschwindikeit des betrachteten Partikels, $\nabla p$ den Druckgradienten und $\mu \nabla^2 \vec{v}$ den Reibungsterm. $\vec{f}$ steht für äußere Kräfte, die auf das System wirken, wie zum Beispiel die Gravitationskraft. \citep{roth2005}
+
+
+
+\TODO{solute transport}
+\TODO{Konduktivität und Diffusivität => Reynolds}
