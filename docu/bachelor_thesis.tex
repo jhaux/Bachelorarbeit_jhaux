@@ -1,24 +1,33 @@
-\documentclass[oneside, a4paper, DIV=11,twocolumn]{book}
+\documentclass[twoside, a4paper, DIV=11,twocolumn]{book}
 % \documentclass[oneside, a4paper, DIV=11]{book}
 
 % PACKAGES
-\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[singlespacing]{setspace} % 1,5 Zeilenabstand
 %\usepackage{subscript} % Tiefegestellter Text außerhalb des Mathemodus
 \usepackage{fixltx2e} % Tiefegestellter Text außerhalb des Mathemodus
 \usepackage{amsmath,
 	    amssymb,
 	    array,
+	    balance, % gleich lange säulen am ende jedes Kapitels
 	    color,
-	    natbib,
 	    graphicx,
 	    hyphsubst, % Silbentrennung wie ich es will
 	    hyperref,
-	    siunitx,
+	    natbib,
+	    siunitx, 
 	    tabularx,
 	    tikz}
-%\usepackage{multirow} %l�uft auf dem mac noch nicht\usepackage{flushend} % Ende der Kapitel sch�ner
+
 %\hypersetup{linktocpage} % nur die Seitenzahlen erscheinen als Link
+\usepackage{./src/mymacros}
+\usepackage{./docu/bscmakros}
+
+% \usepackage{showframe} % show margins and stuff
+
+% SETTINGS
+
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -38,12 +47,6 @@
     range-units=single
 }
 
-\usepackage{./src/mymacros}
-\usepackage{./docu/bscmakros}
-
-%SETTINGS
-
-
 %TITLE
 \title{Transport durch Dichteinstabilitäten in einer Hele-Shaw Zelle}
 \author{Johannes Haux}
@@ -51,11 +54,12 @@
 
 %DOCUMENT
 \begin{document}
-\input{./docu/00_ba_titlepage} % von der Uni gefordert. ggf anpassen
-
-\maketitle
 
 \onecolumn
+\input{./docu/00_ba_titlepage} % von der Uni gefordert. ggf anpassen
+
+
+% \maketitle
 \chapter*{abstract}
  %Englisch
   
@@ -65,6 +69,7 @@
 \tableofcontents
 \listoffigures
 
+\balance % gleich lange säulen am ende jedes Kapitels
 \chapter{Vorwort}
 \input{./docu/01_Vorwort}
 
@@ -77,11 +82,14 @@
 \chapter{Methoden}
 \input{./docu/04_Methoden}
 
-\chapter{Results}
+\chapter{Ergebnisse}
 \input{./docu/05_Ergebnisse}
 
+\chapter{Schlussfolgerungen}
+\input{./docu/06_Schlussfolgerungen}
+
 \chapter{Zusammenfassung}
-\input{./docu/06_Epilog}
+\input{./docu/07_Epilog}
 
 \bibliographystyle{plainnat}
 \bibliography{./docu/bibliography}

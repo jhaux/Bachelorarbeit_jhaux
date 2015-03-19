@@ -19,9 +19,71 @@ Die Bewegung inkompressibler Fluidpartikel wird durch die Navier-Stoke Gleichung
 \begin{eqnarray}
  \rho \dot{\vec{v}} = \rho \left( \frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot \nabla \vec{v} \right) = - \nabla p + \mu \nabla^2 \vec{v} + \vec{f}
 \end{eqnarray}
-Hierbei bezeichnet $\vec{v}$ die Geschwindikeit des betrachteten Partikels, $\nabla p$ den Druckgradienten und $\mu \nabla^2 \vec{v}$ den Reibungsterm. $\vec{f}$ steht für äußere Kräfte, die auf das System wirken, wie zum Beispiel die Gravitationskraft. \citep{roth2005}
+Hierbei bezeichnet $\vec{v}$ die Geschwindigkeit des betrachteten Partikels, $\nabla p$ den Druckgradienten und $\mu \nabla^2 \vec{v}$ den Reibungsterm. $\vec{f}$ steht für äußere Kräfte, die auf das System wirken, wie zum Beispiel die Gravitationskraft. \citep{roth2005}
+
+Möchte man die Bewegung oben genannter Fluidpartikel in porösen Medien beschreiben werden zusätzliche Informationen benötigt, das sich die Partikel nur durch die Poren bewegen können:
+$\theta = \frac{V_{water}}{V_{tot}}$ bezeichnet den Wassergehalt, $\Theta = \frac{\theta}{\phi}$ die Sättigung des betrachteten Mediums. Dabei gilt $\theta \leq \phi$. Beträgt die Sättung weniger als 1 ist nicht der gesamte Porenraum mit Wasser gefüllt. Für $\theta = \phi$ reicht es nur die Bewegung der Flüssigkeit um die Matrix zu beschreiben. Der Fluss des Wassers durch die Poren wird durch $\vec{j}_w = \theta \cdot \vec{v}$ beschrieben. Aus der Massenerhaltung folgt:
+\begin{align}
+ \frac{\partial \theta}{\partial t} = \nabla \vec{j}_w
+\end{align}
+Mit der Leitfähigkeit $K$ stellt \textit{Darcy's Gesetz} eine Verbindung zwischen Fluss und Einwirkungskräften her:
+\begin{align}
+ \vec{j}_w = -K \left[ \Delta p - \rho \vec{g} \right]
+\end{align}
+
+% \TODO{brauche ich das???}
+% \TODO{
+% Kann sich die Luft in den wasserfreien Poren frei bewegen und ist ihr Druckgradient vernachlässigbar klein gegenüber dem des Wasser, lässt sich der Fluss mit dem \textit{Buckingham-Darcy Gesetz} beschreiben:
+% \begin{align}
+%  \vec{j}_w = -K\nabla\Phi = -K \left[ \nabla \Phi_m - \rho \vec{g} \right]
+% \end{align}
+% Mit $\Phi$ wird das Wasserpotential bezeichnet, mit $\Phi_m$ das Matrixpotential, welches dem Druckunterschied am Wasser-Luft Übergang entspricht.
+% }
 
 
+\section{Transport von gelösten Stoffen}
+\label{sec:soltra}
+
+Der Transport von gelösten Stoffen in porösen Medien wird dominiert durch die Bewegung des Wassers. Allerdings spielen auch Diffusion und Dispersion eine Rolle.
+Gelöste Stoffe können Tracer wie \BB oder \BCG sein, aber auch Gase wie \COT.
+
+\subsection{Konvektion}
+\label{sec:conv}
+Mit Konvektion wird der Transport von Masse durch Bewegung eines Fluids bezeichnet. Dominiert nur dieser Effekt, bewegen sich alle Tracerpartikel entlang der Strömungsrichtung des Wassers.
+Das Geschwindigkeitsfeld des Wassers wird durch das Vektorfeld $\vec{v}(\vec{x})$ beschrieben, der Verteilung des Tracers durch das Skalarfeld $C(\vec{x})$. Die Änderung der Konzentration des Tracers durch die Bewegung des Fluids ist somit durch folgende Differnetialgleichung:
+\begin{align}
+ \frac{\partial C}{\partial t} = -\vec{v}\vec{\nabla}C
+\end{align}
+
+
+\subsection{Dispersion}
+\label{sec:disp}
+Mit Dispersion bezeichnet man in unserem Fall den Effekt, dass Tracerpartikel im Porenraum trotz nächster Nähe zueinander unterschiedlich schnell sein können. Dieser Effekt wird auch Tayler-Aris Dispersion bezeichnet und kommt dadurch zustande, dass sich das Fluid aufgrund von Reibungseffekten am Rand der Poren langsamer bewegt als in deren Mitte.
+
+\subsection{Diffusion}
+\label{sec:diff}
+Diffusion, also die Bewegung eines Partikels entlang des Konzentrationsgradienten, wird durch die Brownsche Molekularbewegung verursacht. Durch Diffusion wird der Konzentrationsgradient, auch ohne vorhandene Bewegung des Fluids, stattfinden. Der Partikelfluss $\vec{j}_C$ wird durch das erste Ficksche Gesetz beschrieben:
+\begin{align}
+ \vec{j}_C = D \vec{\nabla} C
+\end{align}
+Mit Hilfe des molekularen Diffusionskoeffizienten beschreibt das zweite Ficksche Gesetz die Konzentrationsänderung über die Zeit:
+\begin{align}
+ \frac{\partial C}{\partial t} = D_m \cdot \vec{\nabla}^2 C
+\end{align}
+
+Das poröse Medium schränkt den Raum, in den die Tracerpartikel diffundieren können ein. Millington und Quirk \citeyearpar{milli-quir} definieren hierfür zwei effektive Diffusionskoeffizienten:
+\begin{align}
+ D_{eff}^{diff} &= D_m \cdot \frac{\theta^{\frac{7}{3}}}{\phi^2} \\
+ D_{eff}^{diff} &= D_m \cdot \frac{\theta}{              \phi^\frac{3}{2}}
+\end{align}
+Da in allen Experimenten Sättigung vorliegt ($\Theta = 1$) kann die obige Gleichung umgeschrieben werden zu
+\begin{align}
+ D_{eff}^{diff} &= D_m \cdot \phi^{\frac{1}{3}}
+\end{align}
+
+\subsection{Rayleigh Zahl}
+\label{sec:ray}
+Zur Abschätzung, wann in den \HSC-Experimenten konvektive gegenüber diffusiven Prozessen und umgekehrt überwiegen, schlagen \citeauthor*{fernandez}
 
 \TODO{solute transport}
 \TODO{Konduktivität und Diffusivität => Reynolds}
