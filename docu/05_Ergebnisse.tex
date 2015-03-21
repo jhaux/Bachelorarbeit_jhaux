@@ -3,21 +3,66 @@
 \section{Verdunstungsexperiment}
 \label{res:eva}
 
+\subsection{Präsentation}
+\label{res:eva:pres}
+
+\widegraph[./plot/eva_diff_dashedlines]{Das Verdunstungsexperiment (a) zu Beginn der Messung und (b) am Ende nach 16 Tagen und 1,5 Stunden. Die Aufnahmen enstanden in Kombination mit einem \SI{630}{\nano\meter}-Filter. Die Ausbreitung den \BB Tracers ist mit einer weißen gestrichelten Linie bei (b) und (c) eingezeichnet. (c) Zeigt die Differenz der beiden Bilder (siehe Teil \ref{sec:ima}), normiert auf den Wertebereich $(0,\dots,100)$. Man kann erkennen, dass die Zelle im Verlauf der Messung gekippt ist (rote und blaue Streifen im oberen Teil des Bildes).}{fig:reseva}
+
+
+Das Verdunstungsexperiment wurde über einen Zeitraum von 16 Tagen und 1,5 Stunden durchgeführt. In Abbildung \ref{fig:reseva} kann man das Ergebnis der Messung sehen. Klar zu erkennen ist, dass sich der \BB-Tracer weit nach oben ausgebreitet hat, ca. über die Hälfte der Zelle. Bevorzugt wurde dabei der Weg über die Mitte der Zelle, was an der keilartigen struktur der Tracerausbreitung ausgemacht wird. 
+
+Mit Hilfe der Differenzenmethode aus Teil \ref{sec:ima} und durch betrachten der Abfolge aller aufgenommener Bilder in Form eines Films, lässt sich erkennen, dass die Zelle über den Zeitraum des Experiments leicht nach vorne gekippt ist. Dadurch bilden sich rote und blaue Linien aus, da die flaschen Regieonen voneinander abgezogen werden. Eine Abschätzung, wie der Tracer sich ausgebreitet hat ist dennoch in Kombination mit der Originalaufnahme sehr gut möglich und reicht für die qualitative Abschätzung, wie sie hier erfolgen soll.
+
+
+\subsection{Schlussfolgerungen}
+\label{res:eva:disk}
+
+Eine sehr grobe Abschätzung der Menge, des verdunsteten Wassers kann über die Fläche, die der Tracer einnimmt gemacht werden. So wie sie hier durchgeführt wird, kann und soll sie keine harten wissenschaftlichen Daten liefern, aber in Zahlen fassen, was man intuitiv sieht.
+
+Unter der Annahme, dass die Kügelchen in der Zelle so dicht wie möglich gepackt sind ist die Porosität an allen Stellen $\bar{\phi} = 0,35$. Diese Annahme stellt natürlich eine untere Grenze dar, da die Kugeln nicht perfekt liegen. 
+Die eingenommene Fläche wird mit $\frac{1}{3}$ der Zellenfläche abgeschätzt. Zusammen mit den Abmessungen der Zelle (Tabelle \ref{tab:hsc}) erhält man das abgeschätzte Volumen $V_w$ des verdunsteten Wassers:
+\begin{align}
+ V_{HS-Zelle} &=  \SI{0,4095}{\liter} \\
+ \Rightarrow V_{w} &= \frac{\bar{\phi}}{3} \cdot V_{HS-Zelle} = \SI{0,04778}{\liter}
+\end{align}
+Teilt man dieses Ergebnis durch die Zeitdauer des Experiments erhält man eine Abschätzung für die Verdunstungsrate:
+\begin{align}
+ \dot{V_w} = \SI{0.1239}{\milli\liter\per\hour}
+\end{align}
+
+\TODO{Vergleich Arbeit Apple}
+
+
+
 
 \section{\COT-Experiment}
 \label{res:cot}
 
-\graph{Mit Hilfe der diskreten Fourieranalyse wird bestimmt wo sich die Finger befinden. Zusätzlich erhält man die dominierenden Abstände der Finger. Man kann gut erkenne, dass dieser bei \TODO{$k = ??$} liegt. Das bereinigte Spektrum wird zur Fingerdetektion benutzt.}{fig:four}
+\subsection{Präsentation}
+\label{res:cot:pres}
+
+\widegraph{Entwicklung der \COT-Finger zu verschiedene Zeitschritten. Bis zum Zeitpunkt $t=\SI{1}{\minute}$ kann man die Ausbildung einer diffusiven Schicht beobachten, anschließend brechen die Finger heraus. Die Farbskala beschreibt die relative Absorption im Bezug auf den Hintergrund (0). Maximale Absorption bekommt den Wert 100 zugewiesen.}{fig:fing}
+
+\graph{Mit Hilfe der diskreten Fourieranalyse wird bestimmt wo sich die Finger befinden. Zusätzlich erhält man die dominierenden Abstände der Finger. Man kann gut erkennen, dass dieser bei \TODO{$k = ??$} liegt. Das bereinigte Spektrum wird zur Fingerdetektion benutzt.}{fig:four}
 
 
 \graph{Um zu demonstrieren, dass die Methode zur Längenbestimmung funktioniert wurden in diesem Bild die Längen der Finger als Balken über ihre Position geplottet. Da die Finger aber nur in der Anfangsphase des Experiments gerade nach unten sinken kann man in Abbildung \ref{fig:len2} ein Beispiel sehen, wo die Länge der Finger offensichtlich unterschätzt wird.}{fig:len}
 
 \graph{Nach \TODO{$t=\SI{5}{\minute}$} kann die Fingerlänge nicht mehr sinnvoll bestimmt werden.}{fig:len2}
 
+\subsection{Schlussfolgerungen}
+\label{res:cot:disk}
+
 \section{\COT Experiemt im porösen Medium}
 \label{res:cpm}
+
+\subsection{Präsentation}
+\label{res:cpm:pres}
 Leider musste schnell festgestellt werden, dass die Kügelchen den pH-Wert des Wassers so sehr basisch beeinflussen, dass das \COT keinen Ausschlag in die saure Richtung verursachen kann. Fotografien von Tests dazu finden sich in Abbildung \ref{fig:CPO}.
 
 \graph{Farbumschläge des \BCG in Verbindung mit verschiedenen Substanzen. \BCG (1) in neutraler Form, \dah im Gleichgewicht mit der umgebenden Luft, (2) in Kombination mit \COT. Man kann sehr gut den Ausschlag ins Gelbe erkennen. (3) mit den Glaskügelchen verschiedener Größen, (4) mit Glaskügelchen und \COT.}{fig:CPO}
 
 Auch die Verwendung von Kügelchen aus anderem Material wurde angedacht. Erste Tests zeigen
+
+\subsection{Schlussfolgerungen}
+\label{res:cpm:disk}

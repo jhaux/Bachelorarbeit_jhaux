@@ -2,7 +2,7 @@
 
 % einbinden von Graphiken, die \linewidth breit sind
 \newcommand{\graph}[3][./src/missing_graph.eps]{
-  \begin{figure}[H]
+  \begin{figure}[t]
       \centering
       \includegraphics[width=\linewidth]{#1}
       \caption{#2}
@@ -12,7 +12,7 @@
 
 
 \newcommand{\mediumgraph}[3][./src/missing_graph.eps]{
-  \begin{figure}[H]
+  \begin{figure}[t]
       \centering
       \includegraphics[width=0.75\linewidth]{#1}
       \caption{#2}
@@ -22,7 +22,7 @@
 
 
 \newcommand{\smallgraph}[3][./src/missing_graph.eps]{
-  \begin{figure}[H]
+  \begin{figure}[t]
       \centering
       \includegraphics[width=0.5\linewidth]{#1}
       \caption{#2}
@@ -35,7 +35,7 @@
 		dblfloatfix}
 
 % einbinden von Graphiken, die immer über die ganze Seitenbreite gehen
-\newcommand{\widegraph}[3][./src/missing_graph.eps]{
+\newcommand{\widegraph}[3][./src/missing_graph]{
   \begin{figure*}[ht!]
       \centering
       \includegraphics[width=\textwidth]{#1}

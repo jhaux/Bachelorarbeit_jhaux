@@ -1,28 +1,39 @@
 \label{cha:met}
 
-Alle durchgeführten Experimente wurden, wie in Kapitel \ref{cha:set} beschrieben, mit Hilfe einer Kamera aufgezeichnet. Die Auswertung beruht daher in einem ersten Schritt darin die gewünschten Informationen aus den Bildern zu gewinnen. In allen durchgeführten Experimenten ist dies die Verfolgung eines Tracers, welcher andere Absorptionseigenschaften hat, als das ihn umgebende Material.
-In einem nächsten Schritt werden die so gewonnen Daten genommen und weiter ausgewertet, um Informationen über das Verhalten der Beobachteten Phänomene zu erhalten.
+Alle durchgeführten Experimente wurden, wie in Kapitel \ref{cha:set} beschrieben, mit Hilfe einer Kamera aufgezeichnet. Die Auswertung beruht daher in einem 
+ersten Schritt darin die gewünschten Informationen aus den Bildern zu gewinnen. In allen durchgeführten Experimenten ist dies die Verfolgung eines Tracers, 
+welcher andere Absorptionseigenschaften hat, als das ihn umgebende Material.
+In einem nächsten Schritt werden die so gewonnen Daten genommen und weiter ausgewertet, um Informationen über das Verhalten der Beobachteten Phänomene zu 
+erhalten.
 
-Im Folgenden werden häufig die Begriffe ``Helligkeit'', ``Grauwert'' und ``Intensität'' synonym verwendet. Sie bezeichnen alle die selbe Information: Den Grauwert \TODO{$i \geq 0$} eines Pixels, bzw. die Grauwerte eines Pixelarrays.
+Im Folgenden werden häufig die Begriffe ``Helligkeit'', ``Grauwert'' und ``Intensität'' synonym verwendet. Sie bezeichnen alle die selbe Information: Den 
+Grauwert \TODO{$i \geq 0$} eines Pixels, bzw. die Grauwerte eines Pixelarrays.
 
 \section{Bildanalyse}
 \label{sec:ima}
 % verwendete Software
 Die vorgenommenen Bildanalysen wurden mit Hilfe von \cite{python} (Version 2.7) durchgeführt. 
-%Hauptsächlich wurden die Pakete OpenCV (Version 2, zum Laden der Bilder), numpy (Verarbeitung der Bilder, Matrixoperationen) und matplotlib (Darstellung/Speichern und Plotten) verwendet.
+% Hauptsächlich wurden die Pakete OpenCV (Version 2, zum Laden der Bilder), numpy (Verarbeitung der Bilder, Matrixoperationen) und matplotlib (Darstellung/Speichern und Plotten) verwendet.
 % Einlesen der Bilder
-Ein Bild, welches von OpenCV eingelesen wird besteht aus drei \SI{8}{\bit} Kanälen. Da die Kamera aber ein monochromes Bild aufgezeichnet hat, ist davon auszugehen, dass das eigentlich einkanalige Bild künstlich auf drei Kanäle umgerechnet wurde. Der Einfachheit halber wird über die Kanäle gemittelt und man erhält ein Array aus Grauwerten mit dem weiter gerechnet wird.
+Ein Bild, welches von OpenCV eingelesen wird besteht aus drei \SI{8}{\bit} Kanälen. Da die Kamera aber ein monochromes Bild aufgezeichnet hat, ist davon 
+auszugehen, dass das eigentlich einkanalige Bild künstlich auf drei Kanäle umgerechnet wurde. Der Einfachheit halber wird über die Kanäle gemittelt und man 
+erhält ein Array aus Grauwerten mit dem weiter gerechnet wird.
 
 % Differenzen Methode
 Zur Bestimmung der Position eines Tracers stehen verschiedene Möglichkeiten zu Verfügung.
-Unter der Annahme, dass die aufgezeichneten Bilder $\mathbf{B}$ zu allen Zeiten in allen Bereichen gleich belichtet sind, kann man ein Referenzbild $\mathbf{R}$ vom Rest der Bilder abziehen. Als Referenz wird das erste Bild der Messung, bei noch unverändertem Ausgangszustand gewählt.
+Unter der Annahme, dass die aufgezeichneten Bilder $\mathbf{B}$ zu allen Zeiten in allen Bereichen gleich belichtet sind, kann man ein Referenzbild $\mathbf{R}$ 
+vom Rest der Bilder abziehen. Als Referenz wird das erste Bild der Messung, bei noch unverändertem Ausgangszustand gewählt.
 Als Ergebnis erhält man Matrizen $\mathbf{C}$, welche in unveränderten Bereichen den Wert Null annehmen, ansonsten aber ungleich null sind:
 \begin{eqnarray}
  \mathbf{C} = \mathbf{B} - \mathbf{R}
 \end{eqnarray}
 
 
-Allerdings lässt sich leicht feststellen, dass die aufgezeichneten Bilder in ihrer Helligkeit schwanken. Bilder die früher aufgezeichnet wurden sind heller, als solche, die später gemacht wurden. Um diesem Effekt entgegenzuwirken wird ein Algorithmus implementiert, der einen Bildbereich betrachtet, dessen Helligkeit während der gesamten Messung konstant bleiben sollte. Sei $\mathbf{B}$ ein beliebiges Bild der Messreihe und $\mathbf{R}$ das Referenzbild. Dann sind $\mathrm{M(\mathbf{B})}$ und $\mathrm{M(\mathbf{R})}$ die Arrays aus $N$ Pixeln, die den Bildbereich mit konstanter Intensität beschreiben. Aus allen Elementen wird der jeweilige Mittelwert dieser beiden Matrizen errechnet:
+Allerdings lässt sich leicht feststellen, dass die aufgezeichneten Bilder in ihrer Helligkeit schwanken. Bilder die früher aufgezeichnet wurden sind heller, als 
+solche, die später gemacht wurden. Um diesem Effekt entgegenzuwirken wird ein Algorithmus implementiert, der einen Bildbereich betrachtet, dessen Helligkeit 
+während der gesamten Messung konstant bleiben sollte. Sei $\mathbf{B}$ ein beliebiges Bild der Messreihe und $\mathbf{R}$ das Referenzbild. Dann sind 
+$\mathrm{M(\mathbf{B})}$ und $\mathrm{M(\mathbf{R})}$ die Arrays aus $N$ Pixeln, die den Bildbereich mit konstanter Intensität beschreiben. Aus allen Elementen 
+wird der jeweilige Mittelwert dieser beiden Matrizen errechnet:
 \begin{eqnarray}
  \mu_{\mathbf{B}} = \frac{1}{N} \sum_{i=1}^N \mathrm{M(\mathbf{B})}_i \\
  \mu_{\mathbf{R}} = \frac{1}{N} \sum_{i=1}^N \mathrm{M(\mathbf{R})}_i
@@ -33,7 +44,8 @@ Aus diesen Werten lässt sich nun ein Faktor $f$ zur Korrektur des Bildes errech
  \mu_{\mathbf{R}} = f \cdot \mu_{\mathbf{B}}
 \end{eqnarray}
 
-Damit lassen sich alle Grauwerte des Bildes auf den passenden Wert korrigieren ($\mathbf{B}_{neu} = f \cdot \mathbf{B}$) und man erhält einen neuen Wert für die Differenzmatrix:
+Damit lassen sich alle Grauwerte des Bildes auf den passenden Wert korrigieren ($\mathbf{B}_{neu} = f \cdot \mathbf{B}$) und man erhält einen neuen Wert für die 
+Differenzmatrix:
 \begin{eqnarray}
  \mathbf{C} = f \cdot \mathbf{B} - \mathbf{R}
  \label{eq:norm}
@@ -41,37 +53,56 @@ Damit lassen sich alle Grauwerte des Bildes auf den passenden Wert korrigieren (
 
 
 % Quotientenmethode
-Neben der schwankenden Helligkeit fällt auch noch auf, dass die LED-Beleuchtung zu einer Vignettierung der Aufnahme führt, da die Beleuchtung in der Mitte stärker als an den Rändern. Ein einfaches Substrahieren der Bilder führt also zu einer Unterschätzung der absoluten Grauwerte im Außenbereich, bzw. zu einer Überschätzung im Innenbereich des Bildes.
-Unter der Annahme, dass diese Vignettierung über den Zeitraum der Messung konstant bleibt, wird anstelle der Subtraktion eine Division durchgeführt, \dah jedes Pixel $\mathbf{b}_{nm}$ des untersuchten Bildes wird durch das Pixel $\mathbf{r}_{nm}$ des Referenzbildes an selber Stelle geteilt, wobei gilt $\mathbf{B} = \mathbf{b}_{nm}$ und $\mathbf{R} = \mathbf{r}_{nm}$. Zusammen mit Gleichung \ref{eq:norm} erhält man folgende Bildungsvorschrift für die Quotientenbilder:
+Neben der schwankenden Helligkeit fällt auch noch auf, dass die LED-Beleuchtung zu einer Vignettierung der Aufnahme führt, da die Beleuchtung in der Mitte 
+stärker als an den Rändern. Ein einfaches Substrahieren der Bilder führt also zu einer Unterschätzung der absoluten Grauwerte im Außenbereich, bzw. zu einer 
+Überschätzung im Innenbereich des Bildes.
+Unter der Annahme, dass diese Vignettierung über den Zeitraum der Messung konstant bleibt, wird anstelle der Subtraktion eine Division durchgeführt, \dah jedes 
+Pixel $\mathbf{b}_{nm}$ des untersuchten Bildes wird durch das Pixel $\mathbf{r}_{nm}$ des Referenzbildes an selber Stelle geteilt, wobei gilt 
+$\mathbf{B} = \mathbf{b}_{nm}$ und $\mathbf{R} = \mathbf{r}_{nm}$. Zusammen mit Gleichung \ref{eq:norm} erhält man folgende Bildungsvorschrift für die 
+Quotientenbilder:
 \begin{eqnarray}
  \mathbf{C} = \mathbf{c}_{nm} = \frac{f * \mathbf{b}_{nm}}{\mathbf{r}_{nm}}
  \label{eq:quot}
 \end{eqnarray}
-Die Werte von $\mathbf{C}$ nehmen den Wert 1 überall dort an, wo Referenz- und betrachtetes Bild gleich sind. Der Tracer befindet sich also dort, wo gilt $\mathbf{c}_{nm} \neq 1$.
+Die Werte von $\mathbf{C}$ nehmen den Wert 1 überall dort an, wo Referenz- und betrachtetes Bild gleich sind. Der Tracer befindet sich also dort, wo gilt 
+$\mathbf{c}_{nm} \neq 1$.
 
 Zur leichteren Interpretation werden die Werte vor der graphischen Visualisierung auf einen Wertebereich von 0 bis 100 normiert.
 
 \section{Detektion und Verfolgung des Tracers im Fall von Fingerbildung}
 \label{sec:track}
-Während der \COT-Experimente wird beobachtet, dass sich herabsinkende Finger der Wasser-\COT-Lösung, bilden. Deren Position und Länge über den Zeitraum der Messung, bzw. der ersten Minuten, sind interessante Größen, die dabei helfen können, das System zu beschreiben und zu verstehen.
+Während der \COT-Experimente wird beobachtet, dass sich herabsinkende Finger der Wasser-\COT-Lösung, bilden. Deren Position und Länge über den Zeitraum der 
+Messung, bzw. der ersten Minuten, sind interessante Größen, die dabei helfen können, das System zu beschreiben und zu verstehen.
 
-Wird im folgenden von ``Bild'' gesprochen, so ist vom Quotientenbild nach Gleichung \ref{eq:quot} die Rede. Mit anderen Worten bezeichnet ``Bild'' die räumlich aufgelöste Tracerkonzentration zu einem bestimmten Zeitpunkt der Messung.
+Wird im folgenden von ``Bild'' gesprochen, so ist vom Quotientenbild nach Gleichung \ref{eq:quot} die Rede. Mit anderen Worten bezeichnet ``Bild'' die räumlich 
+aufgelöste Tracerkonzentration zu einem bestimmten Zeitpunkt der Messung.
 
 \subsection{Detektion}
 \label{sec:dec}
-Zunächst wird ein Bereich des zu untersuchenden Bildes festgelegt, in dem sich nur Indikatorflüssigkeit befindet. Nach Möglichkeit schließt die obere Kante dieses Bildbereiches genau mit der Wasserkante ab. Ein Herausragen über die Wasserkante wird vermieden, da die Hintergrundbeleuchtung für sehr helle Intensitätswerte sorgt. Da auch die Finger für höhere Intensitäten sorgen (siehe Teil \ref{sec:cot}) würde sonst die Messung systematisch beeinflusst. Der Bereich bleibt für alle Bilder gleich.
+Zunächst wird ein Bereich des zu untersuchenden Bildes festgelegt, in dem sich nur Indikatorflüssigkeit befindet. Nach Möglichkeit schließt die obere Kante 
+dieses Bildbereiches genau mit der Wasserkante ab. Ein Herausragen über die Wasserkante wird vermieden, da die Hintergrundbeleuchtung für sehr helle 
+Intensitätswerte sorgt. Da auch die Finger für höhere Intensitäten sorgen (siehe Teil \ref{sec:cot}) würde sonst die Messung systematisch beeinflusst. Der 
+Bereich bleibt für alle Bilder gleich.
 
-Aus dem so erhaltenen Array $\mathbf{C} = \mathbf{c}_{nm}$ ($n \in 1,\dots,N$ und $m \in 1,\dots,M$) wird von jeder Säule der Mittelwert berechnet. Man erhält ein Array der mittleren, vertikalen Intensitäten $\mathbf{I} = \mathbf{i}_{n}$:
+Aus dem so erhaltenen Array $\mathbf{C} = \mathbf{c}_{nm}$ ($n \in 1,\dots,N$ und $m \in 1,\dots,M$) wird von jeder Säule der Mittelwert berechnet. Man erhält 
+ein Array der mittleren, vertikalen Intensitäten $\mathbf{I} = \mathbf{i}_{n}$:
 \begin{eqnarray}
  \mathbf{i}_{n} = \frac{1}{M} \sum_{i=1}^{M} \mathbf{c}_{ni}
 \end{eqnarray}
 
-Für jedes Bild, bzw. jeden Zeitschritt erhält man so ein charakteristisches Signal. Unter der Annahme, dass die Finger sich gerade nach unten bewegen, befindet sich ein Finger an jedem lokalen Maximum von $\mathbf{I}$. Über die Richtigkeit dieser Annahme wird in Teil \ref{res:cot} diskutiert.
-Da das Signal verrauscht ist wird eine diskrete Fourieranalyse durchgeführt, um das Wellenzahlenspektrum zu erhalten. So kann analysiert werden, in welchen Abständen Finger vorwiegend auftreten. Bereinigt man dieses Spektrum von den Werten, die dem Rauschen zugeordnet werden und führt eine Rücktransformation in den ursprünglichen Raum durch, kann man genau sehen, wo sich die Intensitäts-Maxima befinden. Wiederholt man dieses Verfahren zu jedem Zeitschritt erhält man eine zeitaufgelöste Vorstellung davon, wo sich die Finger im Verlauf des Experiments befinden.
+Für jedes Bild, bzw. jeden Zeitschritt erhält man so ein charakteristisches Signal. Unter der Annahme, dass die Finger sich gerade nach unten bewegen, befindet 
+sich ein Finger an jedem lokalen Maximum von $\mathbf{I}$. Über die Richtigkeit dieser Annahme wird in Teil \ref{res:cot} diskutiert.
+Da das Signal verrauscht ist wird eine diskrete Fourieranalyse durchgeführt, um das Wellenzahlenspektrum zu erhalten. So kann analysiert werden, in welchen 
+Abständen Finger vorwiegend auftreten. Bereinigt man dieses Spektrum von den Werten, die dem Rauschen zugeordnet werden und führt eine Rücktransformation in den 
+ursprünglichen Raum durch, kann man genau sehen, wo sich die Intensitäts-Maxima befinden. Wiederholt man dieses Verfahren zu jedem Zeitschritt erhält man eine 
+zeitaufgelöste Vorstellung davon, wo sich die Finger im Verlauf des Experiments befinden.
 
 \subsection{Länge}
 \label{sec:lan}
-Mit dem Wissen, wo sich die Finger befinden, lässt sich auch deren Länge errechnen. Dazu wird an jeder Stelle $s$ im Array $\mathbf{C}$ aus Teil \ref{sec:dec}, wo sich ein Finger befindet, die Pixelsäule $\mathbf{c}_{sm}$ von unten nach oben abgewandert ($m \in M, \dots, 1$), bis ein Schwellenwert $c_{crit}$ überschritten ist, der festlegt, ab welchem Grauwert von einem Finger die Rede ist. Um dieses Wert nicht durch Rauschen zu früh zu detektieren, wird über eine Reihe von 5 Pixeln links und rechts von $\mathbf{c}_{sm}$ gemittelt. Der so erhaltene Wert für $m(c_{crit})$ gibt die Länge $l$ des Fingers in Pixeln an.
+Mit dem Wissen, wo sich die Finger befinden, lässt sich auch deren Länge errechnen. Dazu wird an jeder Stelle $s$ im Array $\mathbf{C}$ aus Teil \ref{sec:dec}, 
+wo sich ein Finger befindet, die Pixelsäule $\mathbf{c}_{sm}$ von unten nach oben abgewandert ($m \in M, \dots, 1$), bis ein Schwellenwert $c_{crit}$ 
+überschritten ist, der festlegt, ab welchem Grauwert von einem Finger die Rede ist. Um dieses Wert nicht durch Rauschen zu früh zu detektieren, wird über eine 
+Reihe von 5 Pixeln links und rechts von $\mathbf{c}_{sm}$ gemittelt. Der so erhaltene Wert für $m(c_{crit})$ gibt die Länge $l$ des Fingers in Pixeln an.
 \begin{align}
  m &\in (M,\dots,1) \\
  l(m) &= \left(\frac{1}{10}\sum_{i=s-5}^{s+5} \mathbf{c}_{im} \leq c_{crit} \right) \, ? \; l(m-1) : m \\
@@ -82,10 +113,13 @@ In Abbildung \ref{fig:four} und \ref{fig:len} sind Beispiele für die Detektion 
 
 \subsection{Wachstum}
 \label{sec:grow}
-Mit der Annahme, dass alle Finger gleich schnell wachsen, reicht es aus, zu jedem Zeitschritt $t_i$ den Mittelwert $\bar{l}_i$ der Länge aller Finger zu berechnen und anschließend durch den Zeitschritt zu teilen, um ihre Wachstumsrate zu ermitteln. 
+Mit der Annahme, dass alle Finger gleich schnell wachsen, reicht es aus, zu jedem Zeitschritt $t_i$ den Mittelwert $\bar{l}_i$ der Länge aller Finger zu 
+berechnen und anschließend durch den Zeitschritt zu teilen, um ihre Wachstumsrate zu ermitteln. 
 \begin{align}
  \dot{l}_i &= \frac{\bar{l}_i-\bar{l}_{i-1}}{t_i-t_{i-1}} \\
  i &\in \mathbb{N} \\
  \bar{l}_{0} &= 0
 \end{align}
- man aber beobachten kann, dass die Finger in unterschiedlichen Bereichen unterschiedlich schnell wachsen, wird eine Methode implementiert, die es erlaubt, Teile des untersuchten Arrays $\mathbf{C}$ zu betrachten. Das bedeutet, es werden nur die Längen der Finger in diesem Bereich in Betracht gezogen. \TODO{Wählt man den Bereich klein genug ist es möglich auch einzelne Finger zu betrachten. ACHTUNG! wurde noch nicht gemacht}
+man aber beobachten kann, dass die Finger in unterschiedlichen Bereichen unterschiedlich schnell wachsen, wird eine Methode implementiert, die es erlaubt, Teile 
+des untersuchten Arrays $\mathbf{C}$ zu betrachten. Das bedeutet, es werden nur die Längen der Finger in diesem Bereich in Betracht gezogen. \TODO{Wählt man den 
+Bereich klein genug ist es möglich auch einzelne Finger zu betrachten. ACHTUNG! wurde noch nicht gemacht}
