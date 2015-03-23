@@ -51,8 +51,10 @@ def quotient(image, reference, glob_min, glob_max):
     # print reference.max()
     ref *= 100. / float(glob_max - glob_min)
 
-    ref[ref < 0.000001] = np.inf  # divide by zero returns 0 => makes sense, because where the reference is dark also
+    ref[ref < 0.000001] = np.inf
+    # divide by zero returns 0 => makes sense, because where the reference is dark also
     # the image must be dark!
+
     # print ref.min(), ref[ref < 101].max()  # debugging
 
     quot = np.divide(image, ref)
@@ -74,17 +76,17 @@ def difference(image, reference, glob_min, glob_max):
     # print reference.max()
     ref *= 100. / float(glob_max - glob_min)
 
-    ref[ref < 0.000001] = np.inf  # divide by zero returns 0 => makes sense, because where the reference is dark also
+    # ref[ref < 0.000001] = np.inf  # divide by zero returns 0 => makes sense, because where the reference is dark also
     # the image must be dark!
     # print ref.min(), ref[ref < 101].max()  # debugging
 
-    quot = image - ref
+    diff = image - ref
 
-    quot -= quot.min()
+    diff -= diff.min()
     # print quot.min(), quot.max()  # debugging
-    quot *= 100. / quot.max()
+    diff *= 100. / diff.max()
 
-    return quot
+    return diff
 
 
 def rescale(image, low=0, top=100):
@@ -133,7 +135,7 @@ def adjust_Intensity(image_ref, image, patch, normcrit='linear'):
 
     if normcrit == 'linear':
         norm_factor = float(mean_ref_1) / float(mean_im_1)
-        print mean_ref_1, mean_im_1, norm_factor
+        # print mean_ref_1, mean_im_1, norm_factor  # debugging
         image_norm = np.asarray(image, dtype='float') * float(norm_factor)
         return image_norm
     elif normcrit == 'shift':
@@ -142,11 +144,11 @@ def adjust_Intensity(image_ref, image, patch, normcrit='linear'):
         return image_shift
 
 
-def get_global_minmax(all_Files, dark, ref, normpatch, start, last, N):
+def get_global_minmax(all_Files, dark, ref, normpatch):
     glob_min = 1000000
     glob_max = -1000000
 
-    for i in np.linspace(start, last, num=N):
+    for i in np.arange(len(all_Files)):
         image_name = all_Files[int(i)]
         image = np.mean(jim.rotate_90(cv2.imread(image_name), 0), axis=-1) - dark
         image = adjust_Intensity(ref, image, normpatch)
@@ -318,6 +320,11 @@ def plot_all(
         plot_q=True,
         plot_d=True,
         plot_r=True,
+        from_file=False,
+        globmm_savename='',
+        dark_savename='',
+        gauss_sigma=2,
+        gauss_order=0,
         ref_n=1,
         N=7,
         start=4,
@@ -355,14 +362,20 @@ def plot_all(
 
     fig, axes = plt.subplots(nrows=N, ncols=M)
     left_cut, right_cut, top_cut, bottom_cut = cuts
-    dark = np.mean(jim.rotate_90(imop.mean_image(path_to_files, rot=False), 0), axis=-1)
+    if from_file:
+        dark = np.genfromtxt(dark_savename)
+    else:
+        dark = np.mean(jim.rotate_90(imop.mean_image(path_to_files, rot=False), 0), axis=-1)
+
     ref = np.mean(jim.rotate_90(cv2.imread(all_Files[ref_n]), 0), axis=-1) - dark
     # ref = normalize_Intensity(ref, ref, normpatch)
 
     # first loop: get global min/max values
     print "global stuff"
-    glob_min, glob_max = get_global_minmax(all_Files, dark=dark, ref=ref, normpatch=normpatch, start=start, last=last,
-                                           N=N)
+    if from_file:
+        glob_min, glob_max = np.genfromtxt(globmm_savename)
+    else:
+        glob_min, glob_max = get_global_minmax(all_Files, dark=dark, ref=ref, normpatch=normpatch)
 
     # second loop: use global min/max values to create comparable data and plot
     print "There will be a plot soon!"
@@ -373,6 +386,7 @@ def plot_all(
     mod_2_s0 = np.linspace(0, 2 * N - 2, num=N)
     mod_2_s1 = np.linspace(1, 2 * N - 1, num=N)
     mod_1_s0 = np.linspace(0, 1 * N - 1, num=N)
+
     i_array = np.reshape(np.arange(M * N), (N, M))
     for i, val in enumerate(np.linspace(start, last, num=N)):
         i_array[i] = int(val)
@@ -390,7 +404,7 @@ def plot_all(
             diff = difference(image, ref, glob_min, glob_max)
             diff = rescale(diff, low_d, high_d)  # viewability
         if plot_q:
-            quot = difference(image, ref, glob_min, glob_max)
+            quot = quotient(image, ref, glob_min, glob_max)
             quot = rescale(quot, low_q, high_q)  # viewability
 
         if gauss and plot_d:
@@ -482,20 +496,16 @@ def plot_all(
 
         ax_num += 1
 
+    gr = 2
+    if M == 1:
+        fig.set_size_inches(cm2inch((gr * 21.0, gr * 29.7)))
+    else:
+        fig.set_size_inches(cm2inch((gr * 29.7, gr * 21.0)))
+
     # Make Colorbar
     if plot_d or plot_q:
         cbar_ax, kw = mpl.colorbar.make_axes([ax for ax in axes.flat])
         plt.colorbar(im1, cax=cbar_ax, **kw)
-
-    gr = 2
-    if plot_d and (not plot_q) and (not plot_r):
-        fig.set_size_inches(cm2inch((gr * 21.0, gr * 29.7)))
-    if (not plot_d) and plot_q and (not plot_r):
-        fig.set_size_inches(cm2inch((gr * 21.0, gr * 29.7)))
-    if (not plot_d) and (not plot_q) and plot_r:
-        fig.set_size_inches(cm2inch((gr * 21.0, gr * 29.7)))
-    else:
-        fig.set_size_inches(cm2inch((gr * 29.7, gr * 21.0)))
     fig.savefig(savename, dpi=300)
     # plt.show()
 
@@ -505,6 +515,8 @@ def main():
     path_to_files = u'/Users/jhaux/Desktop/Bachelorarbeit/Measurements/measurement_2015-02-02_14-03-19/measurement_2015-02-02_14-03-19/images/630_nm'
     path_to_fingers = u'/Users/jhaux/Desktop/Bachelorarbeit/Measurements/measurement_2015-02-02_14-03-19/measurement_2015-02-02_14-03-19/images/intensities_630.csv'
     path_to_plot = u'/Users/jhaux/Desktop/Bachelorarbeit/Measurements/measurement_2015-02-02_14-03-19/measurement_2015-02-02_14-03-19/images/plot_all.pdf'
+    globmm_savename = u'/Users/jhaux/Desktop/Bachelorarbeit/Measurements/measurement_2015-02-02_14-03-19/measurement_2015-02-02_14-03-19/images/glob_mm.csv'
+    dark_savename = u'/Users/jhaux/Desktop/Bachelorarbeit/Measurements/measurement_2015-02-02_14-03-19/measurement_2015-02-02_14-03-19/images/dark.csv'
     all_Files = jim.listdir_nohidden(path_to_files)
 
     finger_data = np.genfromtxt(path_to_fingers)
@@ -518,6 +530,8 @@ def main():
     xmin, xmax, ymin, ymax = patch
 
     # Here the real stuff starts!
+
+    # NOT USED
     # plot_quot(
     # all_Files,
     #     path_to_files,
@@ -537,6 +551,7 @@ def main():
     #     timesteps=timesteps
     # )
 
+    # NOT USED
     # plot_diff(
     #     all_Files,
     #     path_to_files,
@@ -556,6 +571,47 @@ def main():
     #     timesteps=timesteps
     # )
 
+
+    # SAVE THE IMPORTANT STUFF
+    # ref_n=0
+    # dark = np.mean(jim.rotate_90(imop.mean_image(path_to_files, rot=False), 0), axis=-1)
+    # np.savetxt(dark_savename, dark, delimiter='\t')
+    # ref = np.mean(jim.rotate_90(cv2.imread(all_Files[ref_n]), 0), axis=-1) - dark
+    # np.savetxt(globmm_savename, get_global_minmax(all_Files, ref=ref, dark=dark, normpatch=(1190, 1310, 60, 160)), delimiter='\t')
+
+    # used to plot the fingering in the first plot.
+    # plot_all(
+    #     all_Files,
+    #     path_to_files,
+    #     savename=path_to_plot,
+    #     gauss=True,
+    #     show_finger_bars=False,
+    #     plot_q=True,
+    #     plot_d=False,
+    #     plot_r=False,
+    #     from_file=True,
+    #     dark_savename=dark_savename,
+    #     globmm_savename=globmm_savename,
+    #     gauss_sigma=1.3,
+    #     gauss_order=0,
+    #     ref_n=0,
+    #     N=10,
+    #     start=1,
+    #     last=30,
+    #     low_d=55.,
+    #     high_d=80.,
+    #     low_q=67.5,
+    #     high_q=75.,
+    #     bar_w=10,
+    #     patch=(643, 1779, 1545, 2000),
+    #     normpatch=(1190, 1310, 60, 160),
+    #     normcrit='linear',
+    #     cuts=(0, 0, 0, int((ymax - ymin) / 2)),
+    #     intensities=intensities,
+    #     timesteps=timesteps
+    # )
+
+
     plot_all(
         all_Files,
         path_to_files,
@@ -563,16 +619,21 @@ def main():
         gauss=True,
         show_finger_bars=False,
         plot_q=True,
-        plot_d=True,
+        plot_d=False,
         plot_r=False,
-        ref_n=2,
-        N=7,
-        start=4,
-        last=11,
+        from_file=True,
+        dark_savename=dark_savename,
+        globmm_savename=globmm_savename,
+        gauss_sigma=1.3,
+        gauss_order=0,
+        ref_n=0,
+        N=10,
+        start=1,
+        last=30,
         low_d=55.,
         high_d=80.,
-        low_q=55.,
-        high_q=80.,
+        low_q=67.5,
+        high_q=75.,
         bar_w=10,
         patch=(643, 1779, 1545, 2000),
         normpatch=(1190, 1310, 60, 160),
@@ -581,7 +642,6 @@ def main():
         intensities=intensities,
         timesteps=timesteps
     )
-
 
 if __name__ == '__main__':
     main()
