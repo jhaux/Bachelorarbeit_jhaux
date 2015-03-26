@@ -161,6 +161,7 @@ def adjust_Intensity(image_ref, image, patch, normcrit='linear'):
         norm_factor = float(mean_ref_1) / float(mean_im_1)
         # print mean_ref_1, mean_im_1, norm_factor  # debugging
         image_norm = np.multiply(float(norm_factor), np.asarray(image, dtype='float'))
+        print norm_factor * mean_im_1, mean_ref_1, np.mean(image_norm[y_1:y_2, x_1:x_2])
         return image_norm
     elif normcrit == 'shift':
         shift = abs(mean_im_1 - mean_ref_1)
@@ -1182,6 +1183,63 @@ def plot_fingergrowth_patch(savename, xpatch, fingers, times, cell_width=27.3, x
     ax.set_title('Wachstum eines einzelnen Fingers')
 
     fig.savefig(savename, dpi=300)
+
+def plot_fingergrowth_single(savename, fingers, all_Files, p_patch, rects, ss=(0, None), cell_width=27.3, x_length=100):
+    fig = plt.figure()
+    ax1 = fig.add_subplot(121)
+    ax2 = fig.add_subplot(122)
+
+    image = jim.rotate_90(cv2.imread(all_Files[10]), 0)
+    # xmin, xmax = xpatch
+    xp_min, xp_max, yp_min, yp_max = p_patch
+    start, stop = ss
+    # take only what is needed from fingers:
+    n_array = []
+    stepsize = 10
+    big_mama = 0
+
+    for i, f in enumerate(fingers):
+
+        rest =  len(f) % stepsize
+        f = f[:-rest]
+        ls = np.mean(f.reshape(-1, stepsize), axis=-1)
+        all_f = len(f[f > 0])
+
+        # print ls
+
+        if big_mama == 0:
+            l_array = ls
+        l_array = np.vstack([l_array, ls])
+        n_array.append(all_f)
+
+    l_array = np.rot90(l_array)
+
+    ax1.plot(n_array)
+    ax1.set_title('start = ' + jim.get_timestamp(all_Files[0]))
+    ax1.set_xticklabels([jim.get_timestamp(t) for t in all_Files[start:stop]], rotation=45)
+
+    colors = scalar_cmap(len(l_array))
+    for i, l in enumerate(l_array):
+        ax2.plot(l, c=colors[i])
+
+    ax2.set_xticklabels([jim.get_timestamp(t) for t in all_Files[start:stop]], rotation=45)
+    # t_list = []
+    # times = np.linspace(0, 18360, num=len(fingers)+1)
+    # for t in times:
+    #     hours, remainder = divmod(t, 3600)
+    #     minutes, seconds = divmod(remainder, 60)
+    #     strftime = str(int(minutes))#+":0" + str(int(seconds))
+    #     t_list.append(strftime)
+    # ax.set_xticks((np.arange(len(fingers))))
+    # ax.set_xticklabels(t_list, rotation=45)
+    # ax.set_xlim((5, 23))
+    # fig.subplots_adjust(bottom=0.15)
+    # ax.set_xlabel('Zeit')
+    # ax.set_ylabel(u'Länge des Fingers $[cm]$')
+    # ax.set_title('Wachstum eines einzelnen Fingers')
+
+    # fig.savefig(savename, dpi=300)
+    plt.show()
 
 def main():
     # Load the pictures for plotting purposes
