@@ -1,4 +1,4 @@
-\label{cha:met}
+\label{cha:meth}
 
 Alle durchgeführten Experimente wurden, wie in Kapitel \ref{cha:set} beschrieben, mit Hilfe einer Kamera aufgezeichnet. Die Auswertung beruht daher in einem 
 ersten Schritt darin die gewünschten Informationen aus den Bildern zu gewinnen. In allen durchgeführten Experimenten ist dies die Verfolgung eines Tracers, 
@@ -97,6 +97,7 @@ Abständen Finger vorwiegend auftreten. Bereinigt man dieses Spektrum von den We
 ursprünglichen Raum durch, kann man genau sehen, wo sich die Intensitäts-Maxima befinden. Wiederholt man dieses Verfahren zu jedem Zeitschritt erhält man eine 
 zeitaufgelöste Vorstellung davon, wo sich die Finger im Verlauf des Experiments befinden.
 
+\TODO{==========}
 \subsection{Länge}
 \label{sec:lan}
 Mit dem Wissen, wo sich die Finger befinden, lässt sich auch deren Länge errechnen. Dazu wird an jeder Stelle $s$ im Array $\mathbf{C}$ aus Teil \ref{sec:dec}, 
@@ -109,7 +110,7 @@ Reihe von 5 Pixeln links und rechts von $\mathbf{c}_{sm}$ gemittelt. Der so erha
  l(0) &= 0
 \end{align}
 
-In Abbildung \ref{fig:four} und \ref{fig:len} sind Beispiele für die Detektion und bestimmte Länge der Finger zu finden.
+In Abbildung \ref{fig:f_detect} und \ref{fig:fgrowth} sind Beispiele für die Detektion und bestimmte Länge der Finger zu finden.
 
 \subsection{Wachstum}
 \label{sec:grow}
@@ -121,5 +122,7 @@ berechnen und anschließend durch den Zeitschritt zu teilen, um ihre Wachstumsra
  \bar{l}_{0} &= 0
 \end{align}
 man aber beobachten kann, dass die Finger in unterschiedlichen Bereichen unterschiedlich schnell wachsen, wird eine Methode implementiert, die es erlaubt, Teile 
-des untersuchten Arrays $\mathbf{C}$ zu betrachten. Das bedeutet, es werden nur die Längen der Finger in diesem Bereich in Betracht gezogen. \TODO{Wählt man den 
-Bereich klein genug ist es möglich auch einzelne Finger zu betrachten. ACHTUNG! wurde noch nicht gemacht}
+des untersuchten Arrays $\mathbf{C}$ zu betrachten. Das bedeutet, es werden nur die Längen der Finger in diesem Bereich in Betracht gezogen. Wählt man den 
+Bereich klein genug ist es möglich auch einzelne Finger zu betrachten.
+
+\TODO{raus? ======}

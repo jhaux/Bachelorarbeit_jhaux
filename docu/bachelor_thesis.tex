@@ -16,14 +16,15 @@
 	    hyphsubst, % Silbentrennung wie ich es will
 	    hyperref,
 	    natbib,
-	    pdflscape,
 	    siunitx, 
 	    tabularx,
 	    tikz}
 
+% \usepackage{pdflscape,}
 %\hypersetup{linktocpage} % nur die Seitenzahlen erscheinen als Link
 \usepackage{./src/mymacros}
 \usepackage{./docu/bscmakros}
+
 
 % \usepackage{showframe} % show margins and stuff
 
@@ -88,12 +89,13 @@
 \chapter{Ergebnisse}
 \input{./docu/05_Ergebnisse}
 
-% \chapter{Schlussfolgerungen}
+% \chapter{Ausblick}
 % \input{./docu/06_Schlussfolgerungen}
 
 \chapter{Zusammenfassung}
 \input{./docu/07_Epilog}
 
+\onecolumn
 \bibliographystyle{plainnat}
 \bibliography{./docu/bibliography}
 

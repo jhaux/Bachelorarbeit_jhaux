@@ -60,7 +60,7 @@ cell_width = 27.3  #cm
 if False:
     # safe darkframe and global min/max
     plf.save_darkframe(dark_savename, path_to_files)
-    plf.save_glob_minmax(globmm_savename, ref_name=all_Files[ref_n])
+    plf.save_glob_minmax(all_Files=all_Files, globmm_savename=globmm_savename, dark=np.genfromtxt(dark_savename), normpatch=normpatch)
 
 
 if False:

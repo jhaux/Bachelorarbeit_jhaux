@@ -25,12 +25,12 @@ Der Vorteil einer \HSC ist, dass man mit ihr Beobachtungen zweidimensionaler Nat
 
 \begin{table}[b]
   \begin{tabularx}{\linewidth}{X|c|c|c} %>{\raggedright}p{2,2cm}<{}
-    Aufbau			& Höhe				& Breite			& Abstand \\
+    Aufbau			& Höhe				& Breite			& Spaltbreite \\
     \hline\hline
-    Verdunstungs\-experi\-ment	& \SI{ 500}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI{3}{\milli\meter} \\
-    \hline
-    \COT-			& \SI{ 250}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI{2,1}{\milli\meter} \\
-    Experimente			& \SI{ 500}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI{2,1}{\milli\meter}
+%     Verdunstungs\-experi\-ment	& \SI{ 500}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI{3}{\milli\meter} \\
+%     \hline
+    \COT-			& \SI{ 250}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI[round-precision=1]{2,1}{\milli\meter} \\
+    Experiment			& \SI{ 500}{\milli\meter}	& \SI{273}{\milli\meter}	& \SI[round-precision=1]{2,1}{\milli\meter}
   \end{tabularx}
   \caption{Dimensionierung der \HSCs für die beiden durchgeführten Experimente. Siehe auch Abbildung \ref{fig:Hdim}.}
   \label{tab:Hdim}
@@ -55,8 +55,8 @@ Die Daten in Tabelle \ref{tab:cam} sind aus dieser Arbeit sowie dem Internetauft
   Objektiv	& Fujinon HF50SA-1 \\
   Brennweite	& 50 mm \\
   \hline
-  \TODO{Filter 1}	& \SI{452}{\nano\meter}, FWHM \SI{9}{\nano\meter} \\
-  Filter 2	& \SI{632}{\nano\meter}, FWHM \SI{11}{\nano\meter} 
+%   \TODO{Filter 1}	& \SI{452}{\nano\meter}, FWHM \SI{9}{\nano\meter} \\
+  Filter 2	& \SI{632}{\nano\meter}, FWHM: \SI{11}{\nano\meter} 
  \end{tabularx}
  \caption{Herstellerangaben zur verwendeten Kamera, sowie des Objektives und der Filter.}
  \label{tab:cam}
@@ -73,47 +73,35 @@ lassen sich die LEDs zusammen mit der Lüftung ein und ausschalten. Auch hierzu 
 \cite{heberle}.
 
 
-\section{Verdunstungsexperiment}
-\label{sec:eva}
-
-% \graph{Aufbau des Verdunstungsexperiments. Zu Sehen sind 1. , 2. , ...}{gr:suevp}
-% \TODO{Was will ich beobachten?}
-Verdunstungsexperimente mit einer \HSC haben das Problem, dass der Austausch zwischen Zelle und umgebender Luft durch den Plattenabstand der Zelle eingeschränkt wird. Dieses Experiment soll eine Abschätzung dazu liefern, wie die Zeitskalen für eine \HSC-Experiment mit porösem Medium sind.
-
-Für diesen Versuch wird ein bereits vorhandener Aufbau von \cite{feustel} verwendet, der aus einem porösen Medium mit räumlich stark heterogenen 
-Eigenschaften besteht. Hierbei ist die große \HSC ist mit Glaskügelchen verschiedener Größen gefüllt. Dabei enstehen Regionen, die sich jeweils über einen Teil 
-der Zellbreite erstrecken, wie in Abbildung \ref{fig:het} zu sehen ist. 
-Die Größen der verwendeten Kugeln (\textit{SiLi-Beads}) der Firma \textit{Sigmund-Lindner GmbH} sind in Tabelle \ref{tab:kug} notiert. 
-
-\smallgraph[./plot/hetero]{Die heterogene Struktur des aufgeschütteten porösen Mediums. Die verschiedenen Bereiche unterschiedlicher Kugelgröße lassen sich mit Hilfe von Tabelle \ref{tab:kug} zuordnen. Die Ausbreitung des Tracers ist mit einer gestrichelten weißen Linie markiert. Diese Aufnahme wurde mit einem vorgeschalteten \SI{630}{\nano\meter}-Filter gemacht, wodurch die Ausbreitung besser hervorgehoben wird.}{fig:het}
-
-\begin{table}[b]
-  \begin{tabularx}{\linewidth}{X|c|c|c}
-		& Durch\-messer 			& Stdabw. d. \O{}			& Raumgewicht	\\
-		& $\left[\si{\milli\meter}\right]$	& $\left[\si{\milli\meter}\right]$	& $\left[\si{\kg\per\dm\tothe{3}}\right]$ \\
-    \hline\hline
-    \circled{1}	& 0,07 - 0,11				& 0,06					& 1,37 \\
-    \circled{2}	& 0,2 - 0,3				& 0,03					& 1,44 \\
-    \circled{3}	& 0,4 - 0,6				& 0,21					& 1,47 
-  \end{tabularx}
-  \caption{Daten der verwendeten \textit{SiLi-Beads}. Die Materialdichte der Kugeln betragt \SI{2,5}{\kg\per\dm\tothe{3}}. Entnommen aus \cite{feustel}.}
-  \label{tab:kug}
-\end{table}
-
-Für dieses Experiment wurde der Zufluss am unteren Rand der Zelle so eingerichtet, dass sowohl \COT als auch Wasser oder gelöstes \BB kontrolliert in die Zelle 
-geleitet werden können. \BB ist eine Nahrungsmittelfarbe, welche hier in einer Konzentration von \SI{0,05}{\gram\per\liter} verwendet wird. Der Farbstoff 
-absorbiert im Wellenlängenbereich von \SI{630}{\nano\meter} maximal. Eine \BB Lösung kann also gut mit dem passenden Filter vor der Kamera verfolgt werden. 
-Siehe auch hierzu Abbildung \ref{fig:het}.
-Um Lufteinschlüsse zwischen den Glaskugeln beim Befüllen der Zelle zu vermeiden wird vor dem Fluten mit Wasser \COT durch die Zelle gespült. Dazu wird eine 
-Flasche mit etwas Trockeneis befüllt und anschließend das entstehende Gas in die Zelle geleitet. Dazu wird die Flasche, mit der Öffnung leicht nach unten 
-geneigt, auf den Kasten, in dem sich die Zelle befindet gelegt. Ein Schlauch verbindet Flaschenöffnung und untere Zufluss, sodass das Gas einfach durch die 
-Zelle hindurchfließt, da gasförmiges \COT schwerer als Luft ist. Nach etwa ein bis zwei Stunden wird angenommen, dass die gesamte Luft aus der Zelle verdrängt 
-wurde und es wird Wasser zugeführt. In diesem löst sich das Gas, sodass das poröse Medium komplett mit einer Wasser-\COT-Lösung gefüllt ist. Um unerwartete 
-Effekte, ggf. ausgelöst durch das \COT, zu vermeiden wird anschließend noch mehrmals Wasser durch die Zelle gepumpt, damit möglichst kein gelöstes \COT in der 
-Zelle zurückbleibt.
-Zum Beginn des Experiments wird der Wasserspiegel auf Höhe der obersten Kugelschicht gesenkt und die Pumpschläuche entfernt.
-Die Kamera filmt das Experiment mit einer Bildrate von \SI{1}{Bild\per\hour}. Ein Skript steuert die Beleuchtung, sodass diese nur während der Bildaufnahme 
-angeschaltet ist.
+% \section{Verdunstungsexperiment}
+% \label{sec:eva}
+% 
+% % \graph{Aufbau des Verdunstungsexperiments. Zu Sehen sind 1. , 2. , ...}{gr:suevp}
+% % \TODO{Was will ich beobachten?}
+% Verdunstungsexperimente mit einer \HSC haben das Problem, dass der Austausch zwischen Zelle und umgebender Luft durch den Plattenabstand der Zelle eingeschränkt wird. Dieses Experiment soll eine Abschätzung dazu liefern, wie die Zeitskalen für eine \HSC-Experiment mit porösem Medium sind.
+% 
+% Für diesen Versuch wird ein bereits vorhandener Aufbau von \cite{feustel} verwendet, der aus einem porösen Medium mit räumlich stark heterogenen 
+% Eigenschaften besteht. Hierbei ist die große \HSC ist mit Glaskügelchen verschiedener Größen gefüllt. Dabei enstehen Regionen, die sich jeweils über einen Teil 
+% der Zellbreite erstrecken, wie in Abbildung \ref{fig:het} zu sehen ist. 
+% Die Größen der verwendeten Kugeln (\textit{SiLi-Beads}) der Firma \textit{Sigmund-Lindner GmbH} sind in Tabelle \ref{tab:kug} notiert. 
+% 
+% \smallgraph[./plot/hetero]{Die heterogene Struktur des aufgeschütteten porösen Mediums. Die verschiedenen Bereiche unterschiedlicher Kugelgröße lassen sich mit Hilfe von Tabelle \ref{tab:kug} zuordnen. Die Ausbreitung des Tracers ist mit einer gestrichelten weißen Linie markiert. Diese Aufnahme wurde mit einem vorgeschalteten \SI{630}{\nano\meter}-Filter gemacht, wodurch die Ausbreitung besser hervorgehoben wird.}{fig:het}
+% 
+% \begin{table}[b]
+%   \begin{tabularx}{\linewidth}{X|c|c|c}
+% 		& Durch\-messer 			& Stdabw. d. \O{}			& Raumgewicht	\\
+% 		& $\left[\si{\milli\meter}\right]$	& $\left[\si{\milli\meter}\right]$	& $\left[\si{\kg\per\dm\tothe{3}}\right]$ \\
+%     \hline\hline
+%     \circled{1}	& 0,07 - 0,11				& 0,06					& 1,37 \\
+%     \circled{2}	& 0,2 - 0,3				& 0,03					& 1,44 \\
+%     \circled{3}	& 0,4 - 0,6				& 0,21					& 1,47 
+%   \end{tabularx}
+%   \caption{Daten der verwendeten \textit{SiLi-Beads}. Die Materialdichte der Kugeln betragt \SI{2,5}{\kg\per\dm\tothe{3}}. Entnommen aus \cite{feustel}.}
+%   \label{tab:kug}
+% \end{table}
+% 
+% Für dieses Experiment wurde der Zufluss am unteren Rand der Zelle so eingerichtet, dass sowohl \COT als auch Wasser oder gelöstes \BB kontrolliert in die Zelle geleitet werden können. \BB ist eine Nahrungsmittelfarbe, welche hier in einer Konzentration von \SI{0,05}{\gram\per\liter} verwendet wird. Der Farbstoff absorbiert im Wellenlängenbereich von \SI{630}{\nano\meter} maximal. Eine \BB Lösung kann also gut mit dem passenden Filter vor der Kamera verfolgt werden. Siehe auch hierzu Abbildung \ref{fig:het}. Um Lufteinschlüsse zwischen den Glaskugeln beim Befüllen der Zelle zu vermeiden wird vor dem Fluten mit Wasser \COT durch die Zelle gespült. Dazu wird eine Flasche mit etwas Trockeneis befüllt und anschließend das entstehende Gas in die Zelle geleitet. Dazu wird die Flasche, mit der Öffnung leicht nach unten geneigt, auf den Kasten, in dem sich die Zelle befindet gelegt. Ein Schlauch verbindet Flaschenöffnung und untere Zufluss, sodass das Gas einfach durch die Zelle hindurchfließt, da gasförmiges \COT schwerer als Luft ist. Nach etwa ein bis zwei Stunden wird angenommen, dass die gesamte Luft aus der Zelle verdrängt wurde und es wird Wasser zugeführt. In diesem löst sich das Gas, sodass das poröse Medium komplett mit einer Wasser-\COT-Lösung gefüllt ist. Um unerwartete Effekte, ggf. ausgelöst durch das \COT, zu vermeiden wird anschließend noch mehrmals Wasser durch die Zelle gepumpt, damit möglichst kein gelöstes \COT in der Zelle zurückbleibt. Zum Beginn des Experiments wird der Wasserspiegel auf Höhe der obersten Kugelschicht gesenkt und die Pumpschläuche entfernt.
+% Die Kamera filmt das Experiment mit einer Bildrate von \SI{1}{Bild\per\hour}. Ein Skript steuert die Beleuchtung, sodass diese nur während der Bildaufnahme angeschaltet ist.
 
 
 
@@ -138,12 +126,33 @@ sodass sich eine breitere \COT-Schicht bilden kann.
 
 \section{\COT Experiment mit porösen Medium.}
 \label{sec:cpm}
-In einem Versuch die Aufbauten des Verdunstungsexperiments und des \COT-Experiments zu kombinieren, wird die \HSC ähnlich wie in Teil \ref{sec:eva} beschrieben 
-mit den dort verwendeten Glaskügelchen befüllt. Anschließend wird die Zelle von unten mit der \BCG-Lösung befüllt. Wieder geschieht dies möglichst langsam, um 
-Lufteinschlüsse zu verhindern.
-Zusätzlich zu den oben genutzen Kügelchen wurden in einem weiteren Test Borosilikatkugeln mit \BCG zusammengebracht. Das verwendete Borosilikatglas ist chemisch 
-beständiger gegenüber Wasser als die für das Verdunstungsexperiment verwendeten \citep{sili:bor}. Die Eigenschaften der Kugeln sind in Tabelle \ref{tab:bor} 
-festgehalten.
+Für diesen Versuch wird ein Aufbau ähnlich wie bei \cite{feustel} verwendet, der aus einem porösen Medium mit räumlich stark heterogenen 
+Eigenschaften besteht. Hierbei ist die große \HSC mit Glaskügelchen verschiedener Größen gefüllt. Dabei entstehen Regionen, die sich jeweils über einen Teil der Zellbreite erstrecken, wie in Abbildung \ref{fig:het} zu sehen ist. 
+Die Größen der verwendeten Kugeln (\textit{SiLi-Beads}) der Firma \textit{Sigmund-Lindner GmbH} sind in Tabelle \ref{tab:kug} notiert. 
+
+\smallgraph[./plot/hetero]{Die heterogene Struktur des aufgeschütteten porösen Mediums. Die verschiedenen Bereiche unterschiedlicher Kugelgröße lassen sich mit Hilfe von Tabelle \ref{tab:kug} zuordnen. Diese Aufnahme wurde mit einem vorgeschalteten \SI{630}{\nano\meter}-Filter gemacht, wodurch die Ausbreitung besser hervorgehoben wird.}{fig:het}
+
+\begin{table}[b]
+  \begin{tabularx}{\linewidth}{X|c|c|c}
+		& Durch\-messer 			& Stdabw. d. \O{}			& Raumgewicht	\\
+		& $\left[\si{\milli\meter}\right]$	& $\left[\si{\milli\meter}\right]$	& $\left[\si{\kg\per\dm\tothe{3}}\right]$ \\
+    \hline\hline
+    \circled{1}	& 0,07 - 0,11				& 0,06					& 1,37 \\
+    \circled{2}	& 0,2 - 0,3				& 0,03					& 1,44 \\
+    \circled{3}	& 0,4 - 0,6				& 0,21					& 1,47 
+  \end{tabularx}
+  \caption{Daten der verwendeten \textit{SiLi-Beads}. Die Materialdichte der Kugeln betragt \SI[round-precision=2]{2,5}{\kg\per\dm\tothe{3}}. Entnommen aus \cite{feustel}.}
+  \label{tab:kug}
+\end{table}
+
+% Für dieses Experiment wurde der Zufluss am unteren Rand der Zelle so eingerichtet, dass sowohl \COT als auch Wasser oder gelöstes \BB kontrolliert in die Zelle geleitet werden können. \BB ist eine Nahrungsmittelfarbe, welche hier in einer Konzentration von \SI{0,05}{\gram\per\liter} verwendet wird. Der Farbstoff absorbiert im Wellenlängenbereich von \SI{630}{\nano\meter} maximal. Eine \BB Lösung kann also gut mit dem passenden Filter vor der Kamera verfolgt werden. Siehe auch hierzu Abbildung \ref{fig:het}. Um Lufteinschlüsse zwischen den Glaskugeln beim Befüllen der Zelle zu vermeiden wird vor dem Fluten mit Wasser \COT durch die Zelle gespült. Dazu wird eine Flasche mit etwas Trockeneis befüllt und anschließend das entstehende Gas in die Zelle geleitet. Dazu wird die Flasche, mit der Öffnung leicht nach unten geneigt, auf den Kasten, in dem sich die Zelle befindet gelegt. Ein Schlauch verbindet Flaschenöffnung und untere Zufluss, sodass das Gas einfach durch die Zelle hindurchfließt, da gasförmiges \COT schwerer als Luft ist. Nach etwa ein bis zwei Stunden wird angenommen, dass die gesamte Luft aus der Zelle verdrängt wurde und es wird Wasser zugeführt. In diesem löst sich das Gas, sodass das poröse Medium komplett mit einer Wasser-\COT-Lösung gefüllt ist. Um unerwartete Effekte, ggf. ausgelöst durch das \COT, zu vermeiden wird anschließend noch mehrmals Wasser durch die Zelle gepumpt, damit möglichst kein gelöstes \COT in der Zelle zurückbleibt. Zum Beginn des Experiments wird der Wasserspiegel auf Höhe der obersten Kugelschicht gesenkt und die Pumpschläuche entfernt.
+% Die Kamera filmt das Experiment mit einer Bildrate von \SI{1}{Bild\per\hour}. Ein Skript steuert die Beleuchtung, sodass diese nur während der Bildaufnahme angeschaltet ist.
+
+% In einem Versuch die Aufbauten des Verdunstungsexperiments und des \COT-Experiments zu kombinieren, wird die \HSC ähnlich wie in Teil \ref{sec:eva} beschrieben mit den dort verwendeten Glaskügelchen befüllt. 
+
+Die Zelle wird von unten mit der \BCG-Lösung befüllt. Dies geschieht möglichst langsam, um Lufteinschlüsse zu vermeiden.
+Zusätzlich zu den in Tebelle \ref{tab:kug} beschriebenen Kügelchen, wurden in einem weiteren Test Borosilikatkugeln mit \BCG zusammengebracht. Das verwendete Borosilikatglas ist chemisch beständiger gegenüber Wasser als die für das Verdunstungsexperiment verwendeten \citep{sili:bor}. Die Eigenschaften der Kugeln sind in Tabelle \ref{tab:bor} festgehalten.
+
 \begin{table}
  \begin{tabularx}{\linewidth}{X|c|c|c}
 		& Durch\-messer 			& Stdabw. d. \O{}			& Raumgewicht	\\
@@ -151,6 +160,6 @@ festgehalten.
   \hline\hline
   \circled{4}	& 1,0					& 0,3					& 1,10
  \end{tabularx}
- \caption{Daten der verwendeten \textit{SiLi-Beads Typ P}. Die Materialdichte der Kugeln betragt \SI{2,23}{\kg\per\dm\tothe{3}}. Entnommen aus \cite{sili:bor}.}
+ \caption{Daten der verwendeten \textit{SiLi-Beads Typ P}. Die Materialdichte der Kugeln betragt \SI[round-precision=2]{2,23}{\kg\per\dm\tothe{3}}. Entnommen aus \cite{sili:bor}.}
  \label{tab:bor}
 \end{table}
