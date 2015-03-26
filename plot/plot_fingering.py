@@ -218,7 +218,8 @@ def plot_all(
         normcrit='linear',
         cuts=(0, 0, 0, 0),
         fingerlengths=(0, 0),
-        timesteps=(0, 0)
+        timesteps=(0, 0),
+        cbar_loc='right'
 ):
     xmin, xmax, ymin, ymax = patch
     if plot_q and plot_d and plot_r:
@@ -387,10 +388,239 @@ def plot_all(
 
     # Make Colorbar
     if plot_d or plot_q:
-        cbar_ax, kw = mpl.colorbar.make_axes([ax for ax in axes.flat])
+        cbar_ax, kw = mpl.colorbar.make_axes([ax for ax in axes.flat], location=cbar_loc)
         plt.colorbar(im1, cax=cbar_ax, **kw)
-    fig.savefig(savename, dpi=300)
+    fig.savefig(savename, dpi=300, bbox_inches='tight')
     # plt.show()
+
+
+def plot_patch(
+        all_Files,
+        path_to_files,
+        savename,
+        gauss=False,
+        show_finger_bars=False,
+        plot_q=True,
+        plot_d=True,
+        plot_r=True,
+        plot_adjusted=True,
+        from_file=False,
+        absolute_time=False,
+        name_in_x=True,
+        state_type=False,
+        globmm_savename='',
+        dark_savename='',
+        gauss_sigma=2,
+        gauss_order=0,
+        ref_n=1,
+        N=7,
+        start=4,
+        last=25,
+        low_q=60.,
+        high_q=100.,
+        low_d=0.,
+        high_d=100.,
+        bar_w=10,
+        bar_col='k',
+        bar_alph=0.9,
+        patch=(643, 1779, 1545, 2000),
+        normpatch=(1190, 1310, 60, 160),
+        normcrit='linear',
+        cuts=(0, 0, 0, 0),
+        fingerlengths=(0, 0),
+        timesteps=(0, 0),
+        make_cbar=True,
+        cbar_loc='right'
+):
+    xmin, xmax, ymin, ymax = patch
+    if plot_q and plot_d and plot_r:
+        M = 3
+    elif plot_q and plot_d and not plot_r:
+        M = 2
+    elif plot_q and not plot_d and plot_r:
+        M = 2
+    elif not plot_q and plot_d and plot_r:
+        M = 2
+    elif not plot_q and not plot_d and plot_r:
+        M = 1
+    elif not plot_q and plot_d and not plot_r:
+        M = 1
+    elif plot_q and not plot_d and not plot_r:
+        M = 1
+    else:
+        print "you have to plot something!"
+        return 1
+
+    fig, axes = plt.subplots(nrows=M, ncols=N)
+    left_cut, right_cut, top_cut, bottom_cut = cuts
+    if from_file:
+        dark = np.genfromtxt(dark_savename)
+    else:
+        dark = np.mean(jim.rotate_90(imop.mean_image(path_to_files, rot=False), 0), axis=-1)
+
+    ref = np.mean(jim.rotate_90(cv2.imread(all_Files[ref_n]), 0), axis=-1) - dark
+    # ref = normalize_Intensity(ref, ref, normpatch)
+
+    # first loop: get global min/max values
+    print "global stuff"
+    if from_file:
+        glob_min, glob_max = np.genfromtxt(globmm_savename)
+    else:
+        glob_min, glob_max = get_global_minmax(all_Files, dark=dark, ref=ref, normpatch=normpatch)
+
+    # second loop: use global min/max values to create comparable data and plot
+    print "There will be a plot soon!"
+    t_0 = jim.get_timestamp(all_Files[0], human_readable=False)
+    mod_3_s0 = np.linspace(0 * 0, 1 * N-1, num=N)
+    mod_3_s1 = np.linspace(1 * N, 2 * N-1, num=N)
+    mod_3_s2 = np.linspace(2 * N, 3 * N-1, num=N)
+    mod_2_s0 = np.linspace(0 * 0, 1 * N-1, num=N)
+    mod_2_s1 = np.linspace(1 * N, 2 * N-1, num=N)
+    mod_1_s0 = np.linspace(0 * 0, 1 * N-1, num=N)
+
+    i_array = np.reshape(np.arange(M * N), (N, M))
+    for i, val in enumerate(np.linspace(start, last, num=N)):
+        i_array[i] = int(val)
+    i_array = np.reshape(i_array, (M * N,))
+
+    ax_num = 0
+    for ax, i in zip(axes.flat, i_array):
+        # print N-int(i)  # Countdown
+        image_name = all_Files[int(i)]
+        raw_image = jim.rotate_90(cv2.imread(image_name), 0)
+        image = np.mean(raw_image, axis=-1) - dark
+        image = adjust_Intensity(ref, image, normpatch, normcrit=normcrit)
+
+
+        if plot_d:
+            diff = difference(image, ref, glob_min, glob_max)
+            diff = rescale(diff, low_d, high_d)  # viewability
+        if plot_q:
+            quot = quotient(image, ref, glob_min, glob_max)
+            quot = rescale(quot, low_q, high_q)  # viewability
+
+        if gauss and plot_d:
+            diff = ndimage.gaussian_filter(diff, sigma=gauss_sigma, order=gauss_order)
+        if gauss and plot_q:
+            quot = ndimage.gaussian_filter(quot, sigma=gauss_sigma, order=gauss_order)
+
+        # for being sure, imshow does the right thing put in one pixel with 0 and one with 100
+        if plot_d:
+            diff[1] = 0.
+            diff[2] = 100.
+        if plot_q:
+            quot[1] = 0.
+            quot[2] = 100.
+
+        if plot_adjusted:
+            raw_image = image
+
+        t = jim.get_timestamp(image_name, human_readable=False)
+        if absolute_time:
+            title = 't = ' + datetime.datetime.fromtimestamp(t).strftime('%%d.%m.Y %H:%M:%S')
+        else:
+            title = 't = ' + str(dt2hms(t, t_0))
+
+        if plot_d and plot_q and plot_r:
+            if state_type:
+                if ax_num == 0:
+                    title = 'Differenzen\nt = ' + str(dt2hms(t, t_0))
+                if ax_num == 1:
+                    title = 'Quotienten\nt = ' + str(dt2hms(t, t_0))
+                if ax_num == 2:
+                    title = 'Rohbild\nt = ' + str(dt2hms(t, t_0))
+            if ax_num in mod_3_s0:
+                im1 = ax.imshow(diff)
+            elif ax_num in mod_3_s1:
+                ax.imshow(quot)
+            elif ax_num in mod_3_s2:
+                ax.imshow(raw_image)
+
+        if plot_d and plot_q and not plot_r:
+            if state_type:
+                if ax_num == 0:
+                    title = 'Differenzen\nt = ' + str(dt2hms(t, t_0))
+                if ax_num == 1:
+                    title = 'Quotienten\nt = ' + str(dt2hms(t, t_0))
+            if ax_num in mod_2_s0:
+                im1 = ax.imshow(diff)
+            elif ax_num in mod_2_s1:
+                ax.imshow(quot)
+        if plot_d and not plot_q and plot_r:
+            if state_type:
+                if ax_num == 0:
+                    title = 'Differenzen\nt = ' + str(dt2hms(t, t_0))
+                if ax_num == 1:
+                    title = 'Rohbild\nt = ' + str(dt2hms(t, t_0))
+            if ax_num in mod_2_s0:
+                im1 = ax.imshow(diff)
+            elif ax_num in mod_2_s1:
+                ax.imshow(raw_image)
+        if not plot_d and plot_q and plot_r:
+            if state_type:
+                if ax_num == 0:
+                    title = 'Quotienten\nt = ' + str(dt2hms(t, t_0))
+                if ax_num == 1:
+                    title = 'Rohbild\nt = ' + str(dt2hms(t, t_0))
+            if ax_num in mod_2_s0:
+                im1 = ax.imshow(quot)
+            elif ax_num in mod_2_s1:
+                ax.imshow(raw_image)
+
+        if M == 1:
+            if plot_d:
+                if state_type:
+                    if ax_num == 0:
+                        title = 'Differenzen\nt = ' + str(dt2hms(t, t_0))
+                if ax_num in mod_1_s0:
+                    im1 = ax.imshow(diff)
+            if plot_q:
+                if state_type:
+                    if ax_num == 0:
+                        title = 'Quotienten\nt = ' + str(dt2hms(t, t_0))
+                if ax_num in mod_1_s0:
+                    im1 = ax.imshow(quot)
+            if plot_r:
+                if state_type:
+                    if ax_num == 0:
+                        title = 'Rohbild\nt = ' + str(dt2hms(t, t_0))
+                if ax_num in mod_1_s0:
+                    im1 = ax.imshow(raw_image)
+
+        if name_in_x:
+            ax.set_xlabel(title, rotation=45)
+        else:
+            ax.set_title(title)
+
+        ax.set_xticks([])
+        ax.set_xticklabels([])
+        ax.set_yticks([])
+        ax.set_yticklabels([])
+
+        if show_finger_bars:
+            x1, x2, y1, y2 = patch
+            for val, j in zip(fingerlengths[int(i)], np.arange(len(fingerlengths[i]))):
+                if val != 0:
+                    ax.add_patch(Rectangle((x1 + j - int(bar_w / 2), y1), bar_w, val, color=bar_col, alpha=bar_alph))
+        ax.set_xlim([xmin + left_cut, xmax - right_cut])  # works
+        ax.set_ylim([ymax - bottom_cut, ymin + top_cut])  # works
+
+        ax_num += 1
+
+    gr = 2
+    if M == 1:
+        fig.set_size_inches(cm2inch((gr * 29.7, gr * 21.0)))
+    else:
+        fig.set_size_inches(cm2inch((gr * 21.0, gr * 29.7)))
+
+    # Make Colorbar
+    if make_cbar:
+        if plot_d or plot_q:
+            cbar_ax, kw = mpl.colorbar.make_axes([ax for ax in axes.flat], location=cbar_loc)
+            plt.colorbar(im1, cax=cbar_ax, **kw)
+    fig.savefig(savename, dpi=300, bbox_inches='tight')
+    # plt.show()
+
 
 def finger_count(intensities):
     '''Take an array of intensities and look at the first and second derivative. Assuning that at every maximum there
@@ -821,11 +1051,19 @@ def plot_wavelengthspace(savename, all_intensities, start=0, stop=None, step=6,
     for i, c_i in zip(np.arange(len(all_intensities))[start:stop][::step][::-1], np.arange(N_datapoints)[::-1]):
         wavelengths, x_array = get_wavelengthspace(intensities=all_intensities[i], handle=handle, clean_criterium=clean_criterium, cell_width=cell_width)
         ax.plot(x_array, abs(wavelengths), c=colors[c_i], linewidth=0.5, alpha=alpha)
+        if c_i == N_datapoints - 10:
+            a_max = max(abs(wavelengths[(x_array < handle) & (x_array > 0.2*handle)]))
+            k_max = x_array[abs(wavelengths) == a_max][0]
 
+            print 0.2*handle, handle
+            print max(abs(wavelengths[(x_array < handle) & (x_array > 0.2*handle)]))
+            print k_max
+    ax.plot((k_max,k_max),(-1,100000000000), 'k--', label='$k_{max} = ' + str(k_max)[0:5] + 'cm^{-1}$')
     ax.set_xlim(xlims)
     ax.set_ylim(ylims)
-    ax.set_xlabel('k $[cm^{-1}]$')
+    ax.set_xlabel('$k \, [cm^{-1}]$')
     ax.set_ylabel('$\left|A\\right|$')
+    plt.legend()
     fig.savefig(savename, dpi=300)
     return 0
 
@@ -902,6 +1140,46 @@ def plot_fingergrowth(savename, fingers, times, cell_width=27.3, x_length=100):
     fig.subplots_adjust(bottom=0.15)
     ax.set_xlabel('Zeit')
     ax.set_ylabel(u'Durchschnittliche Länge der Finger $[cm]$')
+    ax.set_title('Durchschnittliches Wachstum der Finger')
+
+    fig.savefig(savename, dpi=300)
+
+def plot_fingergrowth_patch(savename, xpatch, fingers, times, cell_width=27.3, x_length=100):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    xmin, xmax = xpatch
+
+    cm2px = cell_width / x_length
+
+    l_array = []
+    for f in fingers:
+        l_fingers = 0
+        n_fingers = 0
+        for vals in f[xmin:xmax]:
+            if vals > 0:
+                l_fingers += vals
+                n_fingers += 1.
+        if n_fingers == 0:
+            n_fingers = 1
+        l_array.append(cm2px * (l_fingers / n_fingers))
+
+    ax.plot(l_array)
+
+    t_list = []
+    times = np.linspace(0, 18360, num=len(fingers)+1)
+    for t in times:
+        hours, remainder = divmod(t, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        strftime = str(int(minutes))#+":0" + str(int(seconds))
+        t_list.append(strftime)
+    ax.set_xticks((np.arange(len(fingers))))
+    ax.set_xticklabels(t_list, rotation=45)
+    ax.set_xlim((5, 23))
+    fig.subplots_adjust(bottom=0.15)
+    ax.set_xlabel('Zeit')
+    ax.set_ylabel(u'Länge des Fingers $[cm]$')
+    ax.set_title('Wachstum eines einzelnen Fingers')
 
     fig.savefig(savename, dpi=300)
 

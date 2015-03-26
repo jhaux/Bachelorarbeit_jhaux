@@ -8,17 +8,17 @@ bilden.
 \section{Poröse Medien}
 \label{sec:por}
 
-\graph[./plot/porous]{Schematische Darstellung eines porösen Mediums. Grau dargestellt ist die Matrix (1), der feste Bereich des Mediums. Dazwischen befinden sich die zunächst leeren Poren (2).}{fig:por}
-Poröse Medien, wie beispielsweise Sand oder Ton, teilen den Raum, den sie füllen, in Matrix und Poren auf \citep{roth2005}.  Matrix bezeichnet in diesem Fall
-die Bereiche, an dem sich das feste Medium befinden, der eigentliche Sand. Die Poren bilden den zunächst leeren Raum dazwischen.
+% \graph[./plot/porous]{Schematische Darstellung eines porösen Mediums. Grau dargestellt ist die Matrix (1), der feste Bereich des Mediums. Dazwischen befinden sich die zunächst leeren Poren (2).}{fig:por}
+Poröse Medien, wie beispielsweise Sand oder Ton, teilen den Raum, den sie füllen, in Matrix und Poren auf \citep{roth2005}.  Matrix bezeichnet in diesem Fall die Bereiche, an dem sich das feste Medium befinden, der eigentliche Sand. Die Poren bilden den zunächst leeren Raum dazwischen.
 Als charakteristische Größen lassen sich die Porosität $\phi$ und die Raumdichte $\rho_{bulk}$ definieren:
 \begin{align}
  \phi &= \frac{V_{pore}}{V_{tot}} \\
- \rho_{bulk} &= \frac{m_{matrix}}{V_{tot}} = \frac{\phi}{1-\phi}
+ \rho_{bulk} &= \frac{m_{matrix}}{V_{tot}} % = \frac{\phi}{1-\phi} % Keiner weiß was das sein soll!
 \end{align}
 $V_{pore}$ und $V_{tot}$ bezeichnen die Volumina, die von den Poren, bzw insgesamt eingenommen werden, $m_{matrix}$ die Masse der Matrix. 
 
-\TODO{Abschätzung Porenradius (Lisa S. 49)}
+% \TODO{Abschätzung Porenradius (Lisa S. 49)} % Nicht nötig, wenn der Verdunstungsteil wegfällt
+
 \section{Hydraulik}
 \label{sec:hyd}
 Die Bewegung inkompressibler Fluidpartikel wird durch die Navier-Stoke Gleichung beschrieben:
@@ -67,9 +67,9 @@ Die Änderung der Konzentration des Tracers durch die Bewegung des Fluids ist so
 \end{align}
 
 
-\subsection{Dispersion}
-\label{sec:disp}
-Mit Dispersion bezeichnet man in unserem Fall den Effekt, dass Tracerpartikel im Porenraum trotz nächster Nähe zueinander unterschiedlich schnell sein können. Dieser Effekt wird auch Tayler-Aris Dispersion bezeichnet und kommt dadurch zustande, dass sich das Fluid aufgrund von Reibungseffekten am Rand der Poren langsamer bewegt als in deren Mitte.
+% \subsection{Dispersion}
+% \label{sec:disp}
+% Mit Dispersion bezeichnet man in unserem Fall den Effekt, dass Tracerpartikel im Porenraum trotz nächster Nähe zueinander unterschiedlich schnell sein können. Dieser Effekt wird auch Tayler-Aris Dispersion bezeichnet und kommt dadurch zustande, dass sich das Fluid aufgrund von Reibungseffekten am Rand der Poren langsamer bewegt als in deren Mitte.
 
 \subsection{Diffusion}
 \label{sec:diff}
@@ -97,7 +97,32 @@ Da in allen Experimenten Sättigung vorliegt ($\Theta = 1$) kann die obige Gleic
 
 \subsection{Rayleigh Zahl}
 \label{sec:ray}
-Zur Abschätzung, wann in den \HSC-Experimenten konvektive gegenüber diffusiven Prozessen und umgekehrt überwiegen, schlagen \citeauthor*{fernandez}
 
-\TODO{solute transport}
-\TODO{Konduktivität und Diffusivität => Reynolds}
+\widegraph[./plot/Rayleighnumber]{Abschätzung, ob sich mit dem \COT Experiment mit porösem Medium theoretisch konvektive Prozesse, wie Fingerbildung, beobachten lassen. Als Grenzwert gilt $Ra > 4\pi^2$. Ist die diffusiv gebildete Schicht aus gelöstem \COT groß genug, ist dieses Kriterium erfüllt.}{fig:Ra}
+
+Zur Abschätzung, wann in den \HSC-Experimenten konvektive gegenüber diffusiven Prozessen und umgekehrt überwiegen, eignet sich die Rayleighzahl $Ra = \frac{Ue}{D}$. Hierbei stellt $U$ eine Abschätzung des Anteils konvektiver Prozesse dar, in Form einer dimensionslosen Auftriebsgeschwindigkeit, und $D$ in Form des Diffusionskoeffizienten, eine Abschätzung des Anteils an diffusiven Prozessen. Die Spaltbreite, also der Abstand der Glasplatten in der \HSC, wird mit $e$ bezeichnet.
+$D$ beläuft sich im Falle von gelöstem \COT auf $D = \SI{1,97e-9}{\meter\squared\per\second}$
+\cite{fernandez} geben in Ihrer Arbeit als Abschätzung für $U$ in einer \HSC folgendes an:
+\begin{align}
+ U = \frac{\Delta\rho g e^2}{12 \mu}
+\end{align}
+
+Als Parameter gehen der Dichteunterschied $\Delta\rho$ zwischen reinem und mit \COT gelöstem Wasser, die Erdbeschleunigung $g$, sowie die Viskosität $\mu$, ein.
+
+Damit erhalten sie die dimensionslose Rayleighzahl:
+\begin{align}
+ Ra = \frac{\Delta\rho g e^3}{12 \mu D}
+\end{align}
+
+\TODO{soll die Herleitung über Erhaltungsgesetze mit rein?}
+
+Diese Abschätzung gilt für den Fall, dass die charakteristische Länge des Systems die Spaltbreite ist. Ist die Zelle jedoch mit einem porösen Medium gefüllt, gilt dies nicht mehr.
+Eine sinnvolle Abschätzung von $Ra$ kann mit Hilfe der Leitfähigkeit $K = \frac{r_{pore}}{8\mu}$ erfolgen:
+\begin{align}
+ Ra_{pore} = \frac{K g h \Delta \rho}{D}
+\end{align}
+
+Der Porenradius $r_{pore}$ kann unter der Annahme, dass die Kugeln perfekt aufeinander geschichtet sind, abgeschätzt werden. In diesem Fall gilt $\Phi=35$, woraus man, über den Kugelradius $\bar{r}$, $r \approx 0,11 \cdot \bar{r}$ erhält.
+Die Höhe der Schicht, die durch Diffusion von \COT im Wasser entsteht, geht mit dem Parameter $h$ in die Gleichung ein.
+
+Laut \cite{kneafsy} überwiegen konvektive Prozesse ab einer Rayleighzahl von $Ra > 4\pi^2$. Für den in Teil \ref{sec:cpm} beschriebenen Aufbau konnte so eine Abschätzung erfolgen, ob mit dem Experiment theoretisch konvektive Prozesse, wie Fingerbildung, beobachtbar sind. Das Ergebnis findet sich in Abbildung \ref{fig:Ra}. Man kann sehen, dass dies für alle verschiedenen Kugelgrößen möglich sein kann, vorausgesetzt, die durch Diffusion gewachsene Schicht ist groß genug.

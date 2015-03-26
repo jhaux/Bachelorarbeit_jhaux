@@ -1,4 +1,5 @@
 \ProvidesPackage{mymacros}[2015/03/14 v1.0 My own macros] % kann jetzt per \usepackage{} eingebunden werden
+\RequirePackage{pdflscape}
 
 % einbinden von Graphiken, die \linewidth breit sind
 \newcommand{\graph}[3][./src/missing_graph.eps]{
@@ -9,7 +10,6 @@
       \label{#3}
   \end{figure}
 }
-
 
 \newcommand{\mediumgraph}[3][./src/missing_graph.eps]{
   \begin{figure}[t]
@@ -42,6 +42,105 @@
       \caption{#2}
       \label{#3}
   \end{figure*}
+}
+
+\newcommand{\widegraphpage}[3][./src/missing_graph]{
+  \newpage
+  \begin{landscape}
+    \begin{figure*}[t]
+      \begin{minipage}[c]{0.4\textwidth}
+% 	  \centering
+	  \includegraphics[height=\textheight]{#1}
+      \end{minipage}\hfill
+      \begin{minipage}[c]{0.3\textwidth}
+	  \caption{#2}
+	  \label{#3}
+      \end{minipage}
+    \end{figure*}
+  \end{landscape}
+  \newpage
+}
+
+\newcommand{\longgraph}[3][./src/missing_graph]{
+  \begin{figure*}[ht!]
+      \centering
+      \includegraphics[height=\textheight]{#1}
+      \caption{#2}
+      \label{#3}
+  \end{figure*}
+}
+
+\newcommand{\longgraphpage}[3][./src/missing_graph]{
+  \newpage
+    \begin{figure*}[ht!]
+	\centering
+        \includegraphics[height=\textheight]{#1}
+	\caption{#2}
+	\label{#3}
+    \end{figure*}
+  \newpage
+}
+
+\newcommand{\longgraphpagetriple}[5]{
+    \begin{figure*}[ht!]
+	\centering
+      \begin{minipage}[c]{\textwidth}
+	  \includegraphics[width=\textwidth]{#1}
+      \end{minipage}
+      \begin{minipage}[c]{\textwidth}
+	  \includegraphics[width=\textwidth]{#2}
+      \end{minipage}
+      \begin{minipage}[c]{\textwidth}
+	  \includegraphics[width=\textwidth]{#3}
+      \end{minipage}
+	\caption{#4}
+	\label{#5}
+    \end{figure*}
+}
+
+\newcommand{\longgraphpagesextuple}[8]{
+    \begin{figure*}[ht!]
+	\centering
+      \begin{minipage}[c]{\textwidth}
+	  \includegraphics[width=\textwidth]{#1}
+      \end{minipage}
+      \begin{minipage}[c]{\textwidth}
+	  \includegraphics[width=\textwidth]{#2}
+      \end{minipage}
+      \begin{minipage}[c]{\textwidth}
+	  \includegraphics[width=\textwidth]{#3}
+      \end{minipage}
+      \begin{minipage}[c]{\textwidth}
+	  \includegraphics[width=\textwidth]{#4}
+      \end{minipage}
+      \begin{minipage}[c]{\textwidth}
+	  \includegraphics[width=\textwidth]{#5}
+      \end{minipage}
+      \begin{minipage}[c]{\textwidth}
+	  \includegraphics[width=\textwidth]{#6}
+      \end{minipage}
+	\caption{#7}
+	\label{#8}
+    \end{figure*}
+}
+
+\newcommand{\widegraphpagesidetriple}[5]{
+\begin{landscape}
+    \begin{figure*}[ht!]
+	\centering
+      \begin{minipage}[c]{0.3\textheight}
+	  \includegraphics[width=\textwidth]{#1}
+      \end{minipage}\hfill
+      \begin{minipage}[c]{0.3\textheight}
+	  \includegraphics[width=\textwidth]{#2}
+      \end{minipage}\hfill
+      \begin{minipage}[c]{0.3\textheight}
+	  \includegraphics[width=\textwidth]{#3}
+      \end{minipage}
+	\caption{#4}
+	\label{#5}
+    \end{figure*}
+\end{landscape}
 }
 
 % rot hervorgehobener text
