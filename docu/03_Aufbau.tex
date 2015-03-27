@@ -67,10 +67,7 @@ vom Computer aus geschehen.
 
 \subsection{Lichtquelle}
 \label{sec:light}
-Zur Durchleuchtung der Zelle wird ein Array aus LEDs der Farben Rot, Grün und Blau verwendet. Eine davor gespannte Diffusorfolie sorgt für räumlich gleichmäßige
-Beleuchtung. Die Lichtquelle befindet sich zusätzlich in einem mit Aluminiumfolie ausgekleideten Kasten, in welchen auch Lüfter eingebaut sind. Per Computer
-lassen sich die LEDs zusammen mit der Lüftung ein und ausschalten. Auch hierzu finden sich wieder ausführliche Informationen bei \cite{buchner}\ und
-\cite{heberle}.
+Zur Durchleuchtung der Zelle wird ein Array aus LEDs der Farben Rot, Grün und Blau verwendet. Eine davor gespannte Diffusorfolie sorgt für räumlich gleichmäßige Beleuchtung. Die Lichtquelle befindet sich zusätzlich in einem mit Aluminiumfolie ausgekleideten Kasten, in welchen auch Lüfter eingebaut sind. Per Computer lassen sich die LEDs zusammen mit der Lüftung ein und ausschalten. Auch hierzu finden sich wieder ausführliche Informationen bei \cite{buchner} und \cite{heberle}.
 
 
 % \section{Verdunstungsexperiment}
@@ -108,24 +105,43 @@ lassen sich die LEDs zusammen mit der Lüftung ein und ausschalten. Auch hierzu 
 \section{\COT-Experiment}
 \label{sec:cot}
 Für das zweite Experiment wurde die \HSCs mit einer \BCG Lösung mit einer Konzentration von \SI{3,5}{\milli\gram\per\liter} befüllt. 
-\BCG ist eine Indikatorlösung, die von blau zu gelb umschlägt, wenn sich der pH-Wert in einem Bereich von 5,4 bis 3,9 ändert. Reines Wasser, das nur mit Luft in 
-Kontakt ist, hat einen pH-Wert von 5,6, wohingegen Wasser, in dem sich \COT gelöst hat, einen pH-Wert von 3,9 annimmt. 
-Die ursprünglich fast neutrale Lösung absorbiert stark im \SI{630}{\nano\meter}-Bereich während nach dem pH-Wert induzierten Farbumschlag das Maximum der 
-Absorption bei \SI{450}{\nano\meter} liegt. Dieses Verhalten wird in Abbildung \ref{fig:bcg} deutlich gemacht.
+\BCG ist eine Indikatorlösung, die von blau zu gelb umschlägt, wenn sich der pH-Wert in einem Bereich von 5,4 bis 3,9 ändert. Reines Wasser, das nur mit Luft in Kontakt ist, hat einen pH-Wert von 5,6, wohingegen Wasser, in dem sich \COT gelöst hat, einen pH-Wert von 3,9 annimmt. Die ursprünglich fast neutrale Lösung absorbiert stark im \SI{630}{\nano\meter}-Bereich während nach dem pH-Wert induzierten Farbumschlag das Maximum der Absorption bei \SI{450}{\nano\meter} liegt. Dieses Verhalten wird in Abbildung \ref{fig:bcg} deutlich gemacht.
 
 \graph[./plot/BCG]{Absorbierende Eigenschaften von \BCG. \citep{bcg:wiki}}{fig:bcg}
 
 Diese Eigenschaft passt sehr gut zu den zur Verfügung stehenden Filtern und macht es möglich zu verfolgen wo \COT in Wasser gelöst ist.
-Die Kamera filmt wieder das Experiment, dieses mal jedoch mit einer sehr viel höheren Bildrate von ca. \SI{1}{Bild\per\minute}.  Es werden Aufnahmen mit dem 
-\SI{630}{\nano\meter}- und dem \SI{450}{\nano\meter}-Filter gemacht, sowie Aufnahmen bei verschlossenem Objektiv, die später zur Dunkelstromkorrektur verwendet 
+Die Kamera filmt wieder das Experiment, dieses mal jedoch mit einer sehr viel höheren Bildrate von ca. \SI{1}{Bild\per\minute}.  Es werden Aufnahmen mit dem \SI{630}{\nano\meter}- und dem \SI{450}{\nano\meter}-Filter gemacht, sowie Aufnahmen bei verschlossenem Objektiv, die später zur Dunkelstromkorrektur verwendet 
 werden sollen. 
 Nachdem die Kamera die ersten Bilder geschossen hat, wird von oben \COT in die Zelle geleitet. Auch hier geschieht dies mit Hilfe von 
-Trockeneis, dieses Mal allerdings wird das freigesetzte Gas bei niedriger Rate gepumpt. Damit sich in dem Behältnis für das Gas wirklich nur \COT befindet, ist 
-dieses nach oben hin geöffnet, sodass die leichtere Luft verdrängt wird. Zwischen Lösung und oberer Kante der Glasplatten wurde ausreichend Platz gelassen, 
-sodass sich eine breitere \COT-Schicht bilden kann.
+Trockeneis, dieses Mal allerdings wird das freigesetzte Gas bei niedriger Rate gepumpt. Damit sich in dem Behältnis für das Gas wirklich nur \COT befindet, ist dieses nach oben hin geöffnet, sodass die leichtere Luft verdrängt wird. Zwischen Lösung und oberer Kante der Glasplatten wurde ausreichend Platz gelassen, sodass sich eine breitere \COT-Schicht bilden kann.
+
+Mit Gleichung \ref{eq:U} und \ref{eq:Re} kann abgeschätzt werden, ob das Experiment im Stokes Regime durchgeführt wird. Als Parameter werden 
+\begin{align*}
+  \rho &= \rho_{Wasser} = \SI{1}{\g\per\cubic\centi\meter}, \\ 
+  \Delta\rho &= \left| \rho_{Wasser} - \rho_{\mathrm{CO}_{2, aq}} \right| = \SI[round-precision=4]{0,0017}{\gram\per\cubic\centi\meter} \\
+  g &= \SI[round-precision=2]{9,81}{\meter\per\squared\second} \\
+  e &= \SI[round-precision=1]{2,1}{\milli\meter} \\
+  \mu &= \mu_{Wasser} = \SI{8,9e-4}{\pascal\second}
+\end{align*}
+
+gewählt. Damit erhält man
+\begin{equation}
+ \mathrm{Re} = 0,096 < 1
+\end{equation}
+was sehr viel kleiner ist als die kritische Reynoldszahl $Re_{crit} = ???$, ab der das System turbulent werden kann. Es liegt bei dem Experiment, wie es hier durchgeführt wird Stokes-Fluss vor.
+
+Eine Abschätzung der Rayleighzahl mit Gleichung \ref{eq:Ra1} zeigt, dass Fingerbildung zu erwarten ist:
+\begin{equation}
+ \mathrm{Ra} = 7341
+\end{equation}
+
+
+
+\widegraph[./plot/Rayleighnumber]{Abschätzung, ob sich mit dem \COT Experiment mit porösem Medium theoretisch konvektive Prozesse, wie Fingerbildung, beobachten lassen. Als Grenzwert gilt $Ra > 4\pi^2$. Ist die diffusiv gebildete Schicht aus gelöstem \COT groß genug, ist dieses Kriterium erfüllt. Für $D$ wurde $D_{eff}$ nach Gleichung \ref{eq:Deff} gewählt. Die Indizes an den Radien beziehen sich auf die Kugelgrößen in Tabelle \ref{tab:kug}}{fig:Ra}
 
 \section{\COT Experiment mit porösen Medium.}
 \label{sec:cpm}
+
 Für diesen Versuch wird ein Aufbau ähnlich wie bei \cite{feustel} verwendet, der aus einem porösen Medium mit räumlich stark heterogenen 
 Eigenschaften besteht. Hierbei ist die große \HSC mit Glaskügelchen verschiedener Größen gefüllt. Dabei entstehen Regionen, die sich jeweils über einen Teil der Zellbreite erstrecken, wie in Abbildung \ref{fig:het} zu sehen ist. 
 Die Größen der verwendeten Kugeln (\textit{SiLi-Beads}) der Firma \textit{Sigmund-Lindner GmbH} sind in Tabelle \ref{tab:kug} notiert. 
@@ -163,3 +179,5 @@ Zusätzlich zu den in Tebelle \ref{tab:kug} beschriebenen Kügelchen, wurden in 
  \caption{Daten der verwendeten \textit{SiLi-Beads Typ P}. Die Materialdichte der Kugeln betragt \SI[round-precision=2]{2,23}{\kg\per\dm\tothe{3}}. Entnommen aus \cite{sili:bor}.}
  \label{tab:bor}
 \end{table}
+
+Um Abzuschätzen, ob auch bei diesem Experiment Fingerbildung zu beobachten sein sollt wird wieder die Rayleighzahl berechnet, dieses Mal mit Gleichung \ref{eq:Ra2} und in Abhängigkeit der Höhe, der durch die Diffusion entstandenen Schicht aus Wasser mit darin gelöstem \COT. Die Ergebnisse sind in Abbildung \ref{fig:Ra} festgehalten. Man kann erkennen, dass bereits ab relativ dünnen Schichten die kritische Rayleighzah von $4\pi$ überschritten wird. Diese Darstellung lässt allerdings keine zeitliche Einschätzung zu. Der Zeitpunkt, wann $Ra=4\pi$ erreicht wird hängt vom Diffusionskoeffizienten $D$ ab.
