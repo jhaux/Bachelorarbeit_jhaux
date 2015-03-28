@@ -45,8 +45,8 @@
 
 
 % ========================= Allgemeiner Verlauf =========================
-In den Abbildungen \ref{fig:fft} bis \ref{fig:complete} sind die Ergebnisse des \COTm Experiments festgehalten. Die Gesamtdauer des Experiments beläuft sich auf \mbox{\SI{5}{\hour} \SI{6}{\minute}}, der für diese Arbeit interessante Übergang zur Fingerbildung findet nach \SI{9}{\minute} statt. Nach ca. \SI{1,5}{\hour} wird das Verhalten zunehmend von Konvektion auf Zellskala dominiert, weshalb spätestens hier alle in Teil \ref{cha:meth} beschriebenen Methoden versagen. 
-Die Konvektion auf Zellskala sorgt für Durchmischung indem die Finger nicht mehr gerade nach unten sinken können, sondern zur Seite driften, wo sie wieder nach oben gedrückt werden.
+In den Abbildungen \ref{fig:fft} bis \ref{fig:complete} sind die Ergebnisse des \COTm Experiments festgehalten. Die Gesamtdauer des Experiments beläuft sich auf \mbox{\SI{5}{\hour} \SI{6}{\minute}}, der für diese Arbeit interessante Übergang zur Fingerbildung findet nach \SI{9}{\minute} statt. Nach ca. \SI{1,5}{\hour} wird das Verhalten zunehmend von Vortizitäten auf Zellskala dominiert, weshalb spätestens hier alle in Teil \ref{cha:meth} beschriebenen Methoden versagen. 
+Die Vortizitäten auf Zellskala sorgen für Durchmischung, da durch sie die Finger nicht mehr gerade nach unten sinken können, sondern zur Seite driften, wo sie wieder nach oben gedrückt werden.
 
 Wie erwartet kann sehr gut die Fingerbildung beobachtet werden. Abbildungen \ref{fig:vcot_1-1}, \ref{fig:vcot_1-2} und \ref{fig:vcot_1-grey} zeigen ihren zeitlichen Verlauf.
 
@@ -56,9 +56,9 @@ Wie erwartet kann sehr gut die Fingerbildung beobachtet werden. Abbildungen \ref
 
 \graph[./plot/plots_data-1/k_space]{Mit Hilfe der diskreten Fourieranalyse bestimmte Abstände (hier in der Einheit $\si{Finger \per \centi\meter}$) der Finger. Man kann gut erkennen, dass dieser bei $k \approx \SI[round-precision=2]{0,66}{\per\centi\meter}$ liegt. Der zeitliche Verlauf ist farblich codiert und geht von \SI{0}{\minute} (hellblau) bis \mbox{\SI{1}{\hour} \SI{24}{\minute}} (pink).}{fig:k_space}
 
-Zur Fingerdetektion wurde, wie beschrieben, eine Fourieranalyse der mittleren Wellenintensitäten gemacht (siehe Teil \ref{sec:dec}). Die resultierenden Spektren der Wellenzahlen $k(t)$ sind in Abbildung \ref{fig:k_space} zu sehen. Hier kann man erkennen, dass über den ersten Zeitbereich des Experiments zwischen \SIrange{9}{50}{\minute}, ein Abstand von \SI[round-precision=2]{1,517}{\centi\meter} ($\Rightarrow k=\SI[round-precision=2]{0,66}{\per\centi\meter}$) zwischen den Fingern dominiert und im zeitlichen Verlauf stabil bleibt. 
+Zur Fingerdetektion wurde, wie beschrieben, eine Fourieranalyse der mittleren Fingerintensitäten durchgeführt (siehe Teil \ref{sec:dec}). Die resultierenden Spektren der Wellenzahlen $k(t)$ sind in Abbildung \ref{fig:k_space} zu sehen. Hier kann man erkennen, dass über den ersten Zeitbereich des Experiments zwischen \SIrange{9}{50}{\minute}, ein Abstand von \SI[round-precision=2]{1,517}{\centi\meter} ($\Rightarrow k=\SI[round-precision=2]{0,66}{\per\centi\meter}$) zwischen den Fingern dominiert und im zeitlichen Verlauf stabil bleibt. 
 
-Der zeitliche Verlauf der mit Hilfe dieser Fourieranalyse bereinigten, mittleren Fingerintensitäten ist in Abbildung \ref{fig:fft} dargestellt. Es wurden alle Signale mit einer Wellenzahl $k > \SI{2}{\per\centi\meter}$ als Rauschen eingestuft und ausgefiltert. Hier kann man gut das Wachstum der Finger, in Form der steigenden Amplitude, erkennen, sowie die Bewegung der Finger. %, die relativ konstant bleibt. 
+Der zeitliche Verlauf der mit Hilfe dieser Fourieranalyse bereinigten mittleren Fingerintensitäten ist in Abbildung \ref{fig:fft} dargestellt. Es wurden alle Signale mit einer Wellenzahl $k > \SI{2}{\per\centi\meter}$ als Rauschen eingestuft und ausgefiltert. Hier kann man gut das Wachstum der Finger, in Form der steigenden Amplitude, erkennen, sowie die Bewegung der Finger. %, die relativ konstant bleibt. 
 
 % ========================= Fingerzahl =========================
 % \graph[./plot/plots_data-1/fcount]{Anzahl der detektierten Finger im Verlauf des Experiments. Das Rauschen tritt auf, da die Methode nicht einwandfrei funktioniert. Siehe dazu auch \ref{fig:f_detect}. Im Zeitraum von \SIrange{9}{40}{\minute} liefert sie allerdings relativ verlässliche Ergebnisse.}{fig:fcount}
@@ -67,7 +67,7 @@ Der zeitliche Verlauf der mit Hilfe dieser Fourieranalyse bereinigten, mittleren
 
 % Die Graphen \ref{fig:fcount} und \ref{fig:fgrowth} zeigen Zahl und mittlere Länge der Finger über den Verlauf der Messung. 
 Der Graph \ref{fig:fgrowth} zeigt die mittlere Länge der Finger im Verlauf der Messung. Für diese Betrachtung wurde der untersuchte Bereich der \HSC in 9 gleich große Teile aufgeteilt und über die Längen der Finger in diesen Bereichen gemittelt, um zu sehen, ob das Wachstum in verschiedenen Bereichen der Zelle unterschiedlich ist.
-Hier zeigt sich, was auch aus  Abbildung \ref{fig:vcot_1-1} zu erkennen ist: die Länge der Finger nimmt relativ linear zu.
+Hier zeigt sich, was auch in Abbildung \ref{fig:vcot_1-1} zu erkennen ist: die Länge der Finger nimmt relativ linear mit verlauf der Zeit zu.
 
 % einzelner Finger
 Für generauere Betrachtung des Übergangs vom diffusiven zum konvektiven Vermischungsprozess von Wasser und \COT sind in Abbildung \ref{fig:vcot_1-grey} und \ref{fig:sevo} die ersten \SI{16}{\minute}, bzw. \SI{52}{\minute} des Experiments gezeigt. Hierfür wurden die originalen Aufnahmen verwendet, da man hier deutlicher den Effekt beobachten kann.
