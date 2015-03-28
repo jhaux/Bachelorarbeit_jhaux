@@ -56,17 +56,17 @@ Als charakteristische Größen lassen sich die Porosität $\phi$ und die Raumdic
  \phi &= \frac{V_{pore}}{V_{tot}} \\
  \rho_{bulk} &= \frac{m_{matrix}}{V_{tot}} % = \frac{\phi}{1-\phi} % Keiner weiß was das sein soll!
 \end{align}
-$V_{pore}$ und $V_{tot}$ bezeichnen die Volumina, die von den Poren, bzw insgesamt eingenommen werden, $m_{matrix}$ die Masse der Matrix. 
+$V_{pore}$ und $V_{tot}$ bezeichnen die Volumina, die von den Poren, bzw. insgesamt eingenommen werden, $m_{matrix}$ die Masse der Matrix. 
 
-Möchte man die Bewegung oben genannter Fluidpartikel in porösen Medien beschreiben werden zusätzliche Informationen benötigt, das sich die Partikel nur durch die Poren bewegen können:
+Möchte man die Bewegung oben genannter Fluidpartikel in porösen Medien beschreiben, wird zusätzlich die Information benötigt, dass sich die Partikel nur durch die Poren bewegen können:
 $\theta = \frac{V_{water}}{V_{tot}}$ bezeichnet den Wassergehalt, $\Theta = \frac{\theta}{\phi}$ die Sättigung des betrachteten Mediums. 
-Dabei gilt $\theta \leq \phi$. Beträgt die Sättung weniger als 1 ist nicht der gesamte Porenraum mit Wasser gefüllt. Für $\theta = \phi$ reicht es nur die
+Dabei gilt $\theta \leq \phi$. Beträgt die Sättigung weniger als 1 ist nicht der gesamte Porenraum mit Wasser gefüllt. Für $\theta = \phi$ reicht es nur die
 Bewegung der Flüssigkeit um die Matrix zu beschreiben. Der Fluss des Wassers durch die Poren wird durch $\vec{j}_w = \theta \cdot \vec{v}$ beschrieben. 
-Aus der Massenerhaltung folgt:
-\begin{align}
- \frac{\partial \theta}{\partial t} = \nabla \vec{j}_w
-\end{align}
-Mit der Leitfähigkeit $K$ stellt \textit{Darcy's Gesetz} eine Verbindung zwischen Fluss und Einwirkungskräften her:
+% Aus der Massenerhaltung folgt:
+% \begin{align}
+%  \frac{\partial \theta}{\partial t} = \nabla \vec{j}_w
+% \end{align}
+Mit der hydraulischen Leitfähigkeit $K$ stellt \textit{Darcy's Gesetz} eine Verbindung zwischen Fluss und Einwirkungskräften her:
 \begin{align}
  \vec{j}_w = -K \left[ \Delta p - \rho \vec{g} \right]
  \label{darcy}
@@ -77,13 +77,14 @@ Mit der Leitfähigkeit $K$ stellt \textit{Darcy's Gesetz} eine Verbindung zwisch
 \label{sec:soltra}
 
 Der Transport von gelösten Stoffen in porösen Medien wird dominiert durch die Bewegung des Wassers. Allerdings spielen auch Diffusion und Dispersion eine Rolle.
-Gelöste Stoffe können Tracer wie \BB oder \BCG sein, aber auch Gase wie \COT.
+Gelöste Stoffe können Tracer wie \BCG sein, aber auch Gase wie \COT.
+Zwei Prozesse dominieren das durchgeführte Experiment zu verschiedenen Zeiten: Konvektion und Diffusion. Eine Abschätzung, wann welcher Prozess überwiegt kann mit Hilfe der Rayleighzahl erfolgen.
 
 \subsection{Konvektion}
 \label{sec:conv}
 Mit Konvektion wird der Transport von Masse durch Bewegung eines Fluids bezeichnet. Dominiert nur dieser Effekt, bewegen sich alle Tracerpartikel entlang der Strömungsrichtung des Wassers.
 Das Geschwindigkeitsfeld des Wassers wird durch das Vektorfeld $\vec{v}(\vec{x})$ beschrieben, der Verteilung des Tracers durch das Skalarfeld $C(\vec{x})$. 
-Die Änderung der Konzentration des Tracers durch die Bewegung des Fluids ist somit durch folgende Differnetialgleichung:
+Die Änderung der Konzentration des Tracers durch die Bewegung des Fluids wird somit durch folgende Differentialgleichung beschrieben:
 \begin{align}
  \frac{\partial C}{\partial t} = -\vec{v}\vec{\nabla}C
 \end{align}
@@ -95,13 +96,11 @@ Die Änderung der Konzentration des Tracers durch die Bewegung des Fluids ist so
 
 \subsection{Diffusion}
 \label{sec:diff}
-Diffusion, also die Bewegung eines Partikels entlang des Konzentrationsgradienten, wird durch die Brownsche Molekularbewegung verursacht. Durch Diffusion wird
-der Konzentrationsgradient, auch ohne vorhandene Bewegung des Fluids, stattfinden. Der Partikelfluss $\vec{j}_C$ wird durch das erste Ficksche Gesetz
-beschrieben:
+Diffusion, also die Bewegung eines Partikels entlang des Konzentrationsgradienten, wird durch die Brownsche Molekularbewegung verursacht. Durch Diffusion wird also der Konzentrationsgradient, auch ohne vorhandene Bewegung des Fluids, ausgeglichen. Der Partikelfluss $\vec{j}_C$ wird durch das erste Ficksche Gesetz beschrieben:
 \begin{align}
  \vec{j}_C = D \vec{\nabla} C
 \end{align}
-Mit Hilfe des molekularen Diffusionskoeffizienten beschreibt das zweite Ficksche Gesetz die Konzentrationsänderung über die Zeit:
+Mit Hilfe des molekularen Diffusionskoeffizienten $D_m$ beschreibt das zweite Ficksche Gesetz die Konzentrationsänderung über die Zeit:
 \begin{align}
  \frac{\partial C}{\partial t} = D_m \cdot \vec{\nabla}^2 C
 \end{align}
@@ -121,7 +120,7 @@ Da in allen Experimenten Sättigung vorliegt ($\Theta = 1$) kann die obige Gleic
 \subsection{Rayleigh Zahl}
 \label{sec:ray}
 
-Zur Abschätzung, wann in den \HSC-Experimenten konvektive gegenüber diffusiven Prozessen und umgekehrt überwiegen, eignet sich die Rayleighzahl $Ra = \frac{Ue}{D}$. Hierbei stellt $U$ eine Abschätzung des Anteils konvektiver Prozesse dar, in Form einer dimensionslosen Auftriebsgeschwindigkeit, und $D$ in Form des Diffusionskoeffizienten, eine Abschätzung des Anteils an diffusiven Prozessen. Die Spaltbreite, also der Abstand der Glasplatten in der \HSC, wird mit $e$ bezeichnet.
+Zur Abschätzung, wann in den \HSCsm Experimenten konvektive gegenüber diffusiven Prozessen überwiegen und umgekehrt, eignet sich die Rayleighzahl $\mathrm{Ra} = \frac{Ue}{D}$. Hierbei stellt $Ue$ eine Abschätzung des Anteils konvektiver Prozesse, in Form einer dimensionslosen Auftriebsgeschwindigkeit multipliziert mit der Spaltdicke $e$ dar, und $D$ in Form des Diffusionskoeffizienten, eine Abschätzung des Anteils an diffusiven Prozessen. Die Spaltbreite, also der Abstand der Glasplatten in der \HSCn, wird mit $e$ bezeichnet.
 $D$ beläuft sich im Falle von gelöstem \COT auf $D = \SI{1,97e-9}{\meter\squared\per\second}$ \citep{frank}.
 \cite{fernandez} geben in Ihrer Arbeit als Abschätzung für $U$ in einer \HSC folgendes an:
 \begin{align}
@@ -129,26 +128,26 @@ $D$ beläuft sich im Falle von gelöstem \COT auf $D = \SI{1,97e-9}{\meter\squar
  \label{eq:U}
 \end{align}
 
-Als Parameter gehen der Dichteunterschied $\Delta\rho$ zwischen reinem und mit \COT gelöstem Wasser, die Erdbeschleunigung $g$, sowie die Viskosität $\mu$, ein.
+Als Parameter gehen der Dichteunterschied $\Delta\rho$ zwischen reinem und mit \COT gelöstem Wasser, die Erdbeschleunigung $g$, die Spaltbreite $e$ sowie die Viskosität $\mu$, ein.
 
 Damit erhalten sie die dimensionslose Rayleighzahl:
 \begin{align}
- Ra = \frac{\Delta\rho g e^3}{12 \mu D}
+ \mathrm{Ra} = \frac{\Delta\rho g e^3}{12 \mu D}
  \label{eq:Ra1}
 \end{align}
 
 \TODO{soll die Herleitung über Erhaltungsgesetze mit rein?}
 
 Diese Abschätzung gilt für den Fall, dass die charakteristische Länge des Systems die Spaltbreite ist. Ist die Zelle jedoch mit einem porösen Medium gefüllt, gilt dies nicht mehr.
-Eine sinnvolle Abschätzung von $Ra$ kann mit Hilfe der Leitfähigkeit $K = \frac{r_{pore}}{8\mu}$ erfolgen:
+Eine sinnvolle Abschätzung von Ra dann kann mit Hilfe der Leitfähigkeit $K = \frac{r_{pore}^2}{8\mu}$ erfolgen:
 \begin{align}
- Ra_{pore} = \frac{K g h \Delta \rho}{D}
+ \mathrm{Ra}_{pore} = \frac{K g h \Delta \rho}{D}
  \label{eq:Ra2}
 \end{align}
 
-$K = \frac{r_{pore}}{8\mu}$ leitet sich aus dem Gesetz von Hagen-Poiseuille her, angewandt auf eine Röhre (hier Pore) mit Radius $r_{pore}$. Damit gilt $j = -\frac{r_{pore}^2}{8\mu} \nabla p$. Zusammen mit Darcy's Gesetz erhält man daraus $K$.
+$K = \frac{r_{pore}^2}{8\mu}$ leitet sich aus dem Gesetz von Hagen-Poiseuille her, angewandt auf eine Röhre (hier Pore) mit Radius $r_{pore}$. Damit gilt $j = -\frac{r_{pore}^2}{8\mu} \nabla p$. Zusammen mit Darcy's Gesetz erhält man daraus $K$.
 
-Der Porenradius $r_{pore}$ kann unter der Annahme, dass die Kugeln perfekt aufeinander geschichtet sind, abgeschätzt werden. In diesem Fall gilt $\Phi=35$, woraus man, über den Kugelradius $\bar{r}$, $r \approx 0,11 \cdot \bar{r}$ erhält.
+Der Porenradius $r_{pore}$ kann unter der Annahme, dass die Kugeln perfekt aufeinander geschichtet sind, abgeschätzt werden. In diesem Fall gilt $\phi=35$, woraus man, über den Kugelradius $\bar{r}$, $r_{pore} \approx 0,11 \cdot \bar{r}$ erhält.
 Die Höhe der Schicht, die durch Diffusion von \COT im Wasser entsteht, geht mit dem Parameter $h$ in die Gleichung ein.
 
-Laut \cite{kneafsy} überwiegen konvektive Prozesse ab einer Rayleighzahl von $Ra > 4\pi^2$. 
+Laut \cite{kneafsy} überwiegen konvektive Prozesse ab einer Rayleighzahl von $\mathrm{Ra} > 4\pi^2$. 

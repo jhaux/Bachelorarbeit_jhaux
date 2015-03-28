@@ -35,7 +35,7 @@
 
 
 % \newpage
-\section{\COT-Experiment}
+\section{\COTm Experiment}
 \label{res:cot}
 
 \sisetup{
@@ -45,9 +45,10 @@
 
 
 % ========================= Allgemeiner Verlauf =========================
-In den Abbildungen \ref{fig:fft} bis \ref{fig:complete} sind die Ergebnisse des \COT-Experiments festgehalten. Die Gesamtdauer des Experiments beläuft sich auf \mbox{\SI{5}{\hour} \SI{6}{\minute}}, die für diese Arbeit interessante Fingerbildung findet beginnt nach \SI{9}{\minute}. Nach ca. \SI{1,5}{\hour} wird das Verhalten zunehmend turbulent, weshalb spätestens hier alle in Teil \ref{cha:meth} beschriebenen Methoden versagen. 
+In den Abbildungen \ref{fig:fft} bis \ref{fig:complete} sind die Ergebnisse des \COTm Experiments festgehalten. Die Gesamtdauer des Experiments beläuft sich auf \mbox{\SI{5}{\hour} \SI{6}{\minute}}, der für diese Arbeit interessante Übergang zur Fingerbildung findet nach \SI{9}{\minute} statt. Nach ca. \SI{1,5}{\hour} wird das Verhalten zunehmend von Konvektion auf Zellskala dominiert, weshalb spätestens hier alle in Teil \ref{cha:meth} beschriebenen Methoden versagen. 
+Die Konvektion auf Zellskala sorgt für Durchmischung indem die Finger nicht mehr gerade nach unten sinken können, sondern zur Seite driften, wo sie wieder nach oben gedrückt werden.
 
-Wie erwartet kann sehr gut die Fingerbildung beobachtet werden. Abbildung \ref{fig:vcot_1-1} zeigt deren zeitlichen Verlauf.
+Wie erwartet kann sehr gut die Fingerbildung beobachtet werden. Abbildungen \ref{fig:vcot_1-1}, \ref{fig:vcot_1-2} und \ref{fig:vcot_1-grey} zeigen ihren zeitlichen Verlauf.
 
 
 % ========================= fft & k_space =========================
@@ -55,22 +56,23 @@ Wie erwartet kann sehr gut die Fingerbildung beobachtet werden. Abbildung \ref{f
 
 \graph[./plot/plots_data-1/k_space]{Mit Hilfe der diskreten Fourieranalyse bestimmte Abstände (hier in der Einheit $\si{Finger \per \centi\meter}$) der Finger. Man kann gut erkennen, dass dieser bei $k \approx \SI[round-precision=2]{0,66}{\per\centi\meter}$ liegt. Der zeitliche Verlauf ist farblich codiert und geht von \SI{0}{\minute} (hellblau) bis \mbox{\SI{1}{\hour} \SI{24}{\minute}} (pink).}{fig:k_space}
 
-Zur Fingerdetektion wurde, wie beschrieben, eine Fourieranalyse der mittleren Wellenintensitäten gemacht (siehe Teil \ref{sec:dec}). Die resultierenden Spektren der Wellenzahlen $k(t)$ sind in Abbildung \ref{fig:k_space} zu sehen. Hier kann man erkennen, dass über den nicht turbulenten Zeitbereich des Experiments, ein Abstand von \SI[round-precision=2]{1,517}{\centi\meter} ($\Rightarrow k=\SI[round-precision=2]{0,66}{\per\centi\meter}$) zwischen den Fingern dominiert und im zeitlichen Verlauf stabil bleibt. 
+Zur Fingerdetektion wurde, wie beschrieben, eine Fourieranalyse der mittleren Wellenintensitäten gemacht (siehe Teil \ref{sec:dec}). Die resultierenden Spektren der Wellenzahlen $k(t)$ sind in Abbildung \ref{fig:k_space} zu sehen. Hier kann man erkennen, dass über den ersten Zeitbereich des Experiments zwischen \SIrange{9}{50}{\minute}, ein Abstand von \SI[round-precision=2]{1,517}{\centi\meter} ($\Rightarrow k=\SI[round-precision=2]{0,66}{\per\centi\meter}$) zwischen den Fingern dominiert und im zeitlichen Verlauf stabil bleibt. 
 
-Der zeitliche Verlauf der mit Hilfe dieser Fourieranalyse bereinigten, mittleren Fingerintensitäten ist in Abbildung \ref{fig:fft} dargestellt. Es wurden alle Signale mit einer Wellenzahl $k > \SI{2}{\per\centi\meter}$ als Rauschen eingestuft und ausgefiltert. Hier kann man gut das Wachstum der Finger, in Form der steigenden Amplitude, erkennen, sowie die Bewegung der Finger, die relativ konstant bleibt. 
+Der zeitliche Verlauf der mit Hilfe dieser Fourieranalyse bereinigten, mittleren Fingerintensitäten ist in Abbildung \ref{fig:fft} dargestellt. Es wurden alle Signale mit einer Wellenzahl $k > \SI{2}{\per\centi\meter}$ als Rauschen eingestuft und ausgefiltert. Hier kann man gut das Wachstum der Finger, in Form der steigenden Amplitude, erkennen, sowie die Bewegung der Finger. %, die relativ konstant bleibt. 
 
 % ========================= Fingerzahl =========================
-\graph[./plot/plots_data-1/fcount]{Anzahl der detektierten Finger im Verlauf des Experiments. Das Rauschen tritt auf, da die Methode nicht einwandfrei funktioniert. Siehe dazu auch \ref{fig:f_detect}. Im Zeitraum von \SIrange{9}{40}{\minute} liefert sie allerdings relativ verlässliche Ergebnisse.}{fig:fcount}
+% \graph[./plot/plots_data-1/fcount]{Anzahl der detektierten Finger im Verlauf des Experiments. Das Rauschen tritt auf, da die Methode nicht einwandfrei funktioniert. Siehe dazu auch \ref{fig:f_detect}. Im Zeitraum von \SIrange{9}{40}{\minute} liefert sie allerdings relativ verlässliche Ergebnisse.}{fig:fcount}
 
 \graph[./plot/plots_data-1/fgrowth]{Länge der detektierten Finger im Verlauf des Experiments. Das Rauschen tritt auf, da die Methode nicht einwandfrei funktioniert. Siehe dazu auch \ref{fig:f_detect}. Im Zeitraum zwischen \SIrange{9}{40}{\minute} liefert sie allerdings relativ verlässliche Ergebnisse.}{fig:fgrowth}
 
-Die Graphen \ref{fig:fcount} und \ref{fig:fgrowth} zeigen Zahl und mittlere Länge der Finger über den Verlauf der Messung. Hier zeigt sich, was auch aus  Abbildung \ref{fig:vcot_1-1} zu erkennen ist: Die Zahl der Finger bleibt relativ konstant, abgesehen, von einigen Finger, die verschmelzen und die Länge der Finger nimmt immer weiter zu.
-\TODO{Fingerzahl weg? Keine echte Aussage möglich}
+% Die Graphen \ref{fig:fcount} und \ref{fig:fgrowth} zeigen Zahl und mittlere Länge der Finger über den Verlauf der Messung. 
+Der Graph \ref{fig:fgrowth} zeigt die mittlere Länge der Finger im Verlauf der Messung. Für diese Betrachtung wurde der untersuchte Bereich der \HSC in 9 gleich große Teile aufgeteilt und über die Längen der Finger in diesen Bereichen gemittelt, um zu sehen, ob das Wachstum in verschiedenen Bereichen der Zelle unterschiedlich ist.
+Hier zeigt sich, was auch aus  Abbildung \ref{fig:vcot_1-1} zu erkennen ist: die Länge der Finger nimmt relativ linear zu.
 
 % einzelner Finger
 Für generauere Betrachtung des Übergangs vom diffusiven zum konvektiven Vermischungsprozess von Wasser und \COT sind in Abbildung \ref{fig:vcot_1-grey} und \ref{fig:sevo} die ersten \SI{16}{\minute}, bzw. \SI{52}{\minute} des Experiments gezeigt. Hierfür wurden die originalen Aufnahmen verwendet, da man hier deutlicher den Effekt beobachten kann.
 
-Man kann erkennen, dass im Verlauf des Experiments, zwischen \SI{5}{\minute} und \SI{9}{\minute} der Übergang stattfindet. Anschließend bilden sich zunächst schnell, ab \SI{24}{\minute} etwas langsamer Finger aus. Direkt zu Beginn der Fingerbildung kann man sehen, wie die diffusive Schicht abgesaugt wird, ebenso wie kürzere Finger. Dies wird in Abbildung \ref{fig:sevo} (\SIrange{9}{26}{\minute}) besonders deutlich. In diesem Zeitraum kann man beobachten, wie rechts und links von dem am größten hervorragenden Finger die diffusive Schicht kleiner wird, bis sie fast wieder reines Wasser an der Wasseroberfläche ist. Nach \SI{24}{\minute} ist die obere \COT Schicht wieder so dick wie nach \SI{9}{\minute}. Nach \SI{39}{\minute} sorgen Turbulenzen dafür, dass die Schicht wieder dünner und vom Finger \TODO{abgeleitet} wird.
+Man kann erkennen, dass im Verlauf des Experiments, zwischen \SI{5}{\minute} und \SI{9}{\minute} der Übergang stattfindet. Anschließend bilden sich zunächst schnell, ab \SI{24}{\minute} etwas langsamer Finger aus. Direkt zu Beginn der Fingerbildung kann man sehen, wie die diffusive Schicht abgesaugt wird, ebenso wie kürzere Finger. Dies wird in Abbildung \ref{fig:sevo} (\SIrange{9}{26}{\minute}) besonders deutlich. In diesem Zeitraum kann man beobachten, wie rechts und links von dem am größten hervorragenden Finger die diffusive Schicht kleiner wird, bis sie fast wieder reines Wasser an der Wasseroberfläche ist. Nach \SI{24}{\minute} ist die obere \COT Schicht wieder so dick wie nach \SI{9}{\minute}. Nach \SI{39}{\minute} sorgen Turbulenzen dafür, dass die Schicht wieder dünner und vom Finger abgeleitet wird.
 
 Letztendlich verschmelzen immer mehr Finger miteinander und es gibt nach einer Stunde immer weniger Finger (siehe \zB Abbildung \ref{fig:complete}). Diese wandern entlang der Wasseroberfläche.
 Nach \SI{5}{\hour} ist die Zelle sehr gut, wenn auch noch nicht komplett, durchmischt.
@@ -80,19 +82,20 @@ Nach \SI{5}{\hour} ist die Zelle sehr gut, wenn auch noch nicht komplett, durchm
 \label{res:cot:disk}
 
 Ein Vergleich der oben gezeigten Ergebnisse mit denen aus anderen Arbeiten zeigen gute Übereinstimmungen.
-\cite{kneafsy} beschreiben in Ihrer Arbeit die \COT-Sequestration, so wie sie auch hier zu beobachten ist. Auch dort wird der Effekt beobachtet, dass die diffusive Schicht, welche sich zunächst ausbildet, mit Entstehen der Finger dünner wird.
+\cite{kneafsy} beschreiben in Ihrer Arbeit die \COTm Sequestration, so wie sie auch hier zu beobachten ist. Auch dort wird der Effekt beobachtet, dass die diffusive Schicht, welche sich zunächst ausbildet, mit Entstehen der Finger dünner wird.
 
-Grund für dieses Verhalten ist die Konvektion des \COT-haltigen Wassers (siehe Abbildung \ref{fig:difkon}). Durch die Abwärtsbewegung dieser dichteren Lösung, wird klares Wasser von unten nach oben transportiert. Dieses kann nun wieder leichter \COT aufnehmen, im Vergleich zum Wasser, in dem sich bereits \COT gelöst hat und damit ggf. schon gesättigt ist.
+Grund für dieses Verhalten ist die Konvektion des \COTm haltigen Wassers (siehe Abbildung \ref{fig:difkon}). 
+% Durch die Abwärtsbewegung dieser dichteren Lösung, wird klares Wasser von unten nach oben transportiert. Dieses kann nun wieder leichter \COT aufnehmen, im Vergleich zum Wasser, in dem sich bereits \COT gelöst hat und damit ggf. schon gesättigt ist.
 
-Was also beobachtet werden kann sind zwei Prozesse, die einander beeinflussen: 
+Was beobachtet werden kann sind zwei Prozesse, die einander beeinflussen: 
 \begin{itemize}
- \item Mittels Diffusion wird das gelöste \COT in tiefere Wasserschichten gebracht.
+ \item Mittels Diffusion wird das gelöste \COT langsam in tiefere Wasserschichten gebracht.
  \item Sobald die dadurch ausgebildete Schicht instabil wird, brechen Finger hervor. Es beginnt ein konvektiver Prozess, der das gelöste \COT schneller in noch tieferes Wasser bringt.
  \item Dadurch wiederum gelangt reines Wasser an die Oberfläche, was wiederum die Lösung von \COT im Wasser begünstigt.
  \item Neues \COT wird im Wasser gelöst und über die Konvektionskanäle, also die Finger, abtransportiert.
 \end{itemize}
 
-Das turbulente Verhalten, das nach spätestens \SI{50}{\minute} zu beobachten ist, lässt sich allerdings damit nicht erklären. Da die Zelle endlich tief ist, entstehen durch die Abwärtsbewegung des gelösten \COT Verwirbelungen Größenordnung der Zellentiefe. Diese führt dazu, dass die Finger nach außen driften und gelöstes \COT wieder nach oben transportiert wird.
+Das Verhalten der Finger, das nach spätestens \SI{50}{\minute} zu beobachten ist, lässt sich allerdings damit nicht erklären. Da die Zelle endlich tief ist, entstehen durch die Abwärtsbewegung des gelösten \COT Kreisströme in Größenordnung der Zellentiefe. Diese führt dazu, dass die Finger nach außen driften und gelöstes \COT wieder nach oben transportiert wird.
  
 Die stabilen Abstände zwischen den Fingern, in den ersten \SI{50}{\minute}, lassen sich auch durch die konvektiven Prozesse zu Beginn erklären. Diese wirken stabilisierend auf die Finger, solange keine Turbulenzen auf Zellskala auftreten.
 Intuitiv macht es Sinn, dass die Abstände der Finger in Größenordnung ihrer Breite sein sollte, da das durch die Finger verdrängte Volumen dem nach oben gedrängten entsprechen muss. Dieses Verhalten wird beobachtet.
@@ -106,15 +109,33 @@ Damit lässt sich das Experiment insgesamt in drei Phasen gliedern:
 \end{itemize}
 
 
-Bei der Auswertung dieser Messung gibt es mehrere bekannte Fehlerquellen, die an dieser Stelle Erwähnung finden sollen. Zum einen sind die Aufnahmen, aufgrund der niedrigen verrauscht, was die Fingerdetektion und -längenmessung, trotz Vorkehrungen, fehleranfällig macht.
-Weitaus größeres Problem ist allerdings das Schwanken der Belichtung der Kamera. Leider konnte nicht hersausgefunden werden, woher dieser Effekt kommt, aber was man feststellen kann ist, dass die Kamera im Laufe der Zeit immer dunklere Bilder macht. Dieser Effekt sollte, durch die in Teil \ref{sec:ima} beschriebene Methode zur Korrektur der Helligkeitsschwankungen, ausgeglichen werden. Leider konnte die angewandte Methode allerdings, aus unverstandenen Gründen, nicht die gewünschten Ergebnisse liefern. Die Helligkeit der Bilder schwankt trotz allem, wenn auch weniger stark. Dennoch führt dies dazu, dass, wie man in Abbildung \ref{fig:vcot_1-1} sehen kann, die Intensitäten der Finger schwanken und schwächer werden. Auch das führt zu fehlerhaften Längenbestimmungen der Finger, da der Grenzwert (siehe Teil \ref{sec:lan}) zu spät erreicht wird.
+Bei der Auswertung dieser Messung gibt es mehrere bekannte Fehlerquellen, die an dieser Stelle Erwähnung finden sollen. Zum einen sind die Aufnahmen, aufgrund der niedrigen Belichtungszeit verrauscht, was die Fingerdetektion und -längenmessung, trotz Vorkehrungen, fehleranfällig macht.
+
+Weitaus größeres Problem ist allerdings das Schwanken der Belichtung der Kamera. Leider konnte nicht hersausgefunden werden, woher dieser Effekt kommt. Was man feststellen kann ist, dass die Kamera im Laufe der Zeit immer dunklere Bilder macht. Dieser Effekt sollte, durch die in Teil \ref{sec:ima} beschriebene Methode zur Korrektur der Helligkeitsschwankungen, ausgeglichen werden. Leider konnte die angewandte Methode allerdings, aus unverstandenen Gründen, nicht die gewünschten Ergebnisse liefern. Die Helligkeit der Bilder schwankt trotz allem, wenn auch weniger stark. Dennoch führt dies dazu, dass, wie man in Abbildung \ref{fig:vcot_1-1} sehen kann, die Intensitäten der Finger schwanken und schwächer werden. Auch das führt zu fehlerhaften Längenbestimmungen der Finger, da der Grenzwert (siehe Teil \ref{sec:lan}) zu spät erreicht wird.
 
 Diese Fehlerquellen wirken sich aber nicht negativ auf die Bestimmung der Fingerabstände über die Fourieranalyse aus. Da die mittlere Intensitäten, trotzdem das charakteristische Wellenmuster (siehe Abbildung \ref{fig:fft}) aufweisen. Die Aussagen aus, welche diesen Messungen gewonnen wurden sind somit robuster.
 
-\graph[./plot/Konvektion_Diffusion.pdf]{Interpretation der auftretenden Phänomene, verursacht durch Konvektion und Diffusion}{fig:difkon}
+\onecolumn
 
-\newpage
-\section{\COT Experiment im porösen Medium}
+
+\begin{figure}
+ \centering
+ \includegraphics[width=9cm]{./plot/Konvektion_Diffusion.pdf}
+ \caption{Interpretation der auftretenden Phänomene, verursacht durch Konvektion und Diffusion}
+ \label{fig:difkon}
+\end{figure}
+% 
+% \centering
+% 
+% \graph[./plot/Konvektion_Diffusion.pdf]{Interpretation der auftretenden Phänomene, verursacht durch Konvektion und Diffusion}{fig:difkon}
+
+\twocolumn
+
+% \newpage
+% \mbox{\,}
+% \newpage
+
+\section{\COTm Experiment mit porösem Medium}
 \label{res:cpm}
 
 \graph[./plot/BCG_test_03_num]{Farbumschläge des \BCG in Verbindung mit verschiedenen Substanzen. \BCG (1) in neutraler Form, \dah im Gleichgewicht mit der umgebenden Luft, (2) in Kombination mit \COT. Man kann sehr gut den Ausschlag ins Gelbe erkennen. (3) mit den Glaskügelchen verschiedener Größen, (4) mit Glaskügelchen und gelöstem \COT.}{fig:CPO}
@@ -129,7 +150,7 @@ Zur Verdeutlichung der beschriebenen Phänomene siehe Abbildung \ref{fig:CPO}.
 
 Ein angedachter Lösungsansatz mit Glaskugeln, welche dem Wasser gegenüber beständiger sind, wurde aus Zeitgründen nicht umgesetzt. Ein Test der Kugeln aus Borosilikatglas ergab aber vielversprechende Ergebnisse, da der durch das \COT hervorgerufene Farbumschlag auch mit Kugeln in der Indikatorlösung beobachtet werden konnte. Siehe dazu Abbildung \ref{fig:CPO_bor}.
 
-\vspace{10cm} % damit balance die Bilder beide auf die Seite packt
+% \vspace{10cm} % damit balance die Bilder beide auf die Seite packt
 
 
 

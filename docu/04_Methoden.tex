@@ -71,7 +71,7 @@ Zur leichteren Interpretation werden die Werte vor der graphischen Visualisierun
 
 \section{Detektion und Verfolgung des Tracers im Fall von Fingerbildung}
 \label{sec:track}
-Während der \COT-Experimente wird beobachtet, dass sich herabsinkende Finger der Wasser-\COT-Lösung, bilden. Deren Position und Länge über den Zeitraum der 
+Während der \COTm Experimente wird beobachtet, dass sich herabsinkende Finger der Wasser-\COTm Lösung, bilden. Deren Position und Länge über den Zeitraum der 
 Messung, bzw. der ersten Minuten, sind interessante Größen, die dabei helfen können, das System zu beschreiben und zu verstehen.
 
 Wird im folgenden von ``Bild'' gesprochen, so ist vom Quotientenbild nach Gleichung \ref{eq:quot} die Rede. Mit anderen Worten bezeichnet ``Bild'' die räumlich 
@@ -97,7 +97,6 @@ Abständen Finger vorwiegend auftreten. Bereinigt man dieses Spektrum von den We
 ursprünglichen Raum durch, kann man genau sehen, wo sich die Intensitäts-Maxima befinden. Wiederholt man dieses Verfahren zu jedem Zeitschritt erhält man eine 
 zeitaufgelöste Vorstellung davon, wo sich die Finger im Verlauf des Experiments befinden.
 
-\TODO{==========}
 \subsection{Länge}
 \label{sec:lan}
 Mit dem Wissen, wo sich die Finger befinden, lässt sich auch deren Länge errechnen. Dazu wird an jeder Stelle $s$ im Array $\mathbf{C}$ aus Teil \ref{sec:dec}, 
@@ -112,17 +111,16 @@ Reihe von 5 Pixeln links und rechts von $\mathbf{c}_{sm}$ gemittelt. Der so erha
 
 In Abbildung \ref{fig:f_detect} und \ref{fig:fgrowth} sind Beispiele für die Detektion und bestimmte Länge der Finger zu finden.
 
-\subsection{Wachstum}
-\label{sec:grow}
-Mit der Annahme, dass alle Finger gleich schnell wachsen, reicht es aus, zu jedem Zeitschritt $t_i$ den Mittelwert $\bar{l}_i$ der Länge aller Finger zu 
-berechnen und anschließend durch den Zeitschritt zu teilen, um ihre Wachstumsrate zu ermitteln. 
-\begin{align}
- \dot{l}_i &= \frac{\bar{l}_i-\bar{l}_{i-1}}{t_i-t_{i-1}} \\
- i &\in \mathbb{N} \\
- \bar{l}_{0} &= 0
-\end{align}
-man aber beobachten kann, dass die Finger in unterschiedlichen Bereichen unterschiedlich schnell wachsen, wird eine Methode implementiert, die es erlaubt, Teile 
-des untersuchten Arrays $\mathbf{C}$ zu betrachten. Das bedeutet, es werden nur die Längen der Finger in diesem Bereich in Betracht gezogen. Wählt man den 
-Bereich klein genug ist es möglich auch einzelne Finger zu betrachten.
+% \subsection{Wachstum}
+% \label{sec:grow}
+% Mit der Annahme, dass alle Finger gleich schnell wachsen, reicht es aus, zu jedem Zeitschritt $t_i$ den Mittelwert $\bar{l}_i$ der Länge aller Finger zu 
+% berechnen und anschließend durch den Zeitschritt zu teilen, um ihre Wachstumsrate zu ermitteln. 
+% \begin{align}
+%  \dot{l}_i &= \frac{\bar{l}_i-\bar{l}_{i-1}}{t_i-t_{i-1}} \\
+%  i &\in \mathbb{N} \\
+%  \bar{l}_{0} &= 0
+% \end{align}
+% man aber beobachten kann, dass die Finger in unterschiedlichen Bereichen unterschiedlich schnell wachsen, wird eine Methode implementiert, die es erlaubt, Teile 
+% des untersuchten Arrays $\mathbf{C}$ zu betrachten. Das bedeutet, es werden nur die Längen der Finger in diesem Bereich in Betracht gezogen. Wählt man den 
+% Bereich klein genug ist es möglich auch einzelne Finger zu betrachten.
 
-\TODO{raus? ======}
