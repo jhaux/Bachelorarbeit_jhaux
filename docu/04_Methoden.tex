@@ -22,7 +22,7 @@ Unter der Annahme, dass die aufgezeichneten Bilder $\mathbf{B}$ zu allen Zeiten 
 \end{eqnarray}
 
 
-Führt man diese Korrektur durch stellt sich heraus, dass die aufgezeichneten Bilder in ihrer Helligkeit schwanken. Bilder die früher aufgezeichnet wurden sind heller, als solche, die später gemacht wurden. Um diesem Effekt entgegenzuwirken wird ein Algorithmus implementiert, der einen Bildbereich betrachtet, dessen Helligkeit während der gesamten Messung konstant bleiben soll, wie zum Beispiel die Hintergrundbeleuchtung. Es ist darauf zu achten, dass dieser Bereich nicht über- oder unterbelichtet ist, sonst kann nicht sichergestellt werden, dass der errechnete Korrekturfaktor für das gesamte Bild gültig ist. 
+Führt man diese Korrektur durch stellt sich heraus, dass die aufgezeichneten Bilder in ihrer Helligkeit schwanken. Bilder die früher aufgezeichnet wurden sind heller, als solche, die später gemacht wurden. Um diesem Effekt entgegenzuwirken wird ein Algorithmus implementiert, der einen Bildbereich analysiert, dessen Helligkeit während der gesamten Messung konstant bleiben soll, wie zum Beispiel die Hintergrundbeleuchtung. Es ist darauf zu achten, dass dieser Bereich nicht über- oder unterbelichtet ist, sonst kann nicht sichergestellt werden, dass der errechnete Korrekturfaktor für das gesamte Bild gültig ist. 
 
 Sei $\mathbf{B}$ ein beliebiges Bild der Messreihe und $\mathbf{R}$ das Referenzbild. Dann sind 
 $\mathrm{M(\mathbf{B})}$ und $\mathrm{M(\mathbf{R})}$ die Arrays aus $N$ Pixeln, die den Bildbereich mit konstanter Intensität beschreiben. Aus allen Elementen 
@@ -32,16 +32,16 @@ wird der jeweilige Mittelwert dieser beiden Matrizen errechnet:
  \mu_{\mathbf{R}} = \frac{1}{N} \sum_{i=1}^N \mathrm{M(\mathbf{R})}_i
 \end{eqnarray}
 
-Aus diesen Werten lässt sich nun ein Faktor $f$ zur Korrektur des Bildes errechnen, da gilt:
+Aus diesen Werten lässt sich nun ein Faktor $f_{\mathbf{B}}$ zur Korrektur des Bildes errechnen, da gilt:
 \begin{eqnarray}
- \mu_{\mathbf{R}} = f \cdot \mu_{\mathbf{B}}
+ \mu_{\mathbf{R}} = f_{\mathbf{B}} \cdot \mu_{\mathbf{B}}
  \label{eq:norm}
 \end{eqnarray}
 
-Damit lassen sich alle Grauwerte des Bildes auf den passenden Wert korrigieren ($\mathbf{B}_{neu} = f \cdot \mathbf{B}$) und man erhält einen neuen Wert für die 
+Damit lassen sich alle Grauwerte des Bildes auf den passenden Wert korrigieren ($\mathbf{B}_{neu} = f_{\mathbf{B}} \cdot \mathbf{B}$) und man erhält einen neuen Wert für die 
 Differenzmatrix:
 \begin{eqnarray}
- \mathbf{C} = f \cdot \mathbf{B} - \mathbf{R}
+ \mathbf{C} = f_{\mathbf{B}} \cdot \mathbf{B} - \mathbf{R}
 \end{eqnarray}
 
 
@@ -49,7 +49,7 @@ Differenzmatrix:
 Neben der schwankenden Helligkeit fällt auch noch auf, dass die LED-Beleuchtung zu einer Vignettierung der Aufnahme führt, da die Beleuchtung in der Mitte stärker als an den Rändern ist. Ein einfaches Subtrahieren der Bilder führt also zu einer Unterschätzung der absoluten Grauwerte im Außenbereich, bzw. zu einer Überschätzung im Innenbereich des Bildes.
 Unter der Annahme, dass diese Vignettierung über den Zeitraum der Messung konstant bleibt, wird anstelle der Subtraktion eine Division durchgeführt, \dah jedes Pixel $\mathbf{b}_{nm}$ des untersuchten Bildes wird durch das Pixel $\mathbf{r}_{nm}$ des Referenzbildes an der selben Stelle geteilt, wobei gilt $\mathbf{B} = \mathbf{b}_{nm}$ und $\mathbf{R} = \mathbf{r}_{nm}$. Zusammen mit der Korrektur der Helligkeit (Gleichung \ref{eq:norm}) erhält man folgende Bildungsvorschrift für die Quotientenbilder:
 \begin{eqnarray}
- \mathbf{C} = \mathbf{c}_{nm} = \frac{f \cdot \mathbf{b}_{nm}}{\mathbf{r}_{nm}}
+ \mathbf{C} = \mathbf{c}_{nm} = \frac{f_{\mathbf{B}} \cdot \mathbf{b}_{nm}}{\mathbf{r}_{nm}}
  \label{eq:quot}
 \end{eqnarray}
 Die Werte von Bild $\mathbf{C}$ nehmen den Wert 1 überall dort an, wo Referenz- und betrachtetes Bild gleich sind. Der Tracer befindet sich also dort, wo gilt 
@@ -96,7 +96,7 @@ Mit dem Wissen, wo sich die Finger befinden, lässt sich auch deren Länge errec
 \end{aligned}
 \end{equation}
 
-Zum leichteren Verständnis wurde eine Skizze in Abbildung \ref{fig:lenarray} zu diesem Vorgang angefertig.
+Dieser Vorgang wird in Abbildung \ref{fig:lenarray} veranschaulicht.
  
 In Abbildung \ref{fig:f_detect} und \ref{fig:fgrowth} sind Beispiele für die Detektion und bestimmte Länge der Finger zu finden.
 

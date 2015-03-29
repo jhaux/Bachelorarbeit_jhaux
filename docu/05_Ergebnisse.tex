@@ -38,6 +38,16 @@
 \section{\COTm Experiment}
 \label{res:cot}
 
+\graph{Foto des Aufbaus. Mit roten Rechtecken sind die Bereiche zur Stabilisierung der Helligkeit (oben rechts) und zur tatsächlichen Auswertung (unten) markiert. Von oben kommt der Schlauch, durch welchen das \COT zugeführt wird ins Bild.}{fig:fotoau}
+
+Wie in Teil \ref{cha:set} beschrieben wurde das \COTm Experiment mit der kleinen \HSC durchgeführt. Ein Foto des Aufbaus ist in Abbildung \ref{fig:fotoau} zu sehen. Dort sind auch der Bereich zur Stabilisierung der Helligkeit und der für die Messungen analysierte Bereich eingezeichnet.
+
+Zunächst werden die gemachten Beobachtungen geschildert, anschließend werden sie interpretiert und diskutiert.
+
+
+\subsection{Beobachtungen}
+\label{res:cot:beob}
+
 \sisetup{
   round-mode=places,
   round-precision=1
@@ -72,7 +82,7 @@ Hier zeigt sich, was auch in Abbildung \ref{fig:vcot_1-1} zu erkennen ist: die L
 % einzelner Finger
 Für generauere Betrachtung des Übergangs vom diffusiven zum konvektiven Vermischungsprozess von Wasser und \COT sind in Abbildung \ref{fig:vcot_1-grey} und \ref{fig:sevo} die ersten \SI{16}{\minute}, bzw. \SI{52}{\minute} des Experiments gezeigt. Hierfür wurden die originalen Aufnahmen verwendet, da man hier deutlicher den Effekt beobachten kann.
 
-Man kann erkennen, dass im Verlauf des Experiments, zwischen \SI{5}{\minute} und \SI{9}{\minute} der Übergang stattfindet. Anschließend bilden sich zunächst schnell, ab \SI{24}{\minute} etwas langsamer Finger aus. Direkt zu Beginn der Fingerbildung kann man sehen, wie die diffusive Schicht abgesaugt wird, ebenso wie kürzere Finger. Dies wird in Abbildung \ref{fig:sevo} (\SIrange{9}{26}{\minute}) besonders deutlich. In diesem Zeitraum kann man beobachten, wie rechts und links von dem am größten hervorragenden Finger die diffusive Schicht kleiner wird, bis sie fast wieder reines Wasser an der Wasseroberfläche ist. Nach \SI{24}{\minute} ist die obere \COT Schicht wieder so dick wie nach \SI{9}{\minute}. Nach \SI{39}{\minute} sorgen Turbulenzen dafür, dass die Schicht wieder dünner und vom Finger abgeleitet wird.
+Man kann erkennen, dass im Verlauf des Experiments, zwischen \SI{5}{\minute} und \SI{9}{\minute} der Übergang stattfindet. Anschließend bilden sich zunächst schnell, ab \SI{24}{\minute} etwas langsamer Finger aus. Direkt zu Beginn der Fingerbildung kann man sehen, wie die diffusive Schicht abgesaugt wird, ebenso wie kürzere Finger. Dies wird in Abbildung \ref{fig:sevo} (\SIrange{9}{26}{\minute}) besonders deutlich. In diesem Zeitraum kann man beobachten, wie rechts und links von dem am größten hervorragenden Finger die diffusive Schicht kleiner wird, bis sie fast wieder reines Wasser an der Wasseroberfläche ist. Nach \SI{24}{\minute} ist die obere \COT Schicht wieder so dick wie nach \SI{9}{\minute}. Nach \SI{39}{\minute} sorgen Vortizitäten dafür, dass die Schicht wieder dünner und vom Finger abgeleitet wird.
 
 Letztendlich verschmelzen immer mehr Finger miteinander und es gibt nach einer Stunde immer weniger Finger (siehe \zB Abbildung \ref{fig:complete}). Diese wandern entlang der Wasseroberfläche.
 Nach \SI{5}{\hour} ist die Zelle sehr gut, wenn auch noch nicht komplett, durchmischt.
@@ -97,7 +107,7 @@ Was beobachtet werden kann sind zwei Prozesse, die einander beeinflussen:
 
 Das Verhalten der Finger, das nach spätestens \SI{50}{\minute} zu beobachten ist, lässt sich allerdings damit nicht erklären. Da die Zelle endlich tief ist, entstehen durch die Abwärtsbewegung des gelösten \COT Kreisströme in Größenordnung der Zellentiefe. Diese führt dazu, dass die Finger nach außen driften und gelöstes \COT wieder nach oben transportiert wird.
  
-Die stabilen Abstände zwischen den Fingern, in den ersten \SI{50}{\minute}, lassen sich auch durch die konvektiven Prozesse zu Beginn erklären. Diese wirken stabilisierend auf die Finger, solange keine Turbulenzen auf Zellskala auftreten.
+Die stabilen Abstände zwischen den Fingern, in den ersten \SI{50}{\minute}, lassen sich auch durch die konvektiven Prozesse zu Beginn erklären. Diese wirken stabilisierend auf die Finger, solange keine Vortizitäten auf Zellskala auftreten.
 Intuitiv macht es Sinn, dass die Abstände der Finger in Größenordnung ihrer Breite sein sollte, da das durch die Finger verdrängte Volumen dem nach oben gedrängten entsprechen muss. Dieses Verhalten wird beobachtet.
 Ähnliche Beobachtungen zur Stabilisierung der Fingersabstände werden von \cite{fernandez} gemacht. Auch dort dominiert ein Abstand zu Beginn der Fingerbildung. 
 
@@ -105,7 +115,7 @@ Damit lässt sich das Experiment insgesamt in drei Phasen gliedern:
 \begin{itemize}
  \item Diffusion (\SI{0}{\minute} bis \SI{9}{\minute})
  \item stabile Fingerbildung (\SI{9}{\minute} bis \SI{60}{\minute})
- \item Turbulenz (\SI{60}{\minute} bis zum Ende) 
+ \item Vortizitäten auf Zellebene (\SI{60}{\minute} bis zum Ende) 
 \end{itemize}
 
 
@@ -115,25 +125,24 @@ Weitaus größeres Problem ist allerdings das Schwanken der Belichtung der Kamer
 
 Diese Fehlerquellen wirken sich aber nicht negativ auf die Bestimmung der Fingerabstände über die Fourieranalyse aus. Da die mittlere Intensitäten, trotzdem das charakteristische Wellenmuster (siehe Abbildung \ref{fig:fft}) aufweisen. Die Aussagen aus, welche diesen Messungen gewonnen wurden sind somit robuster.
 
-\onecolumn
+\graph[./plot/Konvektion_Diffusion.pdf]{Interpretation der auftretenden Phänomene, verursacht durch Konvektion und Diffusion}{fig:difkon}
 
 
-\begin{figure}
- \centering
- \includegraphics[width=9cm]{./plot/Konvektion_Diffusion.pdf}
- \caption{Interpretation der auftretenden Phänomene, verursacht durch Konvektion und Diffusion}
- \label{fig:difkon}
-\end{figure}
+% \onecolumn
 % 
-% \centering
+% \begin{figure}
+%  \centering
+%  \includegraphics[width=9cm]{./plot/Konvektion_Diffusion.pdf}
+%  \caption{Interpretation der auftretenden Phänomene, verursacht durch Konvektion und Diffusion}
+%  \label{fig:difkon}
+% \end{figure}
 % 
-% \graph[./plot/Konvektion_Diffusion.pdf]{Interpretation der auftretenden Phänomene, verursacht durch Konvektion und Diffusion}{fig:difkon}
+% \twocolumn
 
-\twocolumn
 
 % \newpage
 % \mbox{\,}
-% \newpage
+\newpage
 
 \section{\COTm Experiment mit porösem Medium}
 \label{res:cpm}
