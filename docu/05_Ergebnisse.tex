@@ -73,7 +73,7 @@ Der zeitliche Verlauf der mit Hilfe dieser Fourieranalyse bereinigten mittleren 
 % ========================= Fingerzahl =========================
 % \graph[./plot/plots_data-1/fcount]{Anzahl der detektierten Finger im Verlauf des Experiments. Das Rauschen tritt auf, da die Methode nicht einwandfrei funktioniert. Siehe dazu auch \ref{fig:f_detect}. Im Zeitraum von \SIrange{9}{40}{\minute} liefert sie allerdings relativ verlässliche Ergebnisse.}{fig:fcount}
 
-\graph[./plot/plots_data-1/fgrowth]{Länge der detektierten Finger im Verlauf des Experiments. Das Rauschen tritt auf, da die Methode nicht einwandfrei funktioniert. Siehe dazu auch \ref{fig:f_detect}. Im Zeitraum zwischen \SIrange{9}{40}{\minute} liefert sie allerdings relativ verlässliche Ergebnisse.}{fig:fgrowth}
+\graph[./plot/plots_data-1/fgrowth]{Länge der detektierten Finger im Verlauf des Experiments. Das Rauschen tritt auf, da die Methode nicht einwandfrei funktioniert. Siehe dazu auch Abbildung \ref{fig:f_detect}. Im Zeitraum zwischen \SIrange{9}{40}{\minute} liefert sie relativ verlässliche Ergebnisse.}{fig:fgrowth}
 
 % Die Graphen \ref{fig:fcount} und \ref{fig:fgrowth} zeigen Zahl und mittlere Länge der Finger über den Verlauf der Messung. 
 Der Graph \ref{fig:fgrowth} zeigt die mittlere Länge der Finger im Verlauf der Messung. Für diese Betrachtung wurde der untersuchte Bereich der \HSC in 9 gleich große Teile aufgeteilt und über die Längen der Finger in diesen Bereichen gemittelt, um zu sehen, ob das Wachstum in verschiedenen Bereichen der Zelle unterschiedlich ist.
@@ -125,7 +125,7 @@ Weitaus größeres Problem ist allerdings das Schwanken der Belichtung der Kamer
 
 Diese Fehlerquellen wirken sich aber nicht negativ auf die Bestimmung der Fingerabstände über die Fourieranalyse aus. Da die mittlere Intensitäten, trotzdem das charakteristische Wellenmuster (siehe Abbildung \ref{fig:fft}) aufweisen. Die Aussagen aus, welche diesen Messungen gewonnen wurden sind somit robuster.
 
-\graph[./plot/Konvektion_Diffusion.pdf]{Interpretation der auftretenden Phänomene, verursacht durch Konvektion und Diffusion}{fig:difkon}
+\graph[./plot/Konvektion_Diffusion.pdf]{Interpretation der auftretenden Phänomene, verursacht durch Konvektion und Diffusion. Durch das Absinken der Finger wird Wasser mit gelöstem \COT aus der diffusiven Schicht, direkt unter Wasseroberfläche, abtransportiert und klares Wasser nach oben gedrückt. Dadurch kann sich wiederum mehr \COT im Wasser lösen.}{fig:difkon}
 
 
 % \onecolumn
@@ -149,7 +149,7 @@ Diese Fehlerquellen wirken sich aber nicht negativ auf die Bestimmung der Finger
 
 \graph[./plot/BCG_test_03_num]{Farbumschläge des \BCG in Verbindung mit verschiedenen Substanzen. \BCG (1) in neutraler Form, \dah im Gleichgewicht mit der umgebenden Luft, (2) in Kombination mit \COT. Man kann sehr gut den Ausschlag ins Gelbe erkennen. (3) mit den Glaskügelchen verschiedener Größen, (4) mit Glaskügelchen und gelöstem \COT.}{fig:CPO}
 
-\graph[./plot/BCG_Test_Boro_num]{Farbumschläge des \BCG. \BCG (1) in neutraler Form, \dah im Gleichgewicht mit der umgebenden Luft, (2) in Kombination mit gelöstem \COT. Man kann sehr gut den Ausschlag ins Gelbe erkennen. (3) mit den Glaskügelchen aus Borosilikatglas, (4) mit Glaskügelchen und gelöstem \COT.}{fig:CPO_bor}
+\graph[./plot/BCG_Test_Boro_num]{Farbumschläge des \BCGn. \BCG (1) in neutraler Form, \dah im Gleichgewicht mit der umgebenden Luft, (2) in Kombination mit gelöstem \COT. Man kann sehr gut den Ausschlag ins Gelbe erkennen. (3) mit den Glaskügelchen aus \BOG, (4) mit Glaskügelchen und gelöstem \COTn.}{fig:CPO_bor}
 
 Der Versuch das \COT Experiment in Kombination mit einem porösen Medium durchzuführen ist aufgrund der verwendeten Glaskugeln gescheitert. Es wurde nicht beachtet, dass Glas Wasser durch Ionenaustausch basisch macht. Die leicht löslichen Elemente an der Oberfläche des Glases werden vom Wasser herausgelöst und durch die im Wasser vorhandenen H$^+$-Ionen ersetzt. Dadurch wird das Wasser basisch, da die OH$^-$-Konzentration steigt. \citep{Vogel}
 
@@ -165,15 +165,15 @@ Ein angedachter Lösungsansatz mit Glaskugeln, welche dem Wasser gegenüber best
 
   
 % ========================= longgraphpages =========================
-\longgraphpage[./plot/plots_data-1/plot_all_overview_quot_0]{Fingerbildung Experiment 1. Die Farbskala beschreibt die relative Absorption im Bezug auf den Hintergrund (0). Maximale Absorption bekommt den Wert 100 zugewiesen.}{fig:vcot_1-1}
-\longgraphpage[./plot/plots_data-1/plot_all_overview_quot_1]{Fingerbildung Experiment 1. Die Farbskala beschreibt die relative Absorption im Bezug auf den Hintergrund (0). Maximale Absorption bekommt den Wert 100 zugewiesen.}{fig:vcot_1-2}
+\longgraphpage[./plot/plots_data-1/plot_all_overview_quot_0]{Fingerbildung im \COTm Experiment. Die Farbskala beschreibt die relative Absorption im Bezug auf den Hintergrund. Maximale Absorption bekommt den Wert 100 zugewiesen, minimale 0.}{fig:vcot_1-1}
+\longgraphpage[./plot/plots_data-1/plot_all_overview_quot_1]{Fingerbildung im \COTm Experiment. Die Farbskala beschreibt die relative Absorption im Bezug auf den Hintergrund. Maximale Absorption bekommt den Wert 100 zugewiesen, minimale 0.}{fig:vcot_1-2}
 
-\longgraphpage[./plot/plots_data-1/finger_detection_cut]{Abgebildet sind Fingerbildung zusammen mit detektierten Fingerpositionen und -längen zur Demonstration, wie die in Teil \ref{sec:lan} beschriebene Methode funktioniert. Die Farbskala beschreibt die relative Absorption im Bezug auf den Hintergrund (0). Maximale Absorption bekommt den Wert 100 zugewiesen.}{fig:f_detect}
+\longgraphpage[./plot/plots_data-1/finger_detection_cut]{Abgebildet sind die Fingerbildung zusammen mit den detektierten Fingerpositionen und -längen zur Demonstration, wie die in Teil \ref{sec:lan} beschriebene Methode funktioniert. Die Farbskala beschreibt die relative Absorption im Bezug auf den Hintergrund. Maximale Absorption bekommt den Wert 100 zugewiesen, minimale 0.}{fig:f_detect}
 
 
-\longgraphpage[./plot/plots_data-1/plot_all_overview_0_adj]{Fingerbildung Experiment 1. Rohaufnahmen mit erhöhtem Kontrast. Zu erkennen ist der Übergang vom diffusiven zum konvektiven Prozess nach ca. \SI{9}{\minute}. Auch kann man beobachten, wie die diffusive Schicht zwischen den Fingern ``abgesaugt'' wird. }{fig:vcot_1-grey}
+\longgraphpage[./plot/plots_data-1/plot_all_overview_0_adj]{Fingerbildung im \COTm Experiment. Rohaufnahmen mit erhöhtem Kontrast. Zu erkennen ist der Übergang vom diffusiven zum konvektiven Prozess bei ca. \SI{9}{\minute}. Auch kann man beobachten, wie die diffusive Schicht zwischen den Fingern ``abgesaugt'' wird. }{fig:vcot_1-grey}
 % ========================= einzelner Finger =========================
 \longgraphpagetriple{./plot/plots_data-1/single_evolution_1}{./plot/plots_data-1/single_evolution_2}{./plot/plots_data-1/single_evolution_3}{Entwicklung eines einzelnen Fingers mit der Zeit.}{fig:sevo}
 
-\longgraphpagesextuple{./plot/plots_data-1/comp_evolution_1}{./plot/plots_data-1/comp_evolution_2}{./plot/plots_data-1/comp_evolution_3}{./plot/plots_data-1/comp_evolution_4}{./plot/plots_data-1/comp_evolution_5}{./plot/plots_data-1/comp_evolution_6}{Überblick über den gesamten Verlauf des Experiments}{fig:complete}
+\longgraphpagesextuple{./plot/plots_data-1/comp_evolution_1}{./plot/plots_data-1/comp_evolution_2}{./plot/plots_data-1/comp_evolution_3}{./plot/plots_data-1/comp_evolution_4}{./plot/plots_data-1/comp_evolution_5}{./plot/plots_data-1/comp_evolution_6}{Überblick über den gesamten Verlauf des Experiments. Zu Erkennen sind die beiden letzten Phasen in die sich der Verlauf des Experiments gliedert: stabile Fingerbildung und die ausbildung von Vortizitäten, die für Durhcmischung der Zelle sorgen. Die Phase, in der sich die diffusive Schicht ausbildet ist zu kurz, als dass sie bei dieser Zeitauflösung zu erkennen wäre. Sie kann in Abbildung \ref{fig:vcot_1-grey} betrachtet werden.}{fig:complete}
 % \widegraphpage[./plot/plots_data-1/fingers_quot-raw_5-30_cut.png]{Vergleich der Quotientenmethode und dem tatsächlich aufgezeichneten Bild.}{fig:fing_comp}

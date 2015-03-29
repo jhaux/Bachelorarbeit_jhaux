@@ -1,5 +1,5 @@
 \label{cha:set}
-\widegraph[./plot/Aufb_allg_num]{Grundsätzlicher Aufbau der beiden durchgeführten Experimente. Zu sehen sind: 1: \HSC, 2: Lichtquelle, 3: Kasten, 4: Lüfter, 5: Computer, 6: \COTm Behälter, 7: Pumpe, 8: Kamera, 9: 3-Wege-Ventil, 10: Reservoir zum Halten des Wasserspiegels bei langen Experimenten.}{fig:auf}
+\widegraph[./plot/Aufb_allg_num]{Grundsätzlicher Aufbau der beiden durchgeführten Experimente. Zu sehen sind: (1) \HSC, (2) Lichtquelle, (3) Kasten, (4) Lüfter, (5) Computer, (6) \COTm Behälter, (7) Pumpe, (8) Kamera, (9) 3-Wege-Ventil, (10) Reservoir zum Halten des Wasserspiegels bei langen Experimenten.}{fig:auf}
 % \graph[./plot/Aufb_allg_num]{Grundsätzlicher Aufbau der beiden durchgeführten Experimente. Zu sehen sind: 1: \HSC, 2: Lichtquelle, 3: Kasten, 4: Lüfter, 5: Computer, 6: \COTm Behälter, 7: Pumpe, 8: Kamera, 9: 3-Wege-Ventil, 10: Reservoir zum Halten des Wasserspiegels bei langen Experimenten.}{fig:auf} % nutzen für onecolumn
 
 
@@ -18,7 +18,7 @@ gewünschten Lösung befüllt werden kann.
 Die Abmessungen der verwendeten Zellen sind in Tabelle \ref{tab:Hdim} festgehalten.
 
 % \mediumgraph[./plot/happy_cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle. Man bemerke, dass die Zelle glücklich ist!}{fig:Hdim}
-\mediumgraph[./plot/cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle.}{fig:Hdim}
+\mediumgraph[./plot/cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. (1) Keil, (2) Dichtung und Abstandhalter, (3) Rahmen, (4) Glasplatte, (5) Füllung der Zelle.}{fig:Hdim}
 
 Der Vorteil einer \HSC ist, dass man mit ihr Beobachtungen zweidimensionaler Natur machen kann.
 
@@ -107,7 +107,7 @@ Zur Durchleuchtung der Zelle wird ein Array aus LEDs der Farben Rot, Grün und B
 Für das zweite Experiment wurde die \HSCs mit einer \BCG Lösung mit einer Konzentration von \SI{3,5}{\milli\gram\per\liter} befüllt. 
 \BCG ist eine Indikatorlösung, die von blau zu gelb umschlägt, wenn sich der pH-Wert in einem Bereich von 5,4 bis 3,9 ändert. Reines Wasser, das nur mit Luft in Kontakt ist, hat einen pH-Wert von 5,6, wohingegen Wasser, in dem sich \COT gelöst hat, einen pH-Wert von 3,9 annimmt. Die ursprünglich fast neutrale Lösung absorbiert stark im \SI{630}{\nano\meter}-Bereich während nach dem pH-Wert induzierten Farbumschlag das Maximum der Absorption bei \SI{450}{\nano\meter} liegt. Dieses Verhalten wird in Abbildung \ref{fig:bcg} deutlich gemacht.
 
-\graph[./plot/BCG]{Absorbierende Eigenschaften von \BCG. \citep{bcg:wiki}}{fig:bcg}
+\graph[./plot/BCG]{Absorbierende Eigenschaften von \BCGn. Man kann sehr gut erkenne, wie für neutrale pH-Werte der Bereich um \SI{630}{\nano\meter} sehr stark absorbiert, während er für niedrigere pH-Werte sehr dort sehr viel weniger absorbiert. Dies begünstigt die Messung mit einem \SI{630}{\nano\meter}. Grafik nach \cite{bcg:wiki}}{fig:bcg}
 
 Diese Eigenschaft passt sehr gut zu den zur Verfügung stehenden Filtern und macht es möglich zu verfolgen wo \COT in Wasser gelöst ist.
 Die Kamera filmt wieder das Experiment, dieses mal jedoch mit einer sehr viel höheren Bildrate von ca. \SI{1}{Bild\per\minute}.  Es werden Aufnahmen mit dem \SI{630}{\nano\meter}- und dem \SI{450}{\nano\meter}-Filter gemacht, sowie Aufnahmen bei verschlossenem Objektiv, die später zur Dunkelstromkorrektur verwendet 
@@ -137,7 +137,7 @@ Eine Abschätzung der Rayleighzahl mit Gleichung \ref{eq:Ra1} zeigt, dass Finger
 
 
 
-\widegraph[./plot/Rayleighnumber]{Abschätzung, ob sich mit dem \COT Experiment mit porösem Medium theoretisch konvektive Prozesse, wie Fingerbildung, beobachten lassen. Als Grenzwert gilt $Ra > 4\pi^2$. Ist die diffusiv gebildete Schicht (h) aus gelöstem \COT groß genug, ist dieses Kriterium erfüllt. Für $D$ wurde $D_{eff}$ nach Gleichung \ref{eq:Deff} gewählt. Die Indizes an den Porenradien beziehen sich auf die Kugelgrößen in Tabelle \ref{tab:kug}}{fig:Ra}
+\widegraph[./plot/Rayleighnumber]{Abschätzung, ob sich mit dem \COT Experiment mit porösem Medium theoretisch konvektive Prozesse, wie Fingerbildung, beobachten lassen. Dies geht ab $Ra > 4\pi^2$. Ist die Höhe $h$ der diffusiv gebildete Schicht aus gelöstem \COT groß genug, ist dieses Kriterium erfüllt. Für $D$ wurde $D_{eff}$ nach Gleichung \ref{eq:Deff} gewählt. Die Indizes an den Porenradien beziehen sich auf die Kugelgrößen in Tabelle \ref{tab:kug}}{fig:Ra}
 
 \section{\COTm Experiment mit porösem Medium.}
 \label{sec:cpm}
@@ -146,7 +146,7 @@ Für diesen Versuch wird ein Aufbau ähnlich wie bei \cite{feustel} verwendet, d
 Eigenschaften besteht. Hierbei ist die große \HSC mit Glaskügelchen verschiedener Größen gefüllt. Dabei entstehen Regionen, die sich jeweils über einen Teil der Zellbreite erstrecken, wie in Abbildung \ref{fig:het} zu sehen ist. 
 Die Größen der verwendeten Kugeln (\textit{SiLi-Beads}) der Firma \textit{Sigmund-Lindner GmbH} sind in Tabelle \ref{tab:kug} notiert. 
 
-\smallgraph[./plot/hetero]{Die heterogene Struktur des aufgeschütteten porösen Mediums. Die verschiedenen Bereiche unterschiedlicher Kugelgröße lassen sich mit Hilfe von Tabelle \ref{tab:kug} zuordnen. Diese Aufnahme wurde mit einem vorgeschalteten \SI{630}{\nano\meter}-Filter gemacht, wodurch die Ausbreitung besser hervorgehoben wird.}{fig:het}
+\smallgraph[./plot/hetero]{Die heterogene Struktur des aufgeschütteten porösen Mediums. Die verschiedenen Bereiche unterschiedlicher Kugelgröße lassen sich mit Hilfe von Tabelle \ref{tab:kug} zuordnen. Diese Aufnahme wurde mit einem vorgeschalteten \SI{630}{\nano\meter}-Filter gemacht.}{fig:het}
 
 \begin{table}[b]
   \begin{tabularx}{\linewidth}{X|c|c|c}

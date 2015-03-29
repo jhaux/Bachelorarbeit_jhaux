@@ -24,10 +24,6 @@
 **/pic
 **/BCG_tests/**
 **/vids/**
-**.png
-**.ppm
-**.jpeg
-**.svg
 
 # ignore mac stuff
 **/.DS_Store
