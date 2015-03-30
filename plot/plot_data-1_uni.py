@@ -43,7 +43,7 @@ center, span = 935, 100
 single_patch = (center-span/2, center+span/2, ymin-50, ymax)
 
 moved_patch = (xmin, xmax, ymin-50, ymax+50)
-normpatch=(1190, 1310, 60, 160)
+normpatch=(1190, 1310, 250, 370)
 normcrit = 'linear'
 
 #reference frame
@@ -117,8 +117,9 @@ if False:
 
 # Plot finger evolution:
 if False:
-    alle = len(all_Files) - 1
-    for i in np.arange(3):
+    alle = 30
+    n_pages = 1
+    for i in np.arange(n_pages):
         if (i+1)%2 == 0:
             cbar_loc = 'right'
         else:
@@ -128,10 +129,10 @@ if False:
             path_to_files,
             savename=path_to_plot[:-4] + '_overview_' + str(i) + '.pdf',
             gauss=True,
-            show_finger_bars=False,
-            plot_q=False,
+            show_finger_bars=True,
+            plot_q=True,
             plot_d=False,
-            plot_r=True,
+            plot_r=False,
             from_file=True,
             absolute_time=False,
             dark_savename=dark_savename,
@@ -139,18 +140,18 @@ if False:
             gauss_sigma=2,
             gauss_order=0,
             ref_n=ref_n,
-            N=3,
-            start=i*alle/3 + 5,
-            last=(i + 1) * alle/3,
+            N=10,
+            start=i*alle/n_pages + 5,
+            last=(i + n_pages) * alle/n_pages,
             low_d=low_d,
             high_d=high_d,
             low_q=low_q,
             high_q=high_q,
             bar_w=10,
-            patch=moved_patch,
+            patch=patch,
             normpatch=normpatch,
             normcrit=normcrit,
-            cuts=(0,0,0,0),
+            cuts=cuts,
             fingerlengths=fingers,
             timesteps=timesteps,
             cbar_loc=cbar_loc
@@ -160,7 +161,7 @@ if False:
 if False:
     alle = len(all_Files) - 1
     for i in np.arange(6):
-        if (i+1)%5 == 0:
+        if (i + 1) % 5 == 0:
             make_cbar=True
             cbar_loc = 'bottom'
         else:
@@ -203,11 +204,12 @@ if False:
         )
 
 
-p_start, p_stop, p_step = 0, 24, None
+p_start, p_stop, p_step = 0, 22, None
 alpha = 0.8
 cmap = 'cool'
 l=14
-if False:
+print jim.get_timestamp(all_Files[p_start]), jim.get_timestamp(all_Files[p_stop])
+if True:
     all_intensities = np.genfromtxt(quot_intensities)[:,1:]  # 1: da dt vorne dran
     plf.plot_fft(savename=path_to_fft,
                 all_intensities=all_intensities,
@@ -219,12 +221,12 @@ if False:
                 cell_width=cell_width,
                 cmap_name=cmap,
                 xlims=(0,cell_width),
-                ylims=(0,50),
+                ylims=(0,30),
                 alpha=alpha,
-                figsize=(l*1,l*0.5)
+                figsize=(l*1,l*0.3)
     )
 
-if False:
+if True:
     all_intensities = np.genfromtxt(quot_intensities)[:,1:]  # 1: da dt vorne dran
     plf.plot_wavelengthspace(savename=path_to_k,
                 all_intensities=all_intensities,
@@ -279,7 +281,7 @@ if False:
     plf.plot_fingergrowth_single(savename=path_to_fgrowth[:-4] + '_all-single.pdf',
                                  ss=ss, fingers=fingers_new, p_patch=patch, rects=rects,
                                  all_Files=all_Files, cell_width=cell_width, x_length=xmax-xmin)
-if True:
+if False:
     length = xmax - xmin
     px2cm = cell_width/float(length)
     # parts=(0, length)

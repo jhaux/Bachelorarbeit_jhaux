@@ -1035,9 +1035,9 @@ def plot_fft(savename, all_intensities, start=0, stop=None, step=6,
 
     ax.set_xlim(xlims)
     ax.set_ylim(ylims)
-    ax.set_xlabel('x $[cm]$')
+    ax.set_xlabel('horizontale Position in der Zelle $[cm]$')
     ax.set_ylabel(u'Durchschnittsintensität')
-    fig.savefig(savename, dpi=300)
+    fig.savefig(savename, dpi=300, bbox_inches='tight')
     return 0
 
 def plot_wavelengthspace(savename, all_intensities, start=0, stop=None, step=6,
@@ -1052,7 +1052,7 @@ def plot_wavelengthspace(savename, all_intensities, start=0, stop=None, step=6,
     for i, c_i in zip(np.arange(len(all_intensities))[start:stop][::step][::-1], np.arange(N_datapoints)[::-1]):
         wavelengths, x_array = get_wavelengthspace(intensities=all_intensities[i], handle=handle, clean_criterium=clean_criterium, cell_width=cell_width)
         ax.plot(x_array, abs(wavelengths), c=colors[c_i], linewidth=0.5, alpha=alpha)
-        if c_i == N_datapoints - 10:
+        if c_i == N_datapoints - 1:
             a_max = max(abs(wavelengths[(x_array < handle) & (x_array > 0.2*handle)]))
             k_max = x_array[abs(wavelengths) == a_max][0]
 
@@ -1063,9 +1063,9 @@ def plot_wavelengthspace(savename, all_intensities, start=0, stop=None, step=6,
     ax.set_xlim(xlims)
     ax.set_ylim(ylims)
     ax.set_xlabel('$k \, [cm^{-1}]$')
-    ax.set_ylabel('$\left|A\\right|$')
+    ax.set_ylabel('Amplitude $\left|A\\right|$')
     plt.legend()
-    fig.savefig(savename, dpi=300)
+    fig.savefig(savename, dpi=300, bbox_inches='tight')
     return 0
 
 def plot_fingercount(savename, fingers, times):

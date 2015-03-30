@@ -22,10 +22,10 @@ Unter der Annahme, dass die aufgezeichneten Bilder $\mathbf{B}$ zu allen Zeiten 
 \end{eqnarray}
 
 
-Führt man diese Korrektur durch stellt sich heraus, dass die aufgezeichneten Bilder in ihrer Helligkeit schwanken. Bilder die früher aufgezeichnet wurden sind heller, als solche, die später gemacht wurden. Um diesem Effekt entgegenzuwirken wird ein Algorithmus implementiert, der einen Bildbereich analysiert, dessen Helligkeit während der gesamten Messung konstant bleiben soll, wie zum Beispiel die Hintergrundbeleuchtung. Es ist darauf zu achten, dass dieser Bereich nicht über- oder unterbelichtet ist, sonst kann nicht sichergestellt werden, dass der errechnete Korrekturfaktor für das gesamte Bild gültig ist. 
+Führt man nur diese Korrektur durch stellt man aber fest, dass die aufgezeichneten Bilder in ihrer Helligkeit schwanken, ein Vergleich also nicht möglich ist. Bilder die früher aufgezeichnet wurden sind heller, als solche, die später gemacht wurden. Um diesem Effekt entgegenzuwirken wird ein Algorithmus implementiert, der einen Bildbereich analysiert, dessen Helligkeit während der gesamten Messung konstant bleiben soll, wie zum Beispiel die Hintergrundbeleuchtung. Es ist darauf zu achten, dass dieser Bereich nicht über- oder unterbelichtet ist, sonst kann nicht sichergestellt werden, dass der errechnete Korrekturfaktor für das gesamte Bild gültig ist. 
 
 Sei $\mathbf{B}$ ein beliebiges Bild der Messreihe und $\mathbf{R}$ das Referenzbild. Dann sind 
-$\mathrm{M(\mathbf{B})}$ und $\mathrm{M(\mathbf{R})}$ die Arrays aus $N$ Pixeln, die den Bildbereich mit konstanter Intensität beschreiben. Aus allen Elementen 
+$\mathrm{M(\mathbf{B})}$ und $\mathrm{M(\mathbf{R})}$ die Arrays aus $N$ Pixeln, die den Bildbereich mit konstant zu haltender Intensität beschreiben. Aus allen Elementen 
 wird der jeweilige Mittelwert dieser beiden Matrizen errechnet:
 \begin{eqnarray}
  \mu_{\mathbf{B}} = \frac{1}{N} \sum_{i=1}^N \mathrm{M(\mathbf{B})}_i \\
@@ -46,7 +46,7 @@ Differenzmatrix:
 
 
 % Quotientenmethode
-Neben der schwankenden Helligkeit fällt auch noch auf, dass die LED-Beleuchtung zu einer Vignettierung der Aufnahme führt, da die Beleuchtung in der Mitte stärker als an den Rändern ist. Ein einfaches Subtrahieren der Bilder führt also zu einer Unterschätzung der absoluten Grauwerte im Außenbereich, bzw. zu einer Überschätzung im Innenbereich des Bildes.
+Neben der schwankenden Helligkeit fällt auch noch auf, dass die LED-Beleuchtung zu einer Vignettierung der Aufnahme führt, da die Beleuchtung in der Mitte heller als an den Rändern ist. Ein einfaches Subtrahieren der Bilder führt also zu einer Unterschätzung der absoluten Grauwerte im Außenbereich, bzw. zu einer Überschätzung im Innenbereich des Bildes.
 Unter der Annahme, dass diese Vignettierung über den Zeitraum der Messung konstant bleibt, wird anstelle der Subtraktion eine Division durchgeführt, \dah jedes Pixel $\mathbf{b}_{nm}$ des untersuchten Bildes wird durch das Pixel $\mathbf{r}_{nm}$ des Referenzbildes an der selben Stelle geteilt, wobei gilt $\mathbf{B} = \mathbf{b}_{nm}$ und $\mathbf{R} = \mathbf{r}_{nm}$. Zusammen mit der Korrektur der Helligkeit (Gleichung \ref{eq:norm}) erhält man folgende Bildungsvorschrift für die Quotientenbilder:
 \begin{eqnarray}
  \mathbf{C} = \mathbf{c}_{nm} = \frac{f_{\mathbf{B}} \cdot \mathbf{b}_{nm}}{\mathbf{r}_{nm}}
@@ -59,7 +59,7 @@ Zur leichteren Interpretation werden die Werte vor der graphischen Visualisierun
 
 \section{Detektion und Verfolgung des Tracers im Fall von Fingerbildung}
 \label{sec:track}
-Während der \COTm Experimente wird beobachtet, dass sich herabsinkende Finger der Wasser-\COTm Lösung bilden. Deren Position und Länge über den Zeitraum der Messung, bzw. der ersten Minuten, sind interessante Größen, die dabei helfen können, das System zu beschreiben und zu verstehen.
+Während des \COTm Experiments wird beobachtet, dass sich herabsinkende Finger der Wasser-\COTm Lösung bilden. Deren Position und Länge über den Zeitraum der Messung, bzw. der ersten \SI{60}{\minute}, sind interessante Größen, die dabei helfen können, das System zu beschreiben und zu verstehen.
 
 Wird im folgenden von ``Bild'' gesprochen, so ist vom Quotientenbild nach Gleichung \ref{eq:quot} die Rede. Mit anderen Worten bezeichnet ``Bild'' die räumlich aufgelöste Tracerkonzentration zu einem bestimmten Zeitpunkt der Messung.
 
@@ -87,7 +87,7 @@ Mit dem Wissen, wo sich die Finger befinden, lässt sich auch deren Länge errec
 \begin{equation}
 \begin{aligned}
  m &\in (M,\dots,1) \\
- \bar{\mathbf{c}}_{sm} &= \frac{1}{10}\sum_{i=s-5}^{s+5} \mathbf{c}_{im} \\
+ \bar{\mathbf{c}}_{sm} &= \frac{1}{11}\sum_{i=s-5}^{s+5} \mathbf{c}_{im} \\
  l(m) &=   \begin{cases}
 	    l(m-1) & \text{, falls } \bar{\mathbf{c}}_{sm} < c_{crit}  \\
 	    m      & \text{, falls } \bar{\mathbf{c}}_{sm} = c_{crit}  \\
@@ -98,7 +98,7 @@ Mit dem Wissen, wo sich die Finger befinden, lässt sich auch deren Länge errec
 
 Dieser Vorgang wird in Abbildung \ref{fig:lenarray} veranschaulicht.
  
-In Abbildung \ref{fig:f_detect} und \ref{fig:fgrowth} sind Beispiele für die Detektion und bestimmte Länge der Finger zu finden.
+In Abbildung \ref{fig:fgrowth} und \ref{fig:f_detect} sind Beispiele für die Detektion und bestimmte Länge der Finger zu finden.
 
 \graph[./plot/finger_length.png]{Graphische Visualisierung der Arrayoperationen, welche zur Detektion und Längenbestimmung der Finger vorgenommen werden. Die Auflösung des Bildes im Hintergrund wurde künstlich heruntergesetzt.}{fig:lenarray}
 
