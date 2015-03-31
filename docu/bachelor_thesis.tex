@@ -28,6 +28,12 @@
 \usepackage{./src/mymacros}
 \usepackage{./docu/bscmakros}
 
+\usepackage{etoolbox} % citations in italic:
+\makeatletter
+\patchcmd{\NAT@test}{\else\NAT@nm}{\else\NAT@nmfmt{\NAT@nm}}{}{}
+\let\NAT@up\itshape
+\makeatother
+
 
 % \usepackage{showframe} % show margins and stuff
 
@@ -83,20 +89,20 @@
  %Deutsch
   \noindent \textbf{Zusammenfassung} \hspace{0.3cm} In dieser Arbeit wird der Einfluss von dichtegetriebenen Instabilitäten gezeigt, welche durch das Lösen von \COT an der Wasseroberfläche in einer \HSC herbeigeführt werden. 
   Mit Hilfe eines pH-Indikators und einer optischen Methode kann die Ausbreitung des \COT räumlich und zeitlich aufgelöst und untersucht werden. 
-  Es werden qulitativ drei Phasen im Verlauf des Experiments festgestelle, in denen je ein anderer Prozess (Diffusion, stabile Fingerentwicklung, Vortizität auf Zellebene) dominiert und zudem charakteristische Längen und Zeiten der Fingerbildung bestimmt, welche durch die Instabilitäten ausgelöst wird und konvektiv das \COT in tiefere Wasserschichten transportiert.
-  Eine Analyse der Methoden wird motiviert und es wird gezeigt, wie durch erweiterte Experimente eine detailierte qualitative Auswertung ermöglicht werden könnte.
+  Es werden qualitativ drei Phasen im Verlauf des Experiments festgestellt, in denen je ein anderer Prozess (Diffusion, stabile Fingerentwicklung, Vortizität auf Zellebene) dominiert und zudem charakteristische Längen und Zeiten der Fingerbildung bestimmt, welche durch die Instabilitäten ausgelöst wird und konvektiv das \COT in tiefere Wasserschichten transportiert.
+  Eine Analyse der Methoden zeigt, wie durch erweiterte Experimente eine detaillierte quantitative Auswertung ermöglicht werden könnte.
   
   Eine einfache Übertragung des Experiments auf eine heterogen gefüllte \HSC ist nicht möglich. Die notwendigen Schritte zum Erreichen dieses Ziels werden diskutiert.
   
   \vspace{1.5cm}
  
  %Englisch
-  \noindent \textbf{Abstract} \hspace{0.3cm} This work will show the influence of density driven instabilities induced by \COTm solution into water through the air/water interface on top of the water, inside a Hele-Shaw cell. 
-  Using a pH-sensitive indicator and an optical method, the propagation of \COT will be analysed spatially and over time.
-  A characterization of the Experiment into three phases with different dominating processes (diffusion, stable finger evolution and cell scale vorticity) is made qulitativewise and additionally the characteristic length- and timescales of the second phase of stable finger evolution, which is caused by the instabilities and transports water convectivly into deeper water layers, are determined. 
-  An analysis of the methods used is motivated and shows, how enhanced experiments can facilitate a more detailed and qualitative evaluation. 
+  \noindent \textbf{Abstract} \hspace{0.3cm} In this thesis the influence of density driven instabilities are investigated. These instabilities are induced experimentally by solving \COTm gas into water through the air/water interface on top of the water, inside a Hele-Shaw cell. 
+  Using a pH-sensitive indicator and an optical method, the propagation of \COT is analysed spatially and over time.
+  The experiment is found to be characterized qualitatively by three phases with different dominating processes (diffusion, stable finger evolution and cell scale vorticity). Additionally the characteristic length- and timescales of the second phase of stable finger evolution are determined. This phase is caused by the instabilities and transports water convectivly into deeper water layers. 
+  An analysis of the methods used shows, how enhanced experiments could facilitate a more detailed and quantitative evaluation. 
   
-  There is no easy way to execute the experiment in a heterogeiously filled Hele-Shaw cell. The steps necessary to do reach this goal are discussed.
+  At the end, possibilities for executing the experiment in a heterogeniously filled Hele-Shaw cell are discussed.
 
 \emptypage
 
@@ -135,6 +141,7 @@
 
 \onecolumn
 \bibliographystyle{plainnat}
+% \citestyle{egu}
 \bibliography{./docu/bibliography}
 
 \input{./docu/99_declaration} % von der Uni gefordert. ggf anpassen

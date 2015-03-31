@@ -17,6 +17,15 @@
   \end{figure}
 }
 
+\newcommand{\slightlysmallerbutstillbiggraph}[3][./src/missing_graph.eps]{
+  \begin{figure}[t]
+      \centering
+      \includegraphics[width=0.9\linewidth]{#1}
+      \caption{#2}
+      \label{#3}
+  \end{figure}
+}
+
 \newcommand{\mediumgraph}[3][./src/missing_graph.eps]{
   \begin{figure}[t]
       \centering
@@ -78,6 +87,8 @@
 
 \newcommand{\longgraphpage}[3][./src/missing_graph]{
   \newpage
+  \clearpage
+  \thispagestyle{empty}
     \begin{figure*}[ht!]
 	\centering
         \includegraphics[height=\textheight]{#1}

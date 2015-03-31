@@ -1,7 +1,6 @@
 \label{cha:theo}
 
-\TODO{neue Einleitung}
-Zur Beschreibung der beiden durchgeführten \HSCs-Experimente sind zwei Themengebiete von Interesse: Zum einen wird ein Ansatz benötigt um poröse Medien zu charakterisieren, zum anderen muss verstanden werden, wie das Ausbilden von Dichteinstabilitäten von statten geht und wie sich beispielsweise dadurch Finger bilden.
+Von grundlegendem Interesse für das durchgeführte Experiment sind die Transportmechanismen Diffusion und Konvektion. Dazu wird zuerst ein kurzer Einblick in die Fluiddynamik gegeben, sowie die mathematische Beschreibung von porösen Medien angesehen. Anschließend werden Diffusion und Konvektion betrachtet, wie sie zusammen wirken und wie man über die Rayleighzahl abschätzen kann, welcher der beiden Prozesse in einem System überwiegt.
 
 
 \section{Fluiddynamik}
@@ -24,12 +23,15 @@ Damit erhält man
 
 mit $\hat{g} = \frac{\vec{g}}{g}$, $p' = \frac{p}{U^2\rho}$ und den dimensionslosen Größen 
 \begin{align}
- \mathrm{St} := \frac{L}{U\tau}, \; \mathrm{Fr} := \frac{U^2}{lg} \; \mathrm{und}  \; \mathrm{Re} := \frac{\rho U L}{\mu}
+ \mathrm{St} := \frac{L}{U\tau}, \; \mathrm{Fr} := \frac{U^2}{Lg} \; \mathrm{und}  \; \mathrm{Re} := \frac{\rho \, U L}{\mu}
  \label{eq:Re}
 \end{align}
  mit den Namen \textit{Strouhal}-, \textit{Froude}-, und \textit{Reynoldszahl}.
 
-Eine Abschätzung der auftretenden Geschwindigkeiten und damit der Reynoldszahl Re in Teil \ref{cha:set} zeigen, dass das durchgeführte Experiment im Stokes Regime stattfindet. Der Trägheitsterm $\left[ \vec{v} \cdot \nabla \right] \vec{v}$  ist vernachlässigbar, es treten also keine Turbulenzen auf \citep{roth2005}. Die Stokes-Gleichung in dimensionsloser Form wird wie folgt notiert:
+
+Eine Abschätzung der auftretenden Geschwindigkeiten und damit der Reynoldszahl Re in Teil \ref{cha:set} zeigen, dass das durchgeführte Experiment im Stokes Regime stattfindet, was bedeutet, dass keine Turbulenzen auftreten. Damit ist der Trägheitsterm $\left[ \vec{v} \cdot \nabla \right] \vec{v}$ vernachlässigbar \citep{roth2005}. 
+Bei kleinskaligen Phänomenen, wie es bei diesem Experiment der Fall ist, ändern sich äußerer Einwirkungskräfte nur langsam im Vergleich zu internen Dynamik \citep{roth2005}. Daher gilt $\mathrm{St} \ll 1$
+Die \textit{Stokes-Gleichung}  in dimensionsloser Form wird wie folgt notiert:
 \begin{align}
  \frac{1}{\mathrm{Re}}\nabla'^2\vec{v}' = \nabla'p' - \frac{1}{\mathrm{Fr}}\hat{g} \; .
 \end{align}
@@ -53,7 +55,7 @@ Eine Abschätzung der auftretenden Geschwindigkeiten und damit der Reynoldszahl 
 \label{sec:por}
 
 % \graph[./plot/porous]{Schematische Darstellung eines porösen Mediums. Grau dargestellt ist die Matrix (1), der feste Bereich des Mediums. Dazwischen befinden sich die zunächst leeren Poren (2).}{fig:por}
-Es gibt diverse Formen poröser Medien. In dieser Arbeit bezeichnen sie poröse Medien im Bezug auf natürliche Böden. Solche, wie beispielsweise Sand oder Ton, teilen den Raum, den sie füllen, in Matrix und Poren auf \citep{roth2005}. Matrix bezeichnet in diesem Fall die Bereiche, an dem sich das feste Medium befindet, der eigentliche Sand, beispielsweise. Die Poren bilden den Raum dazwischen.
+Es gibt diverse Formen poröser Medien. In dieser Arbeit bezeichnen sie poröse Medien im Bezug auf natürliche Böden. Solche Medien, beispielsweise Sand oder Ton, teilen den Raum, den sie füllen, in Matrix und Poren auf \citep{roth2005}. Matrix bezeichnet in diesem Fall die Bereiche, an dem sich das feste Medium befindet, zum Beispiel der eigentliche Sand. Die Poren bilden den Raum dazwischen.
 Als charakteristische Größen lassen sich die Porosität $\phi$ und die Raumdichte $\rho_{bulk}$ definieren:
 \begin{align}
  \phi &= \frac{V_{pore}}{V_{tot}}  \; ,\\
@@ -62,7 +64,7 @@ Als charakteristische Größen lassen sich die Porosität $\phi$ und die Raumdic
 $V_{pore}$ bezeichnet den von Poren eingenommenen Anteil des betrachteten Gesamtvolumens $V_{tot}$, $m_{matrix}$ die Masse der Matrix. 
 
 Möchte man die Bewegung der in Abschnitt \ref{sec:hyd} genannten Fluidpartikel in porösen Medien beschreiben, wird zusätzlich die Information benötigt, dass sich die Partikel nur durch die Poren bewegen können.
-\mbox{$\theta = \frac{V_{water}}{V_{tot}}$} bezeichnet den Wassergehalt, des porösen Mediums. Für $\theta = \phi$, also den Fall, dass der gesamte Porenraum mit Wasser gefüllt ist, reicht es nur die Bewegung der Flüssigkeit durch die Poren zu beschreiben. Die Volumenflussdichte des Wassers durch die Poren wird durch $\vec{j}_w = \theta \cdot \vec{v}$ beschrieben. 
+\mbox{$\theta = \frac{V_{water}}{V_{tot}}$} bezeichnet den Wassergehalt des porösen Mediums. Für $\theta = \phi$, also den Fall, dass der gesamte Porenraum mit Wasser gefüllt ist, genügt es, nur die Bewegung der Flüssigkeit durch die Poren zu beschreiben. Die Volumenflussdichte des Wassers durch die Poren wird durch $\vec{j}_w = \theta \cdot \vec{v}$ beschrieben. 
 % Aus der Massenerhaltung folgt:
 % \begin{align}
 %  \frac{\partial \theta}{\partial t} = \nabla \vec{j}_w
@@ -72,13 +74,13 @@ Mit der hydraulischen Leitfähigkeit $K$ stellt \textit{Darcy's Gesetz} eine Ver
  \vec{j}_w = -K \left[ \Delta p - \rho \vec{g} \right] \; .
  \label{darcy}
 \end{align}
-Es besagt, dass unter äußeren Einwirkungen und bei laminarem Strom in den Poren, der Durchfluss von der hydraulischen Leitfähigkeit abhängt.
+Es besagt, dass unter äußeren Einwirkungen und bei laminarem Strom in den Poren der Durchfluss von der hydraulischen Leitfähigkeit abhängt.
 
 \section{Transport von gelösten Stoffen}
 \label{sec:soltra}
 Der Stofftransport durch poröse Medien wird von mehreren Prozessen bestimmt, zum einen von der Wasserbewegung, zum anderen von Diffusion.
 Gelöste Stoffe können beispielsweise Gase wie \COT sein.
-In einem System, wo beide Transportprozesse prinzipiell auftreten können, ist eine Abschätzung, wann welcher Prozess überwiegt kann mit Hilfe der Rayleighzahl möglich.
+In einem System, wo beide Transportprozesse auftreten können, ist eine Abschätzung, wann welcher Prozess überwiegt mit Hilfe der Rayleighzahl möglich.
 
 \subsection{Konvektion}
 \label{sec:conv}
@@ -98,42 +100,42 @@ Die Änderung der Konzentration des gelösten Stoffes durch die Bewegung des Flu
 \subsection{Diffusion}
 \label{sec:diff}
 Diffusion wird ausgelöst durch die Brownsche Molekularbewegung der gelösten Teilchen. Durch die steng zufällige Bewegung, die diese ausführen wandern sie ggf. vorhandene Konzentrationsgradienten herab. 
-Durch Diffusion wird also der Konzentrationsgradient, auch ohne vorhandene Bewegung des Fluids, ausgeglichen. Die Flussdichte $\vec{j}_C$ wird durch das erste Ficksche Gesetz beschrieben:
+Durch Diffusion wird also der Konzentrationsgradient, auch ohne vorhandene Bewegung des Fluids, ausgeglichen. Die Flussdichte $\vec{j}_C$ wird durch das \textit{erste Ficksche Gesetz} beschrieben:
 \begin{align}
  \vec{j}_C = D_m \vec{\nabla} C \; .
 \end{align}
 Durch den Diffusionskoeffizienten $D_m$ wird hier die Flussdichte mit dem Konzentrationsgradient verbunden.
-Ebenfalls mit Hilfe des molekularen Diffusionskoeffizienten beschreibt das zweite Ficksche Gesetz die Konzentrationsänderung über die Zeit:
+Ebenfalls mit Hilfe des molekularen Diffusionskoeffizienten beschreibt das \textit{zweite Ficksche Gesetz} die Konzentrationsänderung über die Zeit:
 \begin{align}
  \frac{\partial C}{\partial t} = D_m \cdot \vec{\nabla}^2 C \; .
  \label{eq:fick2}
 \end{align}
 
-Das poröse Medium schränkt den Raum, in den die Tracerpartikel diffundieren können ein. Millington und Quirk \citeyearpar{milli-quir} definieren hierfür zwei 
+Das poröse Medium schränkt den Raum, in den die Tracerpartikel diffundieren können ein. \cite{milli-quir} definieren hierfür zwei 
 effektive Diffusionskoeffizienten:
 \begin{align}
  D_{eff, 1}^{diff} &= D_m \cdot \frac{\theta^{\frac{7}{3}}}{\phi^2} \; , \\
  D_{eff, 2}^{diff} &= D_m \cdot \frac{\theta}{              \phi^\frac{3}{2}} \; .
 \end{align}
-Da in allen Experimenten Sättigung vorliegt \mbox{($\theta = \phi$)} kann die obige Gleichung umgeschrieben werden zu
+Da in allen Experimenten Sättigung vorliegt \mbox{($\theta = \phi$)} fallen die obigen Gleichungen zusammen zu
 \begin{align}
  D_{eff}^{diff} &= D_m \cdot \phi^{\frac{1}{3}} \; .
  \label{eq:Deff}
 \end{align}
 
-\subsection{Konvektions - Diffusionsgleichung}
+\subsection{Konvektions-Diffusionsgleichung}
 \label{sec:dispkon}
-Kombiniert man Gleichungen \ref{eq:konv} und \ref{eq:fick2}, erhält man die \textit{Konvektions - Diffusionsgleichung}:
+Kombiniert man Gleichungen \ref{eq:konv} und \ref{eq:fick2}, erhält man die \textit{Konvektions-Diffusionsgleichung}:
 \begin{align}
  \frac{\partial C}{\partial t} = -\vec{v} \, \vec{\nabla}C + D_m \cdot \vec{\nabla}^2 C \; .
 \end{align}
 
 
-\subsection{Rayleigh Zahl}
+\subsection{Rayleighzahl}
 \label{sec:ray}
 
-Befindet sich über einer Schicht flüssigen Wassers eine Schicht gasförmiges \COT, löst sich das Gas im Wasser. Es setzt direkt ein diffusiver Prozess ein, welcher das gelöste \COT von der Wasseroberfläche wegtransportiert. Mit der Zeit bildet sich so eine Schicht mit \COTm haltigem Wasser, welche durch die Diffusion immer dicker wird. Da die obere Wasserschicht dichter ist, als die darunterliegende, ist die Schichtung instabil, es kann passieren, dass konvektive Prozesse einsetzen, welche beispielsweise in Form von Fingern, das \COTm haltige Wasser entlang der Richtung der Gravitationskraft transportieren.
-Zur Abschätzung, ob bei einem solchen System prinzipiell konvektive Prozessen auftreten, eignet sich die Rayleighzahl $\mathrm{Ra} = \frac{U \cdot e}{D}$. Hierbei stellt $U \cdot e$ eine Abschätzung des Anteils konvektiver Prozesse, in Form einer Auftriebsgeschwindigkeit $U$ multipliziert mit der charakteristischen Länge $e$ des Systems dar, und $D$ in Form des Diffusionskoeffizienten, eine Abschätzung des Anteils an diffusiven Prozessen. 
+Befindet sich über einer Schicht flüssigen Wassers eine Schicht gasförmiges \COTn, löst sich das Gas im Wasser. Es setzt direkt ein diffusiver Prozess ein, welcher das gelöste \COT von der Wasseroberfläche wegtransportiert. Mit der Zeit bildet sich so eine Schicht mit \COTm haltigem Wasser, welche durch die Diffusion immer dicker wird. Da die obere Wasserschicht dichter ist als die darunterliegende, ist die Schichtung instabil, es kann passieren, dass konvektive Prozesse einsetzen, welche beispielsweise in Form von Fingern das \COTm haltige Wasser entlang der Richtung der Gravitationskraft transportieren.
+Zur Abschätzung, ob bei einem solchen System konvektive Prozesse auftreten, eignet sich die Rayleighzahl $\mathrm{Ra} = \frac{U \cdot e}{D}$. Hierbei stellt $U \cdot e$ eine Abschätzung des Anteils konvektiver Prozesse in Form einer Auftriebsgeschwindigkeit $U$ multipliziert mit der charakteristischen Länge $e$ des Systems dar und $D$ in Form des Diffusionskoeffizienten, eine Abschätzung des Anteils an diffusiven Prozessen. 
 Die Auftriebsgeschwindigkeit $U$ ist gegeben durch:
 \begin{align}
  U = \frac{\Delta\rho g K}{\mu}
@@ -143,7 +145,7 @@ Die Auftriebsgeschwindigkeit $U$ ist gegeben durch:
 
 Als Parameter gehen der Dichteunterschied $\Delta\rho$ zwischen reinem Wasser und solchem, in dem sich \COT gelöst hat, die Erdbeschleunigung $g$, die charakteristische Länge $e$ sowie die Viskosität $\mu$ und die hydraulische Konduktivität $K$ ein.
 
-Damit erhalten sie die dimensionslose Rayleighzahl:
+Damit erhält man die dimensionslose Rayleighzahl:
 \begin{align}
  \mathrm{Ra} = K\frac{\Delta\rho g e^2}{D} \; .
  \label{eq:Ra}
