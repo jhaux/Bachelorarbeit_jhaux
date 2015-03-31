@@ -12,16 +12,14 @@ und für die spätere Auswertung gespeichert.
 
 \subsection{\HSC}
 \label{sec:hsc}
-Grundsätzlich besteht die \HSC aus zwei Glasplatten, die in einem kleinen Abstand zueinander parallel angeordnet sind. Bei diesem Aufbau ist der Zwischenraum an drei der vier Seiten abgedichtet, sodass kein Wasser abfließen kann. Dies wird gewährleistet, indem die Glasplatten mit Hilfe von Keilen in einen Rahmen und
-gegen die Dichtungsgummis, welche auch als Abstandhalter dienen, gepresst werden. 
-Die offene Seite der Zelle zeigt nach oben. Am unteren Ende der Zelle befindet sich ein Ausfluss, über den die Zelle kontrolliert mit Wasser oder einer
-gewünschten Lösung befüllt werden kann.
+Grundsätzlich besteht die \HSC aus zwei Glasplatten, die in einem kleinen Abstand zueinander parallel angeordnet sind. Bei diesem Aufbau ist der Zwischenraum an drei der vier Seiten abgedichtet, sodass kein Wasser abfließen kann. Dies wird gewährleistet, indem die Glasplatten mit Hilfe von Keilen in einen Rahmen und gegen die Dichtungsgummis, welche auch als Abstandhalter dienen, gepresst werden. Die offene Seite der Zelle zeigt nach oben. Am unteren Ende der Zelle befindet sich ein Ausfluss, über den die Zelle kontrolliert mit Wasser oder einer gewünschten Lösung befüllt werden kann.
 Die Abmessungen der verwendeten Zellen sind in Tabelle \ref{tab:Hdim} festgehalten.
 
-\mediumgraph[./plot/happy_cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle. Man bemerke, dass die Zelle glücklich ist!}{fig:Hdim}
-% \mediumgraph[./plot/cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. (1) Keil, (2) Dichtung und Abstandhalter, (3) Rahmen, (4) Glasplatte, (5) Füllung der Zelle.}{fig:Hdim}
+% \mediumgraph[./plot/happy_cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. 1: Keil, 2: Dichtung und Abstandhalter, 3: Rahmen, 4: Glasplatte, 5: Füllung der Zelle. Man bemerke, dass die Zelle glücklich ist!}{fig:Hdim}
+\mediumgraph[./plot/cell_dimensions]{Abmessungen der \HSC. Ansicht von oben und von der Seite. (1) Keil, (2) Dichtung und Abstandhalter, (3) Rahmen, (4) Glasplatte, (5) Füllung der Zelle.}{fig:Hdim}
 
 Der Vorteil einer \HSC ist, dass man mit ihr Beobachtungen zweidimensionaler Natur machen kann.
+Die \HSC stellt aufgrund des geringen Abstands der Glasplatten einen Sonderfall eines porösen Mediums mit Porosität $\phi = 1$ dar. Sie verhält sich wie eine Pore, mit charakteristischer Länge in Größenordnung der Spaltbreite $e$. Entsprechend lässt sich auch eine hydraulische Leitfähigkeit $K = \frac{e^2}{12\mu}$ formulieren \citep{fernandez}. 
 
 
 \begin{table}[b]
@@ -109,7 +107,7 @@ Zur Durchleuchtung der Zelle wird ein Array aus LEDs der Farben Rot, Grün und B
 Für das zweite Experiment wurde die \HSCs mit einer \BCG Lösung mit einer Konzentration von \SI[round-precision=1]{3,5}{\milli\gram\per\liter} befüllt. 
 \BCG ist eine Indikatorlösung, die von blau zu gelb umschlägt, wenn sich der pH-Wert in einem Bereich von 5,4 bis 3,9 ändert. Reines Wasser, das nur mit Luft in Kontakt ist, hat einen pH-Wert von 5,6, wohingegen Wasser, in dem sich \COT gelöst hat, einen pH-Wert von 3,9 annimmt. Die ursprünglich fast neutrale Lösung absorbiert stark im \SI{630}{\nano\meter}-Bereich während nach dem pH-Wert-induzierten Farbumschlag das Maximum der Absorption bei \SI{450}{\nano\meter} liegt. Dieses Verhalten wird in Abbildung \ref{fig:bcg} deutlich gemacht.
 
-\graph[./plot/bcg_spec]{Absorbierende Eigenschaften von \BCGn. Man kann sehr gut erkenne, wie für neutrale pH-Werte der Bereich um \SI{630}{\nano\meter} sehr stark absorbiert, während er für niedrigere pH-Werte sehr dort sehr viel weniger absorbiert. Dies begünstigt die Messung mit einem \SI{630}{\nano\meter}. Grafik nach \cite{bcg:wiki}}{fig:bcg}
+\graph[./plot/bcg_spec]{Absorbierende Eigenschaften von \BCGn. Man kann sehr gut erkenne, wie für neutrale pH-Werte der Bereich um \SI{630}{\nano\meter} sehr stark absorbiert, während er für niedrigere pH-Werte sehr dort sehr viel weniger absorbiert. Dies begünstigt die Messung mit einem \SI{630}{\nano\meter}. Grafik nach \cite{bcg}}{fig:bcg}
 
 Diese Eigenschaft passt sehr gut zu den zur Verfügung stehenden Filtern und macht es möglich zu verfolgen, wo \COT in Wasser gelöst ist.
 Die Kamera filmt das Experiment, mit einer Bildrate von ca. \SI{1}{Bild\per\minute}.  Die Aufnahmen werden mit dem \SI{630}{\nano\meter}-Filter gemacht, sowie Aufnahmen bei verschlossenem Objektiv. Letztere werden später zur Dunkelstromkorrektur verwendet.
@@ -121,8 +119,9 @@ Mit Gleichung \ref{eq:Re} und \ref{eq:U} kann abgeschätzt werden, ob das Experi
   \rho &= \rho_{Wasser} = \SI{1}{\g\per\cubic\centi\meter}, \\ 
   \Delta\rho &= \left| \rho_{Wasser} - \rho_{\mathrm{CO}_{2, aq}} \right| = \SI[round-precision=4]{0,0017}{\gram\per\cubic\centi\meter} \\
   g &= \SI[round-precision=2]{9,81}{\meter\per\squared\second} \\
-  e &= \SI[round-precision=1]{2,1}{\milli\meter} \\
-  \mu &= \mu_{Wasser} = \SI{8,9e-4}{\pascal\second}
+  L = e &= \SI[round-precision=1]{2,1}{\milli\meter} \\
+  \mu &= \mu_{Wasser} = \SI{8,9e-4}{\pascal\second} \\
+  D_{\COTn , aq} &= \SI[round-precision=2]{1,97e-9}{\meter\squared\per\second} \text{\citep{frank}}
 \end{align*}
 
 gewählt. Damit erhält man
@@ -131,12 +130,10 @@ gewählt. Damit erhält man
 \end{equation}
 was sehr viel kleiner ist als die kritische Reynoldszahl \TODO{$\mathrm{Re}_{crit} = ???$}, ab der das System turbulent werden kann. Es liegt bei dem Experiment, wie es hier durchgeführt wird Stokes-Fluss vor.
 
-Eine Abschätzung der Rayleighzahl mit Gleichung \ref{eq:Ra1} zeigt, dass Fingerbildung zu erwarten ist:
+Eine Abschätzung der Rayleighzahl mit Gleichung \ref{eq:Ra} zeigt, dass Fingerbildung zu erwarten ist:
 \begin{equation}
  \mathrm{Ra} = 7341 \gg 4\pi^2
 \end{equation}
-
-
 
 \widegraph[./plot/Rayleighnumber]{Abschätzung, ob sich mit dem \COT Experiment mit porösem Medium theoretisch konvektive Prozesse, wie Fingerbildung, beobachten lassen. Dies geht ab $Ra > 4\pi^2$. Ist die Höhe $h$ der diffusiv gebildete Schicht aus gelöstem \COT groß genug, ist dieses Kriterium erfüllt. Für $D$ wurde $D_{eff}$ nach Gleichung \ref{eq:Deff} gewählt. Die Indizes an den Porenradien beziehen sich auf die Kugelgrößen in Tabelle \ref{tab:kug}}{fig:Ra}
 
@@ -181,4 +178,11 @@ Zusätzlich zu den in Tabelle \ref{tab:kug} beschriebenen Kügelchen, wurden in 
  \label{tab:bor}
 \end{table}
 
-Um abzuschätzen, ob auch bei diesem Experiment Fingerbildung zu beobachten sein sollte wird wieder die Rayleighzahl berechnet, dieses Mal mit Gleichung \ref{eq:Ra2} und in Abhängigkeit der Höhe, der durch die Diffusion entstandenen Schicht aus Wasser mit darin gelöstem \COT. Die Ergebnisse sind in Abbildung \ref{fig:Ra} festgehalten. Man kann erkennen, dass bereits ab relativ dünnen Schichten die kritische Rayleighzah von $4\pi^2$ überschritten wird. Diese Darstellung lässt allerdings keine zeitliche Einschätzung zu. Der Zeitpunkt, wann $\mathrm{Ra} = 4\pi^2$ erreicht wird hängt vom Diffusionskoeffizienten $D$ ab.
+
+Um abzuschätzen, ob auch bei diesem Experiment Fingerbildung zu beobachten sein sollte wird wieder die Rayleighzahl berechnet. Als hydraulische Leitfähigkeit wird $K = \frac{r_{pore}^2}{8\mu}$ gewählt. Dies leitet sich aus dem Gesetz von \textit{Hagen-Poiseuille} her, angewandt auf eine Röhre mit Radius $r_{pore}$. Für die Durchflussmenge $j$ in dieser Röhre gilt $j = -\frac{r_{pore}^2}{8\mu} \nabla p$. Zusammen mit Darcy's Gesetz erhält man daraus $K$. 
+Der Porenradius $r_{pore}$ kann unter der Annahme, dass die Kugeln perfekt aufeinander geschichtet sind, abgeschätzt werden. In diesem Fall gilt $\phi=0,35$ \citep{song}, woraus man, über den Kugelradius $\bar{r}$, $r_{pore} \approx 0,11 \cdot \bar{r}$ erhält. Zusätzlich geht die Höhe der Schicht, die durch Diffusion von \COT im Wasser entsteht, mit dem Parameter $h$ in die Gleichung ein:
+\begin{align}
+ \mathrm{Ra}_{pore} = \frac{r_{pore}^2 g h \Delta \rho}{8 \mu D} \; .
+ \label{eq:Ra2}
+\end{align}
+Die Ergebnisse sind in Abbildung \ref{fig:Ra} festgehalten. Man kann erkennen, dass bereits ab relativ dünnen Schichten die kritische Rayleighzah von $4\pi^2$ überschritten wird. Diese Darstellung lässt allerdings keine zeitliche Einschätzung zu. Der Zeitpunkt, wann $\mathrm{Ra} = 4\pi^2$ erreicht wird hängt vom Diffusionskoeffizienten $D$ ab.
