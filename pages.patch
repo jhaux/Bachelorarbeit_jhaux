@@ -1,0 +1,93 @@
+From dd98df6554e3a41a4fd563ab7e35402fa1b6826c Mon Sep 17 00:00:00 2001
+From: dstoe <stoeckel.david@gmail.com>
+Date: Mon, 30 Mar 2015 23:30:47 +0200
+Subject: [PATCH] added empty pages + page numbering always on the bottom
+
+---
+ docu/00_ba_titlepage.tex |  5 -----
+ docu/bachelor_thesis.tex | 17 ++++++++++++++++-
+ src/mymacros.sty         |  6 ++++++
+ 3 files changed, 22 insertions(+), 6 deletions(-)
+
+diff --git a/docu/00_ba_titlepage.tex b/docu/00_ba_titlepage.tex
+index 543e433..557e6b7 100644
+--- a/docu/00_ba_titlepage.tex
++++ b/docu/00_ba_titlepage.tex
+@@ -58,10 +58,5 @@ Prof. Dr. Kurt Roth
+ 
+ \vfill
+ \end{center}
+-\newpage
+-\mbox{\,}
+-\newpage
+ \end{titlepage}
+ 
+-\clearpage
+-\pagenumbering{arabic}
+\ No newline at end of file
+diff --git a/docu/bachelor_thesis.tex b/docu/bachelor_thesis.tex
+index 7769b23..53cd9b6 100644
+--- a/docu/bachelor_thesis.tex
++++ b/docu/bachelor_thesis.tex
+@@ -54,6 +54,8 @@
+     round-precision = 3
+ }
+ 
++\pagestyle{plain}
++
+ % sectsty setup
+ \chapterfont{\raggedright}
+ \sectionfont{\raggedright}
+@@ -69,6 +71,11 @@
+ \onecolumn
+ \input{./docu/00_ba_titlepage} % von der Uni gefordert. ggf anpassen
+ 
++\emptypage
++
++% Zusammenfassungen
++\newpage
++\pagenumbering{roman}
+ 
+ % \maketitle
+ \chapter*{\,}
+@@ -91,11 +98,19 @@
+   
+   There is no easy way to execute the experiment in a heterogeiously filled Hele-Shaw cell. The steps necessary to do reach this goal are discussed.
+ 
++\emptypage
+ 
+-\twocolumn
+ \tableofcontents
++
++\emptypage
++
+ \listoffigures
+ 
++\newpage
++
++% jetzt gehts los
++\pagenumbering{arabic}
++\twocolumn
+ \balance % gleich lange säulen am ende jedes Kapitels
+ \chapter{Einleitung}
+ \input{./docu/01_Vorwort}
+diff --git a/src/mymacros.sty b/src/mymacros.sty
+index 4361669..80efb90 100644
+--- a/src/mymacros.sty
++++ b/src/mymacros.sty
+@@ -1,6 +1,12 @@
+ \ProvidesPackage{mymacros}[2015/03/14 v1.0 My own macros] % kann jetzt per \usepackage{} eingebunden werden
+ \RequirePackage{pdflscape}
+ 
++\newcommand{\emptypage}{
++  \newpage
++  \thispagestyle{empty}
++  \hbox{\,}
++}
++
+ % einbinden von Graphiken, die \linewidth breit sind
+ \newcommand{\graph}[3][./src/missing_graph.eps]{
+   \begin{figure}[t]
+-- 
+1.9.1
+

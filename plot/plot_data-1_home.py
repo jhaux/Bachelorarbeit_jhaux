@@ -1,8 +1,10 @@
 __author__ = 'jhaux'
 
 import plot_fingering as plf
+import ltm_waves as ltw
 import jimlib as jim
 import numpy as np
+import cv2
 
 # global handles:
 
@@ -58,6 +60,9 @@ handle = 2  # cm^1
 clean_crit = 'wavelength'
 cell_width = 27.3  #cm
 
+# Get total picture limits:
+y_totalmax, x_totalmax = jim.rotate_90(np.mean(cv2.imread(all_Files[0]), axis=-1), 0).shape
+print x_totalmax, y_totalmax
 
 if False:
     # safe darkframe and global min/max
@@ -116,8 +121,10 @@ if False:
 
 # Plot finger evolution:
 if False:
-    alle = len(all_Files) - 1
-    for i in np.arange(3):
+    alle = 10
+    n_pages = 1
+    startframe = 0
+    for i in np.arange(n_pages):
         if (i+1)%2 == 0:
             cbar_loc = 'right'
         else:
@@ -138,9 +145,9 @@ if False:
             gauss_sigma=2,
             gauss_order=0,
             ref_n=ref_n,
-            N=3,
-            start=i*alle/3 + 5,
-            last=(i + 1) * alle/3,
+            N=10,
+            start=i*alle/n_pages + startframe,
+            last=(i + 1) * alle/n_pages,
             low_d=low_d,
             high_d=high_d,
             low_q=low_q,
@@ -149,14 +156,17 @@ if False:
             patch=moved_patch,
             normpatch=normpatch,
             normcrit=normcrit,
-            cuts=(0,0,0,0),
+            cuts=extreme_cuts,
             fingerlengths=fingers,
             timesteps=timesteps,
-            cbar_loc=cbar_loc
+            cbar_loc=cbar_loc,
+            x_totalmax=x_totalmax,
+            cell_width=cell_width
+
         )
 
 # Plot finger evolution:
-if True:
+if False:
     alle = len(all_Files) - 1
     for i in np.arange(6):
         if (i+1)%5 == 0:
@@ -198,7 +208,9 @@ if True:
             fingerlengths=fingers,
             timesteps=timesteps,
             make_cbar=make_cbar,
-            cbar_loc=cbar_loc
+            cbar_loc=cbar_loc,
+            x_totalmax=x_totalmax,
+            cell_width=cell_width
         )
 
 
@@ -265,4 +277,8 @@ if False:
     plf.plot_fingergrowth(path_to_fgrowth, fingers=fingers, times=timesteps, cell_width=cell_width, x_length=xmax-xmin)
 
 if True:
-    plf.plot_fingergrowth_patch(path_to_fgrowth[:-4] + '_single.pdf', xpatch=(center-span/3, center+span/3), fingers=fingers, times=timesteps, cell_width=cell_width, x_length=xmax-xmin)
+    length = xmax - xmin
+    px2cm = cell_width/float(length)
+    # parts=(0, length)
+    parts = np.arange(100, xmax-xmin-100, step=100)
+    ltw.plot_finger_growth(path_to_fgrowth, finger_data, parts, px2cm=px2cm, all_Files=all_Files, xlims=(1, 39) )

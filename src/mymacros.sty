@@ -1,6 +1,12 @@
 \ProvidesPackage{mymacros}[2015/03/14 v1.0 My own macros] % kann jetzt per \usepackage{} eingebunden werden
 \RequirePackage{pdflscape}
 
+\newcommand{\emptypage}{
+  \newpage
+  \thispagestyle{empty}
+  \hbox{\,}
+}
+
 % einbinden von Graphiken, die \linewidth breit sind
 \newcommand{\graph}[3][./src/missing_graph.eps]{
   \begin{figure}[t]

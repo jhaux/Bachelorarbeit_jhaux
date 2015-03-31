@@ -220,7 +220,9 @@ def plot_all(
         cuts=(0, 0, 0, 0),
         fingerlengths=(0, 0),
         timesteps=(0, 0),
-        cbar_loc='right'
+        cbar_loc='right',
+        x_totalmax=2545, # px
+        cell_width=27.3  # cm
 ):
     xmin, xmax, ymin, ymax = patch
     if plot_q and plot_d and plot_r:
@@ -366,8 +368,24 @@ def plot_all(
                 if ax_num in mod_1_s0:
                     im1 = ax.imshow(raw_image)
         ax.set_title(title)
-        ax.set_xticks([])
-        ax.set_xticklabels([])
+
+        if ax_num == N-1:
+            start_labels = np.zeros(xmin)
+            end_labels   = np.zeros(x_totalmax - xmax)
+            mid_labels   = np.linspace(0, cell_width, num=(xmax-xmin))
+            # total_width = ((xmax - xmin) / cell_width) * x_totalmax
+            step =  float(xmax-xmin) / cell_width
+            labels = np.hstack([start_labels, end_labels, mid_labels])
+            x_array = np.arange(0, x_totalmax, int(5*step))
+            print len(x_array), len(labels[::int(5*step)])
+            print x_array
+            print labels[::int(5*step)]
+            ax.set_xticks(x_array)
+            ax.set_xticklabels( labels[::int(5*step)])
+        else:
+            ax.set_xticks([])
+            ax.set_xticklabels([])
+
         ax.set_yticks([])
         ax.set_yticklabels([])
 
@@ -431,7 +449,9 @@ def plot_patch(
         fingerlengths=(0, 0),
         timesteps=(0, 0),
         make_cbar=True,
-        cbar_loc='right'
+        cbar_loc='right',
+        x_totalmax=2545.,
+        cell_width=27.3
 ):
     xmin, xmax, ymin, ymax = patch
     if plot_q and plot_d and plot_r:
@@ -593,8 +613,16 @@ def plot_patch(
         else:
             ax.set_title(title)
 
-        ax.set_xticks([])
-        ax.set_xticklabels([])
+        if ax_num == N:
+            start_labels = np.zeros(xmin)
+            end_labels   = np.zeros(x_totalmax - xmax)
+            mid_labels   = np.linspace(0, 27.3, num=(xmax-xmin))
+            labels = np.hstack([start_labels, end_labels, mid_labels])
+            ax.set_xticklabels(labels)
+        else:
+            ax.set_xticks([])
+            ax.set_xticklabels([])
+
         ax.set_yticks([])
         ax.set_yticklabels([])
 

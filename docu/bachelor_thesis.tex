@@ -54,6 +54,8 @@
     round-precision = 3
 }
 
+\pagestyle{plain}
+
 % sectsty setup
 \chapterfont{\raggedright}
 \sectionfont{\raggedright}
@@ -69,6 +71,11 @@
 \onecolumn
 \input{./docu/00_ba_titlepage} % von der Uni gefordert. ggf anpassen
 
+\emptypage
+
+% Zusammenfassungen
+\newpage
+\pagenumbering{roman}
 
 % \maketitle
 \chapter*{\,}
@@ -91,11 +98,19 @@
   
   There is no easy way to execute the experiment in a heterogeiously filled Hele-Shaw cell. The steps necessary to do reach this goal are discussed.
 
+\emptypage
 
-\twocolumn
 \tableofcontents
+
+\emptypage
+
 \listoffigures
 
+\newpage
+
+% jetzt gehts los
+\pagenumbering{arabic}
+\twocolumn
 \balance % gleich lange säulen am ende jedes Kapitels
 \chapter{Einleitung}
 \input{./docu/01_Vorwort}
